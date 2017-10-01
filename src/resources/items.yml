@@ -100,6 +100,10 @@ groups:
             'minecraft:nether_wart_block': {}
             'minecraft:red_nether_brick': {}
             'minecraft:bone_block': {}
+            'minecraft:concrete':
+                damage: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+            'minecraft:concrete_powder':
+                damage: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
     decoration:
         items:
             'minecraft:sapling':
@@ -154,9 +158,26 @@ groups:
             'minecraft:end_rod': {}
             'minecraft:chorus_plant': {}
             'minecraft:chorus_flower': {}
+            'minecraft:white_shulker_box': {}
+            'minecraft:orange_shulker_box': {}
+            'minecraft:magenta_shulker_box': {}
+            'minecraft:light_blue_shulker_box': {}
+            'minecraft:yellow_shulker_box': {}
+            'minecraft:lime_shulker_box': {}
+            'minecraft:pink_shulker_box': {}
+            'minecraft:gray_shulker_box': {}
+            'minecraft:silver_shulker_box': {}
+            'minecraft:cyan_shulker_box': {}
+            'minecraft:purple_shulker_box': {}
+            'minecraft:blue_shulker_box': {}
+            'minecraft:brown_shulker_box': {}
+            'minecraft:green_shulker_box': {}
+            'minecraft:red_shulker_box': {}
+            'minecraft:black_shulker_box': {}
             'minecraft:painting': {} 
             'minecraft:sign': {} 
-            'minecraft:bed': {} 
+            'minecraft:bed':
+                damage: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
             'minecraft:item_frame': {} 
             'minecraft:flower_pot': {} 
             'minecraft:skull':
@@ -182,6 +203,24 @@ groups:
                     - "{BlockEntityTag : { Patterns: [], Base: 14 }}"
                     - "{BlockEntityTag : { Patterns: [], Base: 15 }}"
             'minecraft:end_crystal': {}
+            'minecraft:white_glazed_terracotta': {}
+            'minecraft:orange_glazed_terracotta': {}
+            'minecraft:magenta_glazed_terracotta': {}
+            'minecraft:light_blue_glazed_terracotta': {}
+            'minecraft:yellow_glazed_terracotta': {}
+            'minecraft:lime_glazed_terracotta': {}
+            'minecraft:pink_glazed_terracotta': {}
+            'minecraft:gray_glazed_terracotta': {}
+            'minecraft:silver_glazed_terracotta': {}
+            'minecraft:cyan_glazed_terracotta': {}
+            'minecraft:purple_glazed_terracotta': {}
+            'minecraft:blue_glazed_terracotta': {}
+            'minecraft:brown_glazed_terracotta': {}
+            'minecraft:green_glazed_terracotta': {}
+            'minecraft:red_glazed_terracotta': {}
+            'minecraft:black_glazed_terracotta': {}
+            'minecraft:grass_path': {}
+            'minecraft:farmland': {}
     redstone:
         items:
             'minecraft:dispenser': {} 
@@ -211,6 +250,7 @@ groups:
             'minecraft:jungle_fence_gate': {}
             'minecraft:dark_oak_fence_gate': {}
             'minecraft:acacia_fence_gate': {}
+            'minecraft:observer': {}
             'minecraft:wooden_door': {}
             'minecraft:iron_door': {}
             'minecraft:redstone': {}
@@ -486,6 +526,7 @@ groups:
                             - '{Potion : "long_weakness"}'
                             - '{Potion : "luck"}'
             'minecraft:shield': {}
+            'minecraft:totem_of_undying': {}
             'minecraft:enchanted_book':
                     tags:
                             - "{StoredEnchantments : [{lvl : 4s, id : 0s }]}"
@@ -498,16 +539,19 @@ groups:
                             - "{StoredEnchantments : [{lvl : 3s, id : 7s }]}"
                             - "{StoredEnchantments : [{lvl : 3s, id : 8s }]}"
                             - "{StoredEnchantments : [{lvl : 2s, id : 9s }]}"
+                            - "{StoredEnchantments : [{lvl : 1s, id : 10s }]}"
                             - "{StoredEnchantments : [{lvl : 5s, id : 16s }]}"
                             - "{StoredEnchantments : [{lvl : 5s, id : 17s }]}"
                             - "{StoredEnchantments : [{lvl : 5s, id : 18s }]}"
                             - "{StoredEnchantments : [{lvl : 2s, id : 19s }]}"
                             - "{StoredEnchantments : [{lvl : 2s, id : 20s }]}"
                             - "{StoredEnchantments : [{lvl : 3s, id : 21s }]}"
+                            - "{StoredEnchantments : [{lvl : 3s, id : 22s }]}"
                             - "{StoredEnchantments : [{lvl : 5s, id : 48s }]}"
                             - "{StoredEnchantments : [{lvl : 2s, id : 49s }]}"
                             - "{StoredEnchantments : [{lvl : 1s, id : 50s }]}"
                             - "{StoredEnchantments : [{lvl : 1s, id : 51s }]}"
+                            - "{StoredEnchantments : [{lvl : 1s, id : 71s }]}"
     brewing:
         items:
             'minecraft:ghast_tear': {}
@@ -788,3 +832,5 @@ groups:
             'minecraft:chorus_fruit': {}
             'minecraft:chorus_fruit_popped': {}
             'minecraft:beetroot_seeds': {}
+            'minecraft:shulker_shell': {}
+            'minecraft:iron_nugget': {}
