@@ -1,12 +1,12 @@
 /*
  * Copyright 2015 Antony Riley
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,8 +15,6 @@
  */
 package org.cyberiantiger.minecraft.itemcontrol;
 
-import com.google.common.base.Charsets;
-import com.google.common.io.ByteStreams;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -32,6 +30,7 @@ import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
+
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -44,14 +43,15 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryCreativeEvent;
-import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.cyberiantiger.minecraft.itemcontrol.config.Action;
 import org.cyberiantiger.minecraft.itemcontrol.config.Blacklist;
 import org.cyberiantiger.minecraft.itemcontrol.config.Config;
+import org.cyberiantiger.minecraft.itemcontrol.event.BlockedCreativeInventoryActionEvent;
 import org.cyberiantiger.minecraft.itemcontrol.items.ItemGroup;
 import org.cyberiantiger.minecraft.itemcontrol.items.ItemGroups;
 import org.cyberiantiger.minecraft.itemcontrol.items.ItemType;
@@ -62,6 +62,9 @@ import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.CustomClassLoaderConstructor;
 import org.yaml.snakeyaml.error.YAMLException;
 import org.yaml.snakeyaml.introspector.BeanAccess;
+
+import com.google.common.base.Charsets;
+import com.google.common.io.ByteStreams;
 
 /**
  *
@@ -122,7 +125,7 @@ public class Main extends JavaPlugin implements Listener {
 
     private Reader openResource(String resource) throws IOException {
         InputStream in = getClass().getClassLoader().getResourceAsStream(resource);
-        if (in == null) { 
+        if (in == null) {
             throw new FileNotFoundException(resource);
         }
         return new InputStreamReader(new BufferedInputStream(in), Charsets.UTF_8);
@@ -248,7 +251,7 @@ public class Main extends JavaPlugin implements Listener {
     }
 
     @EventHandler(priority = EventPriority.LOWEST)
-    public void onPlayerDropItem(PlayerDropItemEvent e ) {
+    public void onPlayerDropItem(PlayerDropItemEvent e) {
         Player p = e.getPlayer();
         if (p.hasPermission(PERMISSION_BLACKLIST_BYPASS)) {
             return;
@@ -299,7 +302,6 @@ public class Main extends JavaPlugin implements Listener {
         }
     }
 
-
     @EventHandler(priority = EventPriority.MONITOR)
     public void monitorInventoryClose(InventoryCloseEvent e) {
         getPlayerState(e.getPlayer()).setLastItem(null);
@@ -316,7 +318,7 @@ public class Main extends JavaPlugin implements Listener {
                 found = true;
                 hasAccess = true;
             } else {
-                for (Map.Entry<String,ItemGroup> e : itemGroups.getGroups().entrySet()) {
+                for (Map.Entry<String, ItemGroup> e : itemGroups.getGroups().entrySet()) {
                     String name = e.getKey();
                     ItemGroup group = e.getValue();
                     ItemType type = group.getItems().get(itemId);
@@ -336,14 +338,14 @@ public class Main extends JavaPlugin implements Listener {
         if (!found) {
             Action action = config.getUnavailable();
             if (action.isBlock()) {
-                performAction(action, (Player)whoClicked, itemTag);
+                performAction(action, (Player) whoClicked, itemTag);
                 return hasAccess;
             }
-        } 
+        }
         if (!hasAccess) {
             Action action = config.getNopermission();
             if (action.isBlock()) {
-                performAction(action, (Player)whoClicked, itemTag);
+                performAction(action, (Player) whoClicked, itemTag);
                 return hasAccess;
             }
         }
@@ -362,12 +364,8 @@ public class Main extends JavaPlugin implements Listener {
         for (Map.Entry<String, Blacklist> e : config.getBlacklist().entrySet()) {
             String name = e.getKey();
             Blacklist value = e.getValue();
-            if (
-                    !whoClicked.hasPermission(PERMISSION_BLACKLIST_PREFIX + name) &&
-                    value.getItems().contains(itemId)
-                    ) 
-            {
-                performAction(blacklistAction, (Player)whoClicked, itemTag);
+            if (!whoClicked.hasPermission(PERMISSION_BLACKLIST_PREFIX + name) && value.getItems().contains(itemId)) {
+                performAction(blacklistAction, (Player) whoClicked, itemTag);
                 return false;
             }
         }
@@ -377,7 +375,11 @@ public class Main extends JavaPlugin implements Listener {
     private void performAction(Action action, Player player, CompoundTag itemTag) {
         String name = player.getName();
         String id = itemTag == null ? null : itemTag.getString("id");
-        String item = itemTag == null ? null : itemTag.toString();
+        String fullItem = itemTag == null ? null : itemTag.toString();
+        String item = fullItem;
+        if (item != null && item.length() > 5000) {
+            item = item.substring(0, 5000) + " + [" + (item.length() - 5000) + " bytes]";
+        }
         if (action.getMessage() != null) {
             player.sendMessage(String.format(action.getMessage(), name, id, item));
         }
@@ -387,6 +389,7 @@ public class Main extends JavaPlugin implements Listener {
         for (String s : action.getCommands()) {
             getServer().dispatchCommand(getServer().getConsoleSender(), String.format(s, name, id, item));
         }
+        getServer().getPluginManager().callEvent(new BlockedCreativeInventoryActionEvent(player, action, itemTag, fullItem));
     }
 
     private class PlayerState {
@@ -416,8 +419,9 @@ public class Main extends JavaPlugin implements Listener {
             if (clickTimes != null) {
                 long now = System.nanoTime();
                 clickTimes[clickTimesOffset++] = now;
-                if (clickTimesOffset >= clickTimes.length) 
+                if (clickTimesOffset >= clickTimes.length) {
                     clickTimesOffset = 0;
+                }
                 return clickTimes[clickTimesOffset] < now - TimeUnit.SECONDS.toNanos(config.getRateLimitTime());
             }
             return true;
