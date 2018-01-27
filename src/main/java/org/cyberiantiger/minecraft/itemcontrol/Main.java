@@ -46,6 +46,7 @@ import org.bukkit.event.inventory.InventoryCreativeEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.cyberiantiger.minecraft.itemcontrol.config.Action;
@@ -242,12 +243,16 @@ public class Main extends JavaPlugin implements Listener {
                     e.setCancelled(true);
                     return;
                 }
-                if (!emptyCursor && !cursor.isSimilar(expectedCursor) && !checkMenuAccess(whoClicked, clickedTag)) {
+                if (!emptyCursor && !cursor.isSimilar(expectedCursor) && !isInInventory(whoClicked.getInventory(), cursor) && !checkMenuAccess(whoClicked, clickedTag)) {
                     e.setCancelled(true);
                     return;
                 }
             }
         }
+    }
+
+    private boolean isInInventory(PlayerInventory inventory, ItemStack cursor) {
+        return inventory.containsAtLeast(cursor, 1);
     }
 
     @EventHandler(priority = EventPriority.LOWEST)
