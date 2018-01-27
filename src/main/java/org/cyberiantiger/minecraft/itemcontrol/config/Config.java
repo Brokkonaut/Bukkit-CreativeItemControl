@@ -21,6 +21,7 @@ public class Config {
     private Action blacklisted;
     private Action onRateLimit;
     private Set<String> whitelist;
+    private Set<String> allowedItems;
 
     public Map<String, Blacklist> getBlacklist() {
         return (Map<String, Blacklist>) (blacklist == null ? Collections.emptyMap() : blacklist);
@@ -44,6 +45,10 @@ public class Config {
 
     public Set<String> getWhitelist() {
         return (Set<String>) (whitelist == null ? Collections.emptySet() : whitelist);
+    }
+
+    public Set<String> getAllowedItems() {
+        return (Set<String>) (allowedItems == null ? Collections.emptySet() : allowedItems);
     }
 
     public int getRateLimit() {

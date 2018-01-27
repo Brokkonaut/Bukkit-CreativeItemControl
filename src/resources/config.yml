@@ -61,6 +61,10 @@ whitelist:
         - 'minecraft:golden_leggings'
         - 'minecraft:golden_boots'
 
+# items that can be spawned, but not with additional nbt tags
+allowedItems:
+        - 'minecraft:barrier'
+
 # In strings
 # %1$s - player name.
 # %2$s - item name.

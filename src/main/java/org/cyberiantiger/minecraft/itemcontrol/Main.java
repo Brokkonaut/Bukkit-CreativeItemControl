@@ -26,6 +26,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.Reader;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.concurrent.TimeUnit;
@@ -35,16 +36,20 @@ import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.ArmorStand;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Item;
+import org.bukkit.entity.ItemFrame;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryCreativeEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.permissions.Permission;
@@ -243,12 +248,48 @@ public class Main extends JavaPlugin implements Listener {
                     e.setCancelled(true);
                     return;
                 }
-                if (!emptyCursor && !cursor.isSimilar(expectedCursor) && !isInInventory(whoClicked.getInventory(), cursor) && !checkMenuAccess(whoClicked, clickedTag)) {
+                if (!emptyCursor && !cursor.isSimilar(expectedCursor) && !isInInventory(whoClicked.getInventory(), cursor) && !isAroundPlayer(whoClicked, cursor) && !checkMenuAccess(whoClicked, clickedTag)) {
                     e.setCancelled(true);
                     return;
                 }
             }
         }
+    }
+
+    private boolean isAroundPlayer(HumanEntity player, ItemStack cursor) {
+        List<Entity> nearby = player.getNearbyEntities(6, 6, 6);
+        for (Entity e : nearby) {
+            if (e instanceof ItemFrame) {
+                if (isSimilar(((ItemFrame) e).getItem(), cursor)) {
+                    return true;
+                }
+            } else if (e instanceof ArmorStand) {
+                ArmorStand as = (ArmorStand) e;
+                if (isSimilar(as.getBoots(), cursor)) {
+                    return true;
+                }
+                if (isSimilar(as.getLeggings(), cursor)) {
+                    return true;
+                }
+                if (isSimilar(as.getChestplate(), cursor)) {
+                    return true;
+                }
+                if (isSimilar(as.getHelmet(), cursor)) {
+                    return true;
+                }
+                if (isSimilar(as.getItemInHand(), cursor)) {
+                    return true;
+                }
+                if (isSimilar(as.getEquipment().getItemInOffHand(), cursor)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean isSimilar(ItemStack item, ItemStack cursor) {
+        return item != null && cursor != null && item.isSimilar(cursor);
     }
 
     private boolean isInInventory(PlayerInventory inventory, ItemStack cursor) {
@@ -279,8 +320,12 @@ public class Main extends JavaPlugin implements Listener {
     }
 
     @EventHandler(priority = EventPriority.LOWEST)
-    public void onPlayerPickupItem(PlayerPickupItemEvent e) {
-        Player p = e.getPlayer();
+    public void onPlayerPickupItem(EntityPickupItemEvent e) {
+        LivingEntity ent = e.getEntity();
+        if (!(ent instanceof Player)) {
+            return;
+        }
+        Player p = (Player) ent;
         if (p.hasPermission(PERMISSION_BLACKLIST_BYPASS)) {
             return;
         }
@@ -336,6 +381,12 @@ public class Main extends JavaPlugin implements Listener {
                                 }
                             }
                         }
+                    }
+                }
+                if (!hasAccess) {
+                    if (config.getAllowedItems().contains(itemId) && tag == null) {
+                        found = true;
+                        hasAccess = true;
                     }
                 }
             }
