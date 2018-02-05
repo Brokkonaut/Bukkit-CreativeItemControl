@@ -19,11 +19,9 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.Reader;
 import java.util.Arrays;
 import java.util.List;
@@ -70,7 +68,6 @@ import org.yaml.snakeyaml.error.YAMLException;
 import org.yaml.snakeyaml.introspector.BeanAccess;
 
 import com.google.common.base.Charsets;
-import com.google.common.io.ByteStreams;
 
 /**
  *
@@ -90,32 +87,6 @@ public class Main extends JavaPlugin implements Listener {
     private NBTTools tools;
     private Config config;
     private ItemGroups itemGroups;
-
-    private boolean copyDefault(String source, String dest) {
-        File destFile = new File(getDataFolder(), dest);
-        if (!destFile.exists()) {
-            try {
-                destFile.getParentFile().mkdirs();
-                InputStream in = getClass().getClassLoader().getResourceAsStream(source);
-                if (in != null) {
-                    try {
-                        OutputStream out = new FileOutputStream(destFile);
-                        try {
-                            ByteStreams.copy(in, out);
-                        } finally {
-                            out.close();
-                        }
-                    } finally {
-                        in.close();
-                    }
-                    return true;
-                }
-            } catch (IOException ex) {
-                getLogger().log(Level.WARNING, "Error copying default " + dest, ex);
-            }
-        }
-        return false;
-    }
 
     private File getDataFile(String name) {
         return new File(getDataFolder(), name);
