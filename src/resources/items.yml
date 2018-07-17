@@ -1,163 +1,359 @@
 groups:
     building:
         items:
-            'minecraft:stone':
-                damage: [0, 1, 2, 3, 4, 5, 6]
-            'minecraft:grass': {}
-            'minecraft:dirt':
-                damage: [0, 1, 2]
+            'minecraft:stone': {}
+            'minecraft:granite': {}
+            'minecraft:polished_granite': {}
+            'minecraft:diorite': {}
+            'minecraft:polished_diorite': {}
+            'minecraft:andesite': {}
+            'minecraft:polished_andesite': {}
+            'minecraft:grass_block': {}
+            'minecraft:dirt': {}
+            'minecraft:coarse_dirt': {}
+            'minecraft:podzol': {}
             'minecraft:cobblestone': {}
-            'minecraft:planks':
-                damage: [0, 1, 2, 3, 4, 5]
+            'minecraft:oak_planks': {}
+            'minecraft:spruce_planks': {}
+            'minecraft:birch_planks': {}
+            'minecraft:jungle_planks': {}
+            'minecraft:acacia_planks': {}
+            'minecraft:dark_oak_planks': {}
             'minecraft:bedrock': {}
-            'minecraft:sand':
-                damage: [0, 1]
+            'minecraft:sand': {}
+            'minecraft:red_sand': {}
             'minecraft:gravel': {}
             'minecraft:gold_ore': {}
             'minecraft:iron_ore': {}
             'minecraft:coal_ore': {}
-            'minecraft:log':
-                damage: [0, 1, 2, 3]
-            'minecraft:sponge':
-                damage: [0, 1]
+            'minecraft:oak_log': {}
+            'minecraft:spruce_log': {}
+            'minecraft:birch_log': {}
+            'minecraft:jungle_log': {}
+            'minecraft:acacia_log': {}
+            'minecraft:dark_oak_log': {}
+            'minecraft:stripped_oak_log': {}
+            'minecraft:stripped_spruce_log': {}
+            'minecraft:stripped_birch_log': {}
+            'minecraft:stripped_jungle_log': {}
+            'minecraft:stripped_acacia_log': {}
+            'minecraft:stripped_dark_oak_log': {}
+            'minecraft:oak_wood': {}
+            'minecraft:spruce_wood': {}
+            'minecraft:birch_wood': {}
+            'minecraft:jungle_wood': {}
+            'minecraft:acacia_wood': {}
+            'minecraft:dark_oak_wood': {}
+            'minecraft:stripped_oak_wood': {}
+            'minecraft:stripped_spruce_wood': {}
+            'minecraft:stripped_birch_wood': {}
+            'minecraft:stripped_jungle_wood': {}
+            'minecraft:stripped_acacia_wood': {}
+            'minecraft:stripped_dark_oak_wood': {}
+            'minecraft:sponge': {}
+            'minecraft:wet_sponge': {}
             'minecraft:glass': {}
             'minecraft:lapis_ore': {}
             'minecraft:lapis_block': {}
-            'minecraft:sandstone':
-                damage: [0, 1, 2]
-            'minecraft:wool':
-                damage: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+            'minecraft:sandstone': {}
+            'minecraft:chiseled_sandstone': {}
+            'minecraft:cut_sandstone': {}
+            'minecraft:white_wool': {}
+            'minecraft:orange_wool': {}
+            'minecraft:magenta_wool': {}
+            'minecraft:light_blue_wool': {}
+            'minecraft:yellow_wool': {}
+            'minecraft:lime_wool': {}
+            'minecraft:pink_wool': {}
+            'minecraft:gray_wool': {}
+            'minecraft:light_gray_wool': {}
+            'minecraft:cyan_wool': {}
+            'minecraft:purple_wool': {}
+            'minecraft:blue_wool': {}
+            'minecraft:brown_wool': {}
+            'minecraft:green_wool': {}
+            'minecraft:red_wool': {}
+            'minecraft:black_wool': {}
             'minecraft:gold_block': {}
             'minecraft:iron_block': {}
-            'minecraft:stone_slab':
-                damage: [0, 1, 2, 3, 4, 5, 6, 7]
+            'minecraft:oak_slab': {}
+            'minecraft:spruce_slab': {}
+            'minecraft:birch_slab': {}
+            'minecraft:jungle_slab': {}
+            'minecraft:acacia_slab': {}
+            'minecraft:dark_oak_slab': {}
+            'minecraft:stone_slab': {}
+            'minecraft:sandstone_slab': {}
+            'minecraft:petrified_oak_slab': {}
+            'minecraft:cobblestone_slab': {}
+            'minecraft:brick_slab': {}
+            'minecraft:stone_brick_slab': {}
+            'minecraft:nether_brick_slab': {}
+            'minecraft:quartz_slab': {}
+            'minecraft:red_sandstone_slab': {}
+            'minecraft:purpur_slab': {}
+            'minecraft:prismarine_slab': {}
+            'minecraft:prismarine_brick_slab': {}
+            'minecraft:dark_prismarine_slab': {}
+            'minecraft:smooth_quartz': {}
+            'minecraft:smooth_red_sandstone': {}
+            'minecraft:smooth_sandstone': {}
+            'minecraft:smooth_stone': {}
+            'minecraft:bricks': {}
             'minecraft:bookshelf': {}
             'minecraft:brick_block': {}
             'minecraft:mossy_cobblestone': {}
             'minecraft:obsidian': {}
+            'minecraft:purpur_block': {}
+            'minecraft:purpur_pillar': {}
+            'minecraft:purpur_stairs': {}
             'minecraft:oak_stairs': {}
             'minecraft:diamond_ore': {}
             'minecraft:diamond_block': {}
-            'minecraft:stone_stairs': {}
+            'minecraft:cobblestone_stairs': {}
             'minecraft:redstone_ore': {}
             'minecraft:ice': {}
-            'minecraft:snow': {}
+            'minecraft:snow_block': {}
             'minecraft:clay': {}
             'minecraft:pumpkin': {}
+            'minecraft:carved_pumpkin': {}
             'minecraft:netherrack': {}
             'minecraft:soul_sand': {}
             'minecraft:glowstone': {}
-            'minecraft:lit_pumpkin': {}
-            'minecraft:stained_glass':
-                damage: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-            'minecraft:stonebrick':
-                damage: [0, 1, 2, 3]
-            'minecraft:melon_block': {}
+            'minecraft:jack_o_lantern': {}
+            'minecraft:stone_bricks': {}
+            'minecraft:mossy_stone_bricks': {}
+            'minecraft:cracked_stone_bricks': {}
+            'minecraft:chiseled_stone_bricks': {}
+            'minecraft:melon': {}
             'minecraft:brick_stairs': {} 
             'minecraft:stone_brick_stairs': {}
             'minecraft:mycelium': {}
-            'minecraft:nether_brick': {}
+            'minecraft:nether_bricks': {}
             'minecraft:nether_brick_stairs': {}
             'minecraft:end_stone': {}
-            'minecraft:wooden_slab':
-                damage: [0, 1, 2, 3, 4, 5]
+            'minecraft:end_stone_bricks': {}
             'minecraft:sandstone_stairs': {}
             'minecraft:emerald_ore': {}
             'minecraft:emerald_block': {}
             'minecraft:spruce_stairs': {}
             'minecraft:birch_stairs': {}
             'minecraft:jungle_stairs': {}
-            'minecraft:jungle_stairs': {}
-            'minecraft:cobblestone_wall':
-                damage: [0, 1]
-            'minecraft:quartz_ore': {}
-            'minecraft:quartz_block':
-                damage: [0, 1, 2]
+            'minecraft:nether_quartz_ore': {}
+            'minecraft:chiseled_quartz_block': {}
+            'minecraft:quartz_block': {}
+            'minecraft:quartz_pillar': {}
             'minecraft:quartz_stairs': {}
-            'minecraft:stained_hardened_clay':
-                damage: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-            'minecraft:log2':
-                damage: [0, 1]
+            'minecraft:white_terracotta': {}
+            'minecraft:orange_terracotta': {}
+            'minecraft:magenta_terracotta': {}
+            'minecraft:light_blue_terracotta': {}
+            'minecraft:yellow_terracotta': {}
+            'minecraft:lime_terracotta': {}
+            'minecraft:pink_terracotta': {}
+            'minecraft:gray_terracotta': {}
+            'minecraft:light_gray_terracotta': {}
+            'minecraft:cyan_terracotta': {}
+            'minecraft:purple_terracotta': {}
+            'minecraft:blue_terracotta': {}
+            'minecraft:brown_terracotta': {}
+            'minecraft:green_terracotta': {}
+            'minecraft:red_terracotta': {}
+            'minecraft:black_terracotta': {}
+            'minecraft:hay_block': {}
+            'minecraft:terracotta': {}
+            'minecraft:coal_block': {}
+            'minecraft:packed_ice': {}
             'minecraft:acacia_stairs': {}
             'minecraft:dark_oak_stairs': {}
-            'minecraft:prismarine':
-                damage: [0, 1, 2]
+            'minecraft:white_stained_glass': {}
+            'minecraft:orange_stained_glass': {}
+            'minecraft:magenta_stained_glass': {}
+            'minecraft:light_blue_stained_glass': {}
+            'minecraft:yellow_stained_glass': {}
+            'minecraft:lime_stained_glass': {}
+            'minecraft:pink_stained_glass': {}
+            'minecraft:gray_stained_glass': {}
+            'minecraft:light_gray_stained_glass': {}
+            'minecraft:cyan_stained_glass': {}
+            'minecraft:purple_stained_glass': {}
+            'minecraft:blue_stained_glass': {}
+            'minecraft:brown_stained_glass': {}
+            'minecraft:green_stained_glass': {}
+            'minecraft:red_stained_glass': {}
+            'minecraft:black_stained_glass': {}
+            'minecraft:prismarine': {}
+            'minecraft:prismarine_bricks': {}
+            'minecraft:dark_prismarine': {}
+            'minecraft:prismarine_stairs': {}
+            'minecraft:prismarine_brick_stairs': {}
+            'minecraft:dark_prismarine_stairs': {}
             'minecraft:sea_lantern': {}
-            'minecraft:hay_block': {} 
-            'minecraft:hardened_clay': {} 
-            'minecraft:coal_block': {} 
-            'minecraft:packed_ice': {} 
-            'minecraft:red_sandstone':
-                damage: [0, 1, 2]
+            'minecraft:red_sandstone': {}
+            'minecraft:chiseled_red_sandstone': {}
+            'minecraft:cut_red_sandstone': {}
             'minecraft:red_sandstone_stairs': {} 
-            'minecraft:stone_slab2': {} 
-            'minecraft:purpur_block': {}
-            'minecraft:purpur_pillar': {}
-            'minecraft:purpur_stairs': {}
-            'minecraft:purpur_slab': {}
-            'minecraft:end_bricks': {}
-            'minecraft:magma': {}
+            'minecraft:magma_block': {}
             'minecraft:nether_wart_block': {}
-            'minecraft:red_nether_brick': {}
+            'minecraft:red_nether_bricks': {}
             'minecraft:bone_block': {}
-            'minecraft:concrete':
-                damage: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-            'minecraft:concrete_powder':
-                damage: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+            'minecraft:white_concrete': {}
+            'minecraft:orange_concrete': {}
+            'minecraft:magenta_concrete': {}
+            'minecraft:light_blue_concrete': {}
+            'minecraft:yellow_concrete': {}
+            'minecraft:lime_concrete': {}
+            'minecraft:pink_concrete': {}
+            'minecraft:gray_concrete': {}
+            'minecraft:light_gray_concrete': {}
+            'minecraft:cyan_concrete': {}
+            'minecraft:purple_concrete': {}
+            'minecraft:blue_concrete': {}
+            'minecraft:brown_concrete': {}
+            'minecraft:green_concrete': {}
+            'minecraft:red_concrete': {}
+            'minecraft:black_concrete': {}
+            'minecraft:white_concrete_powder': {}
+            'minecraft:orange_concrete_powder': {}
+            'minecraft:magenta_concrete_powder': {}
+            'minecraft:light_blue_concrete_powder': {}
+            'minecraft:yellow_concrete_powder': {}
+            'minecraft:lime_concrete_powder': {}
+            'minecraft:pink_concrete_powder': {}
+            'minecraft:gray_concrete_powder': {}
+            'minecraft:light_gray_concrete_powder': {}
+            'minecraft:cyan_concrete_powder': {}
+            'minecraft:purple_concrete_powder': {}
+            'minecraft:blue_concrete_powder': {}
+            'minecraft:brown_concrete_powder': {}
+            'minecraft:green_concrete_powder': {}
+            'minecraft:red_concrete_powder': {}
+            'minecraft:black_concrete_powder': {}
+            'minecraft:dead_tube_coral_block': {}
+            'minecraft:dead_brain_coral_block': {}
+            'minecraft:dead_bubble_coral_block': {}
+            'minecraft:dead_fire_coral_block': {}
+            'minecraft:dead_horn_coral_block': {}
+            'minecraft:tube_coral_block': {}
+            'minecraft:brain_coral_block': {}
+            'minecraft:bubble_coral_block': {}
+            'minecraft:fire_coral_block': {}
+            'minecraft:horn_coral_block': {}
+            'minecraft:blue_ice': {}
+            'minecraft:dried_kelp_block': {}
     decoration:
         items:
-            'minecraft:sapling':
-                damage: [0, 1, 2, 3, 4, 5]
-            'minecraft:leaves':
-                damage: [0, 1, 2, 3]
-            'minecraft:web': {} 
-            'minecraft:tallgrass':
-                damage: [1, 2]
-            'minecraft:deadbush': {} 
-            'minecraft:yellow_flower': {} 
-            'minecraft:red_flower':
-                damage: [0, 1, 2, 3, 4, 5, 6, 7, 8]
-            'minecraft:brown_mushroom': {} 
-            'minecraft:red_mushroom': {} 
-            'minecraft:torch': {} 
-            'minecraft:chest': {} 
-            'minecraft:crafting_table': {} 
-            'minecraft:furnace': {} 
-            'minecraft:ladder': {} 
-            'minecraft:snow_layer': {} 
-            'minecraft:cactus': {} 
-            'minecraft:jukebox': {} 
-            'minecraft:fence': {} 
-            'minecraft:monster_egg':
-                damage: [0, 1, 2, 3, 4, 5]
+            'minecraft:oak_sapling': {}
+            'minecraft:spruce_sapling': {}
+            'minecraft:birch_sapling': {}
+            'minecraft:jungle_sapling': {}
+            'minecraft:acacia_sapling': {}
+            'minecraft:dark_oak_sapling': {}
+            'minecraft:oak_leaves': {}
+            'minecraft:spruce_leaves': {}
+            'minecraft:birch_leaves': {}
+            'minecraft:jungle_leaves': {}
+            'minecraft:acacia_leaves': {}
+            'minecraft:dark_oak_leaves': {}
+            'minecraft:cobweb': {}
+            'minecraft:grass': {}
+            'minecraft:fern': {}
+            'minecraft:dead_bush': {}
+            'minecraft:seagrass': {}
+            'minecraft:sea_pickle': {}
+            'minecraft:dandelion': {}
+            'minecraft:poppy': {}
+            'minecraft:blue_orchid': {}
+            'minecraft:allium': {}
+            'minecraft:azure_bluet': {}
+            'minecraft:red_tulip': {}
+            'minecraft:orange_tulip': {}
+            'minecraft:white_tulip': {}
+            'minecraft:pink_tulip': {}
+            'minecraft:oxeye_daisy': {}
+            'minecraft:brown_mushroom': {}
+            'minecraft:red_mushroom': {}
+            'minecraft:torch': {}
+            'minecraft:end_rod': {}
+            'minecraft:chorus_plant': {}
+            'minecraft:chorus_flower': {}
+            'minecraft:chest': {}
+            'minecraft:crafting_table': {}
+            'minecraft:farmland': {}
+            'minecraft:furnace': {}
+            'minecraft:ladder': {}
+            'minecraft:snow': {}
+            'minecraft:cactus': {}
+            'minecraft:jukebox': {}
+            'minecraft:oak_fence': {}
+            'minecraft:spruce_fence': {}
+            'minecraft:birch_fence': {}
+            'minecraft:jungle_fence': {}
+            'minecraft:acacia_fence': {}
+            'minecraft:dark_oak_fence': {}
+            'minecraft:infested_stone': {}
+            'minecraft:infested_cobblestone': {}
+            'minecraft:infested_stone_bricks': {}
+            'minecraft:infested_mossy_stone_bricks': {}
+            'minecraft:infested_cracked_stone_bricks': {}
+            'minecraft:infested_chiseled_stone_bricks': {}
+            'minecraft:brown_mushroom_block': {}
+            'minecraft:red_mushroom_block': {}
+            'minecraft:mushroom_stem': {}
             'minecraft:iron_bars': {} 
             'minecraft:glass_pane': {} 
             'minecraft:vine': {} 
-            'minecraft:waterlily': {} 
+            'minecraft:lily_pad': {} 
             'minecraft:nether_brick_fence': {} 
             'minecraft:enchanting_table': {} 
             'minecraft:end_portal_frame': {} 
             'minecraft:ender_chest': {} 
-            'minecraft:anvil':
-                damage: [0, 1, 2]
-            'minecraft:trapped_chest': {} 
-            'minecraft:stained_glass_pane':
-                damage: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-            'minecraft:leaves2':
-                damage: [0, 1]
-            'minecraft:slime': {} 
-            'minecraft:carpet':
-                damage: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-            'minecraft:double_plant':
-                damage: [0, 1, 2, 3, 4, 5]
-            'minecraft:spruce_fence': {} 
-            'minecraft:birch_fence': {} 
-            'minecraft:jungle_fence': {} 
-            'minecraft:dark_oak_fence': {} 
-            'minecraft:acacia_fence': {} 
-            'minecraft:end_rod': {}
-            'minecraft:chorus_plant': {}
-            'minecraft:chorus_flower': {}
+            'minecraft:cobblestone_wall': {} 
+            'minecraft:mossy_cobblestone_wall': {} 
+            'minecraft:anvil': {}
+            'minecraft:chipped_anvil': {}
+            'minecraft:damaged_anvil': {}
+            'minecraft:white_carpet': {}
+            'minecraft:orange_carpet': {}
+            'minecraft:magenta_carpet': {}
+            'minecraft:light_blue_carpet': {}
+            'minecraft:yellow_carpet': {}
+            'minecraft:lime_carpet': {}
+            'minecraft:pink_carpet': {}
+            'minecraft:gray_carpet': {}
+            'minecraft:light_gray_carpet': {}
+            'minecraft:cyan_carpet': {}
+            'minecraft:purple_carpet': {}
+            'minecraft:blue_carpet': {}
+            'minecraft:brown_carpet': {}
+            'minecraft:green_carpet': {}
+            'minecraft:red_carpet': {}
+            'minecraft:black_carpet': {}
+            'minecraft:slime_block': {}
+            'minecraft:grass_path': {}
+            'minecraft:sunflower': {}
+            'minecraft:lilac': {}
+            'minecraft:rose_bush': {}
+            'minecraft:peony': {}
+            'minecraft:tall_grass': {}
+            'minecraft:large_fern': {}
+            'minecraft:white_stained_glass_pane': {}
+            'minecraft:orange_stained_glass_pane': {}
+            'minecraft:magenta_stained_glass_pane': {}
+            'minecraft:light_blue_stained_glass_pane': {}
+            'minecraft:yellow_stained_glass_pane': {}
+            'minecraft:lime_stained_glass_pane': {}
+            'minecraft:pink_stained_glass_pane': {}
+            'minecraft:gray_stained_glass_pane': {}
+            'minecraft:light_gray_stained_glass_pane': {}
+            'minecraft:cyan_stained_glass_pane': {}
+            'minecraft:purple_stained_glass_pane': {}
+            'minecraft:blue_stained_glass_pane': {}
+            'minecraft:brown_stained_glass_pane': {}
+            'minecraft:green_stained_glass_pane': {}
+            'minecraft:red_stained_glass_pane': {}
+            'minecraft:black_stained_glass_pane': {}
+            'minecraft:shulker_box': {}
             'minecraft:white_shulker_box': {}
             'minecraft:orange_shulker_box': {}
             'minecraft:magenta_shulker_box': {}
@@ -174,35 +370,6 @@ groups:
             'minecraft:green_shulker_box': {}
             'minecraft:red_shulker_box': {}
             'minecraft:black_shulker_box': {}
-            'minecraft:painting': {} 
-            'minecraft:sign': {} 
-            'minecraft:bed':
-                damage: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-            'minecraft:item_frame': {} 
-            'minecraft:flower_pot': {} 
-            'minecraft:skull':
-                damage: [0, 1, 2, 3, 4, 5]
-            'minecraft:armor_stand': {} 
-            'minecraft:banner':
-                damage: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-                tags: 
-                    - "{BlockEntityTag : { Patterns: [], Base: 0 }}"
-                    - "{BlockEntityTag : { Patterns: [], Base: 1 }}"
-                    - "{BlockEntityTag : { Patterns: [], Base: 2 }}"
-                    - "{BlockEntityTag : { Patterns: [], Base: 3 }}"
-                    - "{BlockEntityTag : { Patterns: [], Base: 4 }}"
-                    - "{BlockEntityTag : { Patterns: [], Base: 5 }}"
-                    - "{BlockEntityTag : { Patterns: [], Base: 6 }}"
-                    - "{BlockEntityTag : { Patterns: [], Base: 7 }}"
-                    - "{BlockEntityTag : { Patterns: [], Base: 8 }}"
-                    - "{BlockEntityTag : { Patterns: [], Base: 9 }}"
-                    - "{BlockEntityTag : { Patterns: [], Base: 10 }}"
-                    - "{BlockEntityTag : { Patterns: [], Base: 11 }}"
-                    - "{BlockEntityTag : { Patterns: [], Base: 12 }}"
-                    - "{BlockEntityTag : { Patterns: [], Base: 13 }}"
-                    - "{BlockEntityTag : { Patterns: [], Base: 14 }}"
-                    - "{BlockEntityTag : { Patterns: [], Base: 15 }}"
-            'minecraft:end_crystal': {}
             'minecraft:white_glazed_terracotta': {}
             'minecraft:orange_glazed_terracotta': {}
             'minecraft:magenta_glazed_terracotta': {}
@@ -219,25 +386,98 @@ groups:
             'minecraft:green_glazed_terracotta': {}
             'minecraft:red_glazed_terracotta': {}
             'minecraft:black_glazed_terracotta': {}
-            'minecraft:grass_path': {}
-            'minecraft:farmland': {}
+            'minecraft:tube_coral': {}
+            'minecraft:brain_coral': {}
+            'minecraft:bubble_coral': {}
+            'minecraft:fire_coral': {}
+            'minecraft:horn_coral': {}
+            'minecraft:tube_coral_fan': {}
+            'minecraft:brain_coral_fan': {}
+            'minecraft:bubble_coral_fan': {}
+            'minecraft:fire_coral_fan': {}
+            'minecraft:horn_coral_fan': {}
+            'minecraft:painting': {}
+            'minecraft:sign': {}
+            'minecraft:white_bed': {}
+            'minecraft:orange_bed': {}
+            'minecraft:magenta_bed': {}
+            'minecraft:light_blue_bed': {}
+            'minecraft:yellow_bed': {}
+            'minecraft:lime_bed': {}
+            'minecraft:pink_bed': {}
+            'minecraft:gray_bed': {}
+            'minecraft:silver_bed': {}
+            'minecraft:cyan_bed': {}
+            'minecraft:purple_bed': {}
+            'minecraft:blue_bed': {}
+            'minecraft:brown_bed': {}
+            'minecraft:green_bed': {}
+            'minecraft:red_bed': {}
+            'minecraft:black_bed': {}
+            'minecraft:item_frame': {}
+            'minecraft:flower_pot': {}
+            'minecraft:skeleton_skull': {}
+            'minecraft:wither_skeleton_skull': {}
+            'minecraft:player_head': {}
+            'minecraft:zombie_head': {}
+            'minecraft:creeper_head': {}
+            'minecraft:dragon_head': {}
+            'minecraft:armor_stand': {}
+            'minecraft:white_banner': {}
+            'minecraft:orange_banner': {}
+            'minecraft:magenta_banner': {}
+            'minecraft:light_blue_banner': {}
+            'minecraft:yellow_banner': {}
+            'minecraft:lime_banner': {}
+            'minecraft:pink_banner': {}
+            'minecraft:gray_banner': {}
+            'minecraft:silver_banner': {}
+            'minecraft:cyan_banner': {}
+            'minecraft:purple_banner': {}
+            'minecraft:blue_banner': {}
+            'minecraft:brown_banner': {}
+            'minecraft:green_banner': {}
+            'minecraft:red_banner': {}
+            'minecraft:black_banner': {}
+            'minecraft:end_crystal': {}
     redstone:
         items:
-            'minecraft:dispenser': {} 
-            'minecraft:noteblock': {} 
-            'minecraft:sticky_piston': {} 
-            'minecraft:piston': {} 
-            'minecraft:tnt': {} 
-            'minecraft:lever': {} 
-            'minecraft:stone_pressure_plate': {} 
-            'minecraft:wooden_pressure_plate': {} 
+            'minecraft:dispenser': {}
+            'minecraft:note_block': {}
+            'minecraft:sticky_piston': {}
+            'minecraft:piston': {}
+            'minecraft:tnt': {}
+            'minecraft:lever': {}
+            'minecraft:stone_pressure_plate': {}
+            'minecraft:oak_pressure_plate': {}
+            'minecraft:spruce_pressure_plate': {}
+            'minecraft:birch_pressure_plate': {}
+            'minecraft:jungle_pressure_plate': {}
+            'minecraft:acacia_pressure_plate': {}
+            'minecraft:dark_oak_pressure_plate': {}
             'minecraft:redstone_torch': {} 
             'minecraft:stone_button': {} 
-            'minecraft:trapdoor': {} 
-            'minecraft:fence_gate': {} 
-            'minecraft:redstone_lamp': {} 
-            'minecraft:tripwire_hook': {} 
-            'minecraft:wooden_button': {} 
+            'minecraft:oak_trapdoor': {}
+            'minecraft:spruce_trapdoor': {}
+            'minecraft:birch_trapdoor': {}
+            'minecraft:jungle_trapdoor': {}
+            'minecraft:acacia_trapdoor': {}
+            'minecraft:dark_oak_trapdoor': {}
+            'minecraft:oak_fence_gate': {}
+            'minecraft:spruce_fence_gate': {}
+            'minecraft:birch_fence_gate': {}
+            'minecraft:jungle_fence_gate': {}
+            'minecraft:acacia_fence_gate': {}
+            'minecraft:dark_oak_fence_gate': {}
+            'minecraft:redstone_lamp': {}
+            'minecraft:tripwire_hook': {}
+            'minecraft:oak_button': {}
+            'minecraft:spruce_button': {}
+            'minecraft:birch_button': {}
+            'minecraft:jungle_button': {}
+            'minecraft:acacia_button': {}
+            'minecraft:dark_oak_button': {}
+            'minecraft:trapped_chest': {} 
             'minecraft:light_weighted_pressure_plate': {} 
             'minecraft:heavy_weighted_pressure_plate': {}
             'minecraft:daylight_detector': {}
@@ -245,31 +485,26 @@ groups:
             'minecraft:hopper': {}
             'minecraft:dropper': {}
             'minecraft:iron_trapdoor': {}
-            'minecraft:spruce_fence_gate': {}
-            'minecraft:birch_fence_gate': {}
-            'minecraft:jungle_fence_gate': {}
-            'minecraft:dark_oak_fence_gate': {}
-            'minecraft:acacia_fence_gate': {}
             'minecraft:observer': {}
-            'minecraft:wooden_door': {}
             'minecraft:iron_door': {}
-            'minecraft:redstone': {}
-            'minecraft:repeater': {}
-            'minecraft:comparator': {}
+            'minecraft:oak_door': {}
             'minecraft:spruce_door': {}
             'minecraft:birch_door': {}
             'minecraft:jungle_door': {}
             'minecraft:acacia_door': {}
             'minecraft:dark_oak_door': {}
+            'minecraft:repeater': {}
+            'minecraft:comparator': {}
+            'minecraft:redstone': {}
     transportation:
         items:
-            'minecraft:golden_rail': {}
+            'minecraft:powered_rail': {}
             'minecraft:detector_rail': {}
             'minecraft:rail': {}
             'minecraft:activator_rail': {}
             'minecraft:minecart': {}
             'minecraft:saddle': {}
-            'minecraft:boat': {}
+            'minecraft:oak_boat': {}
             'minecraft:chest_minecart': {}
             'minecraft:furnace_minecart': {}
             'minecraft:carrot_on_a_stick': {}
@@ -284,70 +519,89 @@ groups:
     miscellaneous:
         items:
             'minecraft:beacon': {}
+            'minecraft:turtle_egg': {}
+            'minecraft:conduit': {}
+            'minecraft:scute': {}
+            'minecraft:coal': {}
+            'minecraft:charcoal': {}
+            'minecraft:diamond': {}
+            'minecraft:iron_ingot': {}
+            'minecraft:gold_ingot': {}
+            'minecraft:stick': {}
+            'minecraft:bowl': {}
+            'minecraft:string': {}
+            'minecraft:feather': {}
+            'minecraft:gunpowder': {}
+            'minecraft:wheat_seeds': {}
+            'minecraft:wheat': {}
+            'minecraft:flint': {}
             'minecraft:bucket': {}
             'minecraft:water_bucket': {}
             'minecraft:lava_bucket': {}
             'minecraft:snowball': {}
+            'minecraft:leather': {}
             'minecraft:milk_bucket': {}
+            'minecraft:pufferfish_bucket': {}
+            'minecraft:salmon_bucket': {}
+            'minecraft:cod_bucket': {}
+            'minecraft:tropical_fish_bucket': {}
+            'minecraft:brick': {}
+            'minecraft:clay_ball': {}
+            'minecraft:sugar_cane': {}
+            'minecraft:kelp': {}
             'minecraft:paper': {}
             'minecraft:book': {}
             'minecraft:slime_ball': {}
+            'minecraft:egg': {}
+            'minecraft:glowstone_dust': {}
+            'minecraft:ink_sac': {}
+            'minecraft:rose_red': {}
+            'minecraft:cactus_green': {}
+            'minecraft:cocoa_beans': {}
+            'minecraft:lapis_lazuli': {}
+            'minecraft:purple_dye': {}
+            'minecraft:cyan_dye': {}
+            'minecraft:light_gray_dye': {}
+            'minecraft:gray_dye': {}
+            'minecraft:pink_dye': {}
+            'minecraft:lime_dye': {}
+            'minecraft:dandelion_yellow': {}
+            'minecraft:light_blue_dye': {}
+            'minecraft:magenta_dye': {}
+            'minecraft:orange_dye': {}
+            'minecraft:bone_meal': {}
             'minecraft:bone': {}
+            'minecraft:sugar': {}
+            'minecraft:pumpkin_seeds': {}
+            'minecraft:melon_seeds': {}
             'minecraft:ender_pearl': {}
+            'minecraft:blaze_rod': {}
+            'minecraft:gold_nugget': {}
+            'minecraft:nether_wart': {}
             'minecraft:ender_eye': {}
-            'minecraft:spawn_egg':
-                tags:
-                    - '{EntityTag : {id : "minecraft:bat"}}'
-                    - '{EntityTag : {id : "minecraft:blaze"}}'
-                    - '{EntityTag : {id : "minecraft:creeper"}}'
-                    - '{EntityTag : {id : "minecraft:skeleton"}}'
-                    - '{EntityTag : {id : "minecraft:wither_skeleton"}}'
-                    - '{EntityTag : {id : "minecraft:spider"}}'
-                    - '{EntityTag : {id : "minecraft:zombie"}}'
-                    - '{EntityTag : {id : "minecraft:slime"}}'
-                    - '{EntityTag : {id : "minecraft:ghast"}}'
-                    - '{EntityTag : {id : "minecraft:zombie_pigman"}}'
-                    - '{EntityTag : {id : "minecraft:zombie_villager"}}'
-                    - '{EntityTag : {id : "minecraft:enderman"}}'
-                    - '{EntityTag : {id : "minecraft:cave_spider"}}'
-                    - '{EntityTag : {id : "minecraft:silverfish"}}'
-                    - '{EntityTag : {id : "minecraft:magma_cube"}}'
-                    - '{EntityTag : {id : "minecraft:witch"}}'
-                    - '{EntityTag : {id : "minecraft:endermite"}}'
-                    - '{EntityTag : {id : "minecraft:guardian"}}'
-                    - '{EntityTag : {id : "minecraft:elder_guardian"}}'
-                    - '{EntityTag : {id : "minecraft:shulker"}}'
-                    - '{EntityTag : {id : "minecraft:pig"}}'
-                    - '{EntityTag : {id : "minecraft:sheep"}}'
-                    - '{EntityTag : {id : "minecraft:cow"}}'
-                    - '{EntityTag : {id : "minecraft:chicken"}}'
-                    - '{EntityTag : {id : "minecraft:squid"}}'
-                    - '{EntityTag : {id : "minecraft:wolf"}}'
-                    - '{EntityTag : {id : "minecraft:mooshroom"}}'
-                    - '{EntityTag : {id : "minecraft:ocelot"}}'
-                    - '{EntityTag : {id : "minecraft:horse"}}'
-                    - '{EntityTag : {id : "minecraft:skeleton_horse"}}'
-                    - '{EntityTag : {id : "minecraft:zombie_horse"}}'
-                    - '{EntityTag : {id : "minecraft:llama"}}'
-                    - '{EntityTag : {id : "minecraft:mule"}}'
-                    - '{EntityTag : {id : "minecraft:rabbit"}}'
-                    - '{EntityTag : {id : "minecraft:polar_bear"}}'
-                    - '{EntityTag : {id : "minecraft:villager"}}'
-                    - '{EntityTag : {id : "minecraft:donkey"}}'
-                    - '{EntityTag : {id : "minecraft:evocation_illager"}}'
-                    - '{EntityTag : {id : "minecraft:vindication_illager"}}'
-                    - '{EntityTag : {id : "minecraft:parrot"}}'
-                    - '{EntityTag : {id : "minecraft:stray"}}'
-                    - '{EntityTag : {id : "minecraft:husk"}}'
-                    - '{EntityTag : {id : "minecraft:vex"}}'
+
+            
             'minecraft:experience_bottle': {}
             'minecraft:fire_charge': {}
             'minecraft:writable_book': {}
+            'minecraft:emerald': {}
             'minecraft:map': {}
-            'minecraft:firework_charge': {}
+            'minecraft:nether_star': {}
+            'minecraft:firework_rocket': {}
+            'minecraft:firework_star': {}
+            'minecraft:nether_brick': {}
+            'minecraft:quartz': {}
+            'minecraft:prismarine_shard': {}
+            'minecraft:prismarine_crystals': {}
+            'minecraft:rabbit_hide': {}
             'minecraft:iron_horse_armor': {}
             'minecraft:golden_horse_armor': {}
             'minecraft:diamond_horse_armor': {}
+            'minecraft:chorus_fruit': {}
+            'minecraft:popped_chorus_fruit': {}
+            'minecraft:beetroot_seeds': {}
+            'minecraft:shulker_shell': {}
+            'minecraft:iron_nugget': {}
             'minecraft:record_13': {}
             'minecraft:record_cat': {}
             'minecraft:record_blocks': {}
@@ -360,6 +614,8 @@ groups:
             'minecraft:record_ward': {}
             'minecraft:record_11': {}
             'minecraft:record_wait': {}
+            'minecraft:nautilus_shell': {}
+            'minecraft:heart_of_the_sea': {}
     foodstuffs:
         items:
             'minecraft:apple': {}
@@ -367,16 +623,18 @@ groups:
             'minecraft:bread': {}
             'minecraft:porkchop': {}
             'minecraft:cooked_porkchop': {}
-            'minecraft:cooked_porkchop': {}
-            'minecraft:golden_apple':
-                    damage: [0, 1]
-            'minecraft:fish':
-                    damage: [0, 1, 2, 3]
-            'minecraft:cooked_fish':
-                    damage: [0, 1]
+            'minecraft:golden_apple': {}
+            'minecraft:enchanted_golden_apple': {}
+            'minecraft:cod': {}
+            'minecraft:salmon': {}
+            'minecraft:tropical_fish': {}
+            'minecraft:pufferfish': {}
+            'minecraft:cooked_cod': {}
+            'minecraft:cooked_salmon': {}
             'minecraft:cake': {}
             'minecraft:cookie': {}
-            'minecraft:melon': {}
+            'minecraft:melon_slice': {}
+            'minecraft:dried_kelp': {}
             'minecraft:beef': {}
             'minecraft:cooked_beef': {}
             'minecraft:chicken': {}
@@ -426,15 +684,17 @@ groups:
             'minecraft:name_tag': {}
             'minecraft:enchanted_book':
                     tags: 
-                            - "{StoredEnchantments: [{lvl: 5s, id: 32s}]}"
-                            - "{StoredEnchantments: [{lvl: 1s, id: 33s}]}"
-                            - "{StoredEnchantments: [{lvl: 3s, id: 34s}]}"
-                            - "{StoredEnchantments: [{lvl: 3s, id: 35s}]}"
-                            - "{StoredEnchantments: [{lvl: 3s, id: 61s}]}"
-                            - "{StoredEnchantments: [{lvl: 3s, id: 62s}]}"
-                            - "{StoredEnchantments: [{lvl: 1s, id: 70s}]}"
+                            - '{StoredEnchantments : [{lvl : 5s, id : "minecraft:efficiency" }]}'
+                            - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:silk_touch" }]}'
+                            - '{StoredEnchantments : [{lvl : 3s, id : "minecraft:unbreaking" }]}'
+                            - '{StoredEnchantments : [{lvl : 3s, id : "minecraft:fortune" }]}'
+                            - '{StoredEnchantments : [{lvl : 3s, id : "minecraft:luck_of_the_sea" }]}'
+                            - '{StoredEnchantments : [{lvl : 3s, id : "minecraft:lure" }]}'
+                            - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:mending" }]}'
+                            - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:vanishing_curse" }]}'
     combat:
         items:
+            'minecraft:turtle_helmet': {}
             'minecraft:bow': {}
             'minecraft:arrow': {}
             'minecraft:iron_sword': {}
@@ -502,70 +762,42 @@ groups:
                             - '{Potion : "minecraft:weakness"}'
                             - '{Potion : "minecraft:long_weakness"}'
                             - '{Potion : "minecraft:luck"}'
-                            - '{Potion : "empty"}'
-                            - '{Potion : "water"}'
-                            - '{Potion : "mundane"}'
-                            - '{Potion : "thick"}'
-                            - '{Potion : "awkward"}'
-                            - '{Potion : "night_vision"}'
-                            - '{Potion : "long_night_vision"}'
-                            - '{Potion : "invisibility"}'
-                            - '{Potion : "long_invisibility"}'
-                            - '{Potion : "leaping"}'
-                            - '{Potion : "long_leaping"}'
-                            - '{Potion : "strong_leaping"}'
-                            - '{Potion : "fire_resistance"}'
-                            - '{Potion : "long_fire_resistance"}'
-                            - '{Potion : "swiftness"}'
-                            - '{Potion : "long_swiftness"}'
-                            - '{Potion : "strong_swiftness"}'
-                            - '{Potion : "slowness"}'
-                            - '{Potion : "long_slowness"}'
-                            - '{Potion : "water_breathing"}'
-                            - '{Potion : "long_water_breathing"}'
-                            - '{Potion : "healing"}'
-                            - '{Potion : "strong_healing"}'
-                            - '{Potion : "harming"}'
-                            - '{Potion : "strong_harming"}'
-                            - '{Potion : "poison"}'
-                            - '{Potion : "long_poison"}'
-                            - '{Potion : "strong_poison"}'
-                            - '{Potion : "regeneration"}'
-                            - '{Potion : "long_regeneration"}'
-                            - '{Potion : "strong_regeneration"}'
-                            - '{Potion : "strength"}'
-                            - '{Potion : "long_strength"}'
-                            - '{Potion : "strong_strength"}'
-                            - '{Potion : "weakness"}'
-                            - '{Potion : "long_weakness"}'
-                            - '{Potion : "luck"}'
+                            - '{Potion : "minecraft:turtle_master"}'
+                            - '{Potion : "minecraft:slow_falling"}'
             'minecraft:shield': {}
             'minecraft:totem_of_undying': {}
+            'minecraft:trident': {}
             'minecraft:enchanted_book':
                     tags:
-                            - "{StoredEnchantments : [{lvl : 4s, id : 0s }]}"
-                            - "{StoredEnchantments : [{lvl : 4s, id : 1s }]}"
-                            - "{StoredEnchantments : [{lvl : 4s, id : 2s }]}"
-                            - "{StoredEnchantments : [{lvl : 4s, id : 3s }]}"
-                            - "{StoredEnchantments : [{lvl : 4s, id : 4s }]}"
-                            - "{StoredEnchantments : [{lvl : 3s, id : 5s }]}"
-                            - "{StoredEnchantments : [{lvl : 1s, id : 6s }]}"
-                            - "{StoredEnchantments : [{lvl : 3s, id : 7s }]}"
-                            - "{StoredEnchantments : [{lvl : 3s, id : 8s }]}"
-                            - "{StoredEnchantments : [{lvl : 2s, id : 9s }]}"
-                            - "{StoredEnchantments : [{lvl : 1s, id : 10s }]}"
-                            - "{StoredEnchantments : [{lvl : 5s, id : 16s }]}"
-                            - "{StoredEnchantments : [{lvl : 5s, id : 17s }]}"
-                            - "{StoredEnchantments : [{lvl : 5s, id : 18s }]}"
-                            - "{StoredEnchantments : [{lvl : 2s, id : 19s }]}"
-                            - "{StoredEnchantments : [{lvl : 2s, id : 20s }]}"
-                            - "{StoredEnchantments : [{lvl : 3s, id : 21s }]}"
-                            - "{StoredEnchantments : [{lvl : 3s, id : 22s }]}"
-                            - "{StoredEnchantments : [{lvl : 5s, id : 48s }]}"
-                            - "{StoredEnchantments : [{lvl : 2s, id : 49s }]}"
-                            - "{StoredEnchantments : [{lvl : 1s, id : 50s }]}"
-                            - "{StoredEnchantments : [{lvl : 1s, id : 51s }]}"
-                            - "{StoredEnchantments : [{lvl : 1s, id : 71s }]}"
+                            - '{StoredEnchantments : [{lvl : 4s, id : "minecraft:protection" }]}'
+                            - '{StoredEnchantments : [{lvl : 4s, id : "minecraft:fire_protection" }]}'
+                            - '{StoredEnchantments : [{lvl : 4s, id : "minecraft:feather_falling" }]}'
+                            - '{StoredEnchantments : [{lvl : 4s, id : "minecraft:blast_protection" }]}'
+                            - '{StoredEnchantments : [{lvl : 4s, id : "minecraft:projectile_protection" }]}'
+                            - '{StoredEnchantments : [{lvl : 3s, id : "minecraft:respiration" }]}'
+                            - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:aqua_affinity" }]}'
+                            - '{StoredEnchantments : [{lvl : 3s, id : "minecraft:thorns" }]}'
+                            - '{StoredEnchantments : [{lvl : 3s, id : "minecraft:depth_strider" }]}'
+                            - '{StoredEnchantments : [{lvl : 2s, id : "minecraft:frost_walker" }]}'
+                            - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:binding_curse" }]}'
+                            - '{StoredEnchantments : [{lvl : 5s, id : "minecraft:sharpness" }]}'
+                            - '{StoredEnchantments : [{lvl : 5s, id : "minecraft:smite" }]}'
+                            - '{StoredEnchantments : [{lvl : 5s, id : "minecraft:bane_of_arthropods" }]}'
+                            - '{StoredEnchantments : [{lvl : 2s, id : "minecraft:knockback" }]}'
+                            - '{StoredEnchantments : [{lvl : 2s, id : "minecraft:fire_aspect" }]}'
+                            - '{StoredEnchantments : [{lvl : 3s, id : "minecraft:looting" }]}'
+                            - '{StoredEnchantments : [{lvl : 3s, id : "minecraft:sweeping" }]}'
+                            - '{StoredEnchantments : [{lvl : 3s, id : "minecraft:unbreaking" }]}'
+                            - '{StoredEnchantments : [{lvl : 5s, id : "minecraft:power" }]}'
+                            - '{StoredEnchantments : [{lvl : 2s, id : "minecraft:punch" }]}'
+                            - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:flame" }]}'
+                            - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:infinity" }]}'
+                            - '{StoredEnchantments : [{lvl : 3s, id : "minecraft:loyalty" }]}'
+                            - '{StoredEnchantments : [{lvl : 5s, id : "minecraft:impaling" }]}'
+                            - '{StoredEnchantments : [{lvl : 3s, id : "minecraft:riptide" }]}'
+                            - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:channeling" }]}'
+                            - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:mending" }]}'
+                            - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:vanishing_curse" }]}'
     brewing:
         items:
             'minecraft:ghast_tear': {}
@@ -608,53 +840,22 @@ groups:
                     - '{Potion : "minecraft:weakness"}'
                     - '{Potion : "minecraft:long_weakness"}'
                     - '{Potion : "minecraft:luck"}'
-                    - '{Potion : "empty"}'
-                    - '{Potion : "water"}'
-                    - '{Potion : "mundane"}'
-                    - '{Potion : "thick"}'
-                    - '{Potion : "awkward"}'
-                    - '{Potion : "night_vision"}'
-                    - '{Potion : "long_night_vision"}'
-                    - '{Potion : "invisibility"}'
-                    - '{Potion : "long_invisibility"}'
-                    - '{Potion : "leaping"}'
-                    - '{Potion : "long_leaping"}'
-                    - '{Potion : "strong_leaping"}'
-                    - '{Potion : "fire_resistance"}'
-                    - '{Potion : "long_fire_resistance"}'
-                    - '{Potion : "swiftness"}'
-                    - '{Potion : "long_swiftness"}'
-                    - '{Potion : "strong_swiftness"}'
-                    - '{Potion : "slowness"}'
-                    - '{Potion : "long_slowness"}'
-                    - '{Potion : "water_breathing"}'
-                    - '{Potion : "long_water_breathing"}'
-                    - '{Potion : "healing"}'
-                    - '{Potion : "strong_healing"}'
-                    - '{Potion : "harming"}'
-                    - '{Potion : "strong_harming"}'
-                    - '{Potion : "poison"}'
-                    - '{Potion : "long_poison"}'
-                    - '{Potion : "strong_poison"}'
-                    - '{Potion : "regeneration"}'
-                    - '{Potion : "long_regeneration"}'
-                    - '{Potion : "strong_regeneration"}'
-                    - '{Potion : "strength"}'
-                    - '{Potion : "long_strength"}'
-                    - '{Potion : "strong_strength"}'
-                    - '{Potion : "weakness"}'
-                    - '{Potion : "long_weakness"}'
-                    - '{Potion : "luck"}'
+                    - '{Potion : "minecraft:turtle_master"}'
+                    - '{Potion : "minecraft:long_turtle_master"}'
+                    - '{Potion : "minecraft:strong_turtle_master"}'
+                    - '{Potion : "minecraft:slow_falling"}'
+                    - '{Potion : "minecraft:long_slow_falling"}'
             'minecraft:glass_bottle': {}
             'minecraft:fermented_spider_eye': {}
             'minecraft:blaze_powder': {}
             'minecraft:magma_cream': {}
             'minecraft:brewing_stand': {}
             'minecraft:cauldron': {}
-            'minecraft:speckled_melon': {}
+            'minecraft:glistering_melon_slice': {}
             'minecraft:golden_carrot': {}
             'minecraft:rabbit_foot': {}
             'minecraft:dragon_breath': {}
+            'minecraft:phantom_membrane': {}
             'minecraft:splash_potion': 
                 tags:
                     - '{Potion : "minecraft:empty"}'
@@ -694,43 +895,11 @@ groups:
                     - '{Potion : "minecraft:weakness"}'
                     - '{Potion : "minecraft:long_weakness"}'
                     - '{Potion : "minecraft:luck"}'
-                    - '{Potion : "empty"}'
-                    - '{Potion : "water"}'
-                    - '{Potion : "mundane"}'
-                    - '{Potion : "thick"}'
-                    - '{Potion : "awkward"}'
-                    - '{Potion : "night_vision"}'
-                    - '{Potion : "long_night_vision"}'
-                    - '{Potion : "invisibility"}'
-                    - '{Potion : "long_invisibility"}'
-                    - '{Potion : "leaping"}'
-                    - '{Potion : "long_leaping"}'
-                    - '{Potion : "strong_leaping"}'
-                    - '{Potion : "fire_resistance"}'
-                    - '{Potion : "long_fire_resistance"}'
-                    - '{Potion : "swiftness"}'
-                    - '{Potion : "long_swiftness"}'
-                    - '{Potion : "strong_swiftness"}'
-                    - '{Potion : "slowness"}'
-                    - '{Potion : "long_slowness"}'
-                    - '{Potion : "water_breathing"}'
-                    - '{Potion : "long_water_breathing"}'
-                    - '{Potion : "healing"}'
-                    - '{Potion : "strong_healing"}'
-                    - '{Potion : "harming"}'
-                    - '{Potion : "strong_harming"}'
-                    - '{Potion : "poison"}'
-                    - '{Potion : "long_poison"}'
-                    - '{Potion : "strong_poison"}'
-                    - '{Potion : "regeneration"}'
-                    - '{Potion : "long_regeneration"}'
-                    - '{Potion : "strong_regeneration"}'
-                    - '{Potion : "strength"}'
-                    - '{Potion : "long_strength"}'
-                    - '{Potion : "strong_strength"}'
-                    - '{Potion : "weakness"}'
-                    - '{Potion : "long_weakness"}'
-                    - '{Potion : "luck"}'
+                    - '{Potion : "minecraft:turtle_master"}'
+                    - '{Potion : "minecraft:long_turtle_master"}'
+                    - '{Potion : "minecraft:strong_turtle_master"}'
+                    - '{Potion : "minecraft:slow_falling"}'
+                    - '{Potion : "minecraft:long_slow_falling"}'
             'minecraft:lingering_potion': 
                 tags:
                     - '{Potion : "minecraft:empty"}'
@@ -770,81 +939,8 @@ groups:
                     - '{Potion : "minecraft:weakness"}'
                     - '{Potion : "minecraft:long_weakness"}'
                     - '{Potion : "minecraft:luck"}'
-                    - '{Potion : "empty"}'
-                    - '{Potion : "water"}'
-                    - '{Potion : "mundane"}'
-                    - '{Potion : "thick"}'
-                    - '{Potion : "awkward"}'
-                    - '{Potion : "night_vision"}'
-                    - '{Potion : "long_night_vision"}'
-                    - '{Potion : "invisibility"}'
-                    - '{Potion : "long_invisibility"}'
-                    - '{Potion : "leaping"}'
-                    - '{Potion : "long_leaping"}'
-                    - '{Potion : "strong_leaping"}'
-                    - '{Potion : "fire_resistance"}'
-                    - '{Potion : "long_fire_resistance"}'
-                    - '{Potion : "swiftness"}'
-                    - '{Potion : "long_swiftness"}'
-                    - '{Potion : "strong_swiftness"}'
-                    - '{Potion : "slowness"}'
-                    - '{Potion : "long_slowness"}'
-                    - '{Potion : "water_breathing"}'
-                    - '{Potion : "long_water_breathing"}'
-                    - '{Potion : "healing"}'
-                    - '{Potion : "strong_healing"}'
-                    - '{Potion : "harming"}'
-                    - '{Potion : "strong_harming"}'
-                    - '{Potion : "poison"}'
-                    - '{Potion : "long_poison"}'
-                    - '{Potion : "strong_poison"}'
-                    - '{Potion : "regeneration"}'
-                    - '{Potion : "long_regeneration"}'
-                    - '{Potion : "strong_regeneration"}'
-                    - '{Potion : "strength"}'
-                    - '{Potion : "long_strength"}'
-                    - '{Potion : "strong_strength"}'
-                    - '{Potion : "weakness"}'
-                    - '{Potion : "long_weakness"}'
-                    - '{Potion : "luck"}'
-    materials:
-        items:
-            'minecraft:coal':
-                    damage: [0, 1]
-            'minecraft:diamond': {}
-            'minecraft:iron_ingot': {}
-            'minecraft:gold_ingot': {}
-            'minecraft:stick': {}
-            'minecraft:bowl': {}
-            'minecraft:string': {}
-            'minecraft:feather': {}
-            'minecraft:gunpowder': {}
-            'minecraft:wheat_seeds': {}
-            'minecraft:wheat': {}
-            'minecraft:flint': {}
-            'minecraft:leather': {}
-            'minecraft:brick': {}
-            'minecraft:clay_ball': {}
-            'minecraft:reeds': {}
-            'minecraft:egg': {}
-            'minecraft:glowstone_dust': {}
-            'minecraft:dye':
-                    damage: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-            'minecraft:sugar': {}
-            'minecraft:pumpkin_seeds': {}
-            'minecraft:melon_seeds': {}
-            'minecraft:blaze_rod': {}
-            'minecraft:gold_nugget': {}
-            'minecraft:nether_wart': {}
-            'minecraft:emerald': {}
-            'minecraft:nether_star': {}
-            'minecraft:netherbrick': {}
-            'minecraft:quartz': {}
-            'minecraft:prismarine_shard': {}
-            'minecraft:prismarine_crystals': {}
-            'minecraft:rabbit_hide': {}
-            'minecraft:chorus_fruit': {}
-            'minecraft:chorus_fruit_popped': {}
-            'minecraft:beetroot_seeds': {}
-            'minecraft:shulker_shell': {}
-            'minecraft:iron_nugget': {}
+                    - '{Potion : "minecraft:turtle_master"}'
+                    - '{Potion : "minecraft:long_turtle_master"}'
+                    - '{Potion : "minecraft:strong_turtle_master"}'
+                    - '{Potion : "minecraft:slow_falling"}'
+                    - '{Potion : "minecraft:long_slow_falling"}'

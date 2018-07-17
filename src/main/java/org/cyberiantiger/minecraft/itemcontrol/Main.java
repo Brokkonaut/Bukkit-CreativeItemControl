@@ -60,6 +60,7 @@ import org.cyberiantiger.minecraft.itemcontrol.items.ItemGroup;
 import org.cyberiantiger.minecraft.itemcontrol.items.ItemGroups;
 import org.cyberiantiger.minecraft.itemcontrol.items.ItemType;
 import org.cyberiantiger.minecraft.nbt.CompoundTag;
+import org.cyberiantiger.minecraft.nbt.TagType;
 import org.cyberiantiger.minecraft.unsafe.CBShim;
 import org.cyberiantiger.minecraft.unsafe.NBTTools;
 import org.yaml.snakeyaml.Yaml;
@@ -78,7 +79,7 @@ public class Main extends JavaPlugin implements Listener {
     private static final String PERMISSION_BLACKLIST_BYPASS = "creativeitemcontrol.blacklist.*";
     private static final String PERMISSION_MENU_PREFIX = "creativeitemcontrol.menu.";
     private static final String PERMISSION_BLACKLIST_PREFIX = "creativeitemcontrol.blacklist.";
-    private static final ItemStack EMPTY_CURSOR = new ItemStack(Material.AIR, 0);
+    private static final ItemStack EMPTY_CURSOR = new ItemStack(Material.AIR);
     private static final String CONFIG = "config.yml";
     private static final String ITEMS = "items.yml";
 
@@ -207,19 +208,19 @@ public class Main extends JavaPlugin implements Listener {
                 expectedCursor = EMPTY_CURSOR;
             }
             ItemStack cursor = e.getCursor();
-            CompoundTag clickedTag;
-            boolean emptyCursor = cursor.isSimilar(EMPTY_CURSOR);
-            if (emptyCursor) {
-                clickedTag = tools.readItemStack(e.getCurrentItem());
-            } else {
-                clickedTag = tools.readItemStack(cursor);
+            if (cursor == null || cursor.getType() == Material.AIR) {
+                return;
             }
+            CompoundTag clickedTag = tools.readItemStack(cursor);
+            // getLogger().info("Expected: " + tools.readItemStack(expectedCursor));
+            // getLogger().info("Got: " + clickedTag);
+
             if (clickedTag != null) {
                 if (!whoClicked.hasPermission(PERMISSION_BLACKLIST_BYPASS) && !checkBlacklist(whoClicked, clickedTag)) {
                     e.setCancelled(true);
                     return;
                 }
-                if (!emptyCursor && !cursor.isSimilar(expectedCursor) && !isInInventory(whoClicked.getInventory(), cursor) && !isAroundPlayer(whoClicked, cursor) && !checkMenuAccess(whoClicked, clickedTag)) {
+                if (!cursor.isSimilar(expectedCursor) && !isInInventory(whoClicked.getInventory(), cursor) && !isAroundPlayer(whoClicked, cursor) && !checkMenuAccess(whoClicked, clickedTag)) {
                     e.setCancelled(true);
                     return;
                 }
@@ -316,10 +317,8 @@ public class Main extends JavaPlugin implements Listener {
         HumanEntity whoClicked = e.getWhoClicked();
         if (whoClicked instanceof Player && whoClicked.getGameMode() == GameMode.CREATIVE) {
             PlayerState state = getPlayerState(whoClicked);
-            ItemStack stack = e.getCursor();
-            if (EMPTY_CURSOR.isSimilar(stack)) {
-                state.setLastItem(e.getCurrentItem());
-            }
+            state.setLastItem(e.getCurrentItem());
+            // getLogger().info("Set Expected: " + tools.readItemStack(e.getCurrentItem()));
         }
     }
 
@@ -331,9 +330,8 @@ public class Main extends JavaPlugin implements Listener {
     private boolean checkMenuAccess(HumanEntity whoClicked, CompoundTag itemTag) {
         boolean found = false;
         boolean hasAccess = false;
-        String itemId = itemTag.getString("id");
-        Short damage = itemTag.getShort("Damage");
-        CompoundTag tag = itemTag.getCompound("tag");
+        String itemId = itemTag.containsKey("id", TagType.STRING) ? itemTag.getString("id") : null;
+        CompoundTag tag = itemTag.containsKey("tag", TagType.COMPOUND) ? itemTag.getCompound("tag") : null;
         if (itemId != null) {
             if (config.getWhitelist().contains(itemId)) {
                 found = true;
@@ -344,12 +342,16 @@ public class Main extends JavaPlugin implements Listener {
                     ItemGroup group = e.getValue();
                     ItemType type = group.getItems().get(itemId);
                     if (type != null) {
-                        if (type.getDamage().contains(damage)) {
-                            if (tag == null || type.getParsedTags().contains(tag)) {
-                                found = true;
-                                if (whoClicked.hasPermission(PERMISSION_MENU_PREFIX + name)) {
-                                    hasAccess = true;
-                                }
+                        if (tag != null && tag.containsKey("Damage", TagType.INT)) {
+                            tag.remove("Damage");
+                            if (tag.getValue().isEmpty()) {
+                                tag = null;
+                            }
+                        }
+                        if (tag == null || type.getParsedTags().contains(tag)) {
+                            found = true;
+                            if (whoClicked.hasPermission(PERMISSION_MENU_PREFIX + name)) {
+                                hasAccess = true;
                             }
                         }
                     }

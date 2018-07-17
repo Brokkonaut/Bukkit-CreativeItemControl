@@ -2,8 +2,8 @@
 # Limits item clicks to rateLimit per rateLimitTime.
 # Example below for limiting to 100 item clicks or drops per 60 seconds.
 #
-# rateLimit: 100
-# rateLimitTime: 60
+rateLimit: 100
+rateLimitTime: 60
 
 # Custom blacklists
 #
@@ -13,53 +13,53 @@
 # The lists below serve only as an example, feel free to rename, remove or
 # add lists according to your server's needs.
 blacklist:
-        basic:
-                items:
-                        - 'minecraft:barrier'
-                        - 'minecraft:water_bucket'
-                        - 'minecraft:flint_and_steel'
-                        - 'minecraft:monster_egg'
-        spawner:
-                items:
-                        - 'minecraft:mob_spawner'
-                        - 'minecraft:spawn_egg'
-        limited:
-                items:
-                        - 'minecraft:lava_bucket'
-                        - 'minecraft:tnt'
-                        - 'minecraft:tnt_minecart'
+#        basic:
+#                items:
+#                        - 'minecraft:barrier'
+#                        - 'minecraft:water_bucket'
+#                        - 'minecraft:flint_and_steel'
+#                        - 'minecraft:monster_egg'
+#        spawner:
+#                items:
+#                        - 'minecraft:mob_spawner'
+#                        - 'minecraft:spawn_egg'
+#        limited:
+#                items:
+#                        - 'minecraft:lava_bucket'
+#                        - 'minecraft:tnt'
+#                        - 'minecraft:tnt_minecart'
 
 # Whitelist - items to allow arbitrary nbt on.
 # Enchanted items may not be safe e.g. looting 32000.
 whitelist:
         - 'minecraft:skull'
-        - 'minecraft:banner'
-        - 'minecraft:bow'
-        - 'minecraft:iron_sword'
-        - 'minecraft:wooden_sword'
-        - 'minecraft:stone_sword'
-        - 'minecraft:diamond_sword'
-        - 'minecraft:golden_sword'
-        - 'minecraft:leather_helmet'
-        - 'minecraft:leather_chestplate'
-        - 'minecraft:leather_leggings'
-        - 'minecraft:leather_boots'
-        - 'minecraft:chainmail_helmet'
-        - 'minecraft:chainmail_chestplate'
-        - 'minecraft:chainmail_leggings'
-        - 'minecraft:chainmail_boots'
-        - 'minecraft:iron_helmet'
-        - 'minecraft:iron_chestplate'
-        - 'minecraft:iron_leggings'
-        - 'minecraft:iron_boots'
-        - 'minecraft:diamond_helmet'
-        - 'minecraft:diamond_chestplate'
-        - 'minecraft:diamond_leggings'
-        - 'minecraft:diamond_boots'
-        - 'minecraft:golden_helmet'
-        - 'minecraft:golden_chestplate'
-        - 'minecraft:golden_leggings'
-        - 'minecraft:golden_boots'
+#        - 'minecraft:banner'
+#        - 'minecraft:bow'
+#        - 'minecraft:iron_sword'
+#        - 'minecraft:wooden_sword'
+#        - 'minecraft:stone_sword'
+#        - 'minecraft:diamond_sword'
+#        - 'minecraft:golden_sword'
+#        - 'minecraft:leather_helmet'
+#        - 'minecraft:leather_chestplate'
+#        - 'minecraft:leather_leggings'
+#        - 'minecraft:leather_boots'
+#        - 'minecraft:chainmail_helmet'
+#        - 'minecraft:chainmail_chestplate'
+#        - 'minecraft:chainmail_leggings'
+#        - 'minecraft:chainmail_boots'
+#        - 'minecraft:iron_helmet'
+#        - 'minecraft:iron_chestplate'
+#        - 'minecraft:iron_leggings'
+#        - 'minecraft:iron_boots'
+#        - 'minecraft:diamond_helmet'
+#        - 'minecraft:diamond_chestplate'
+#        - 'minecraft:diamond_leggings'
+#        - 'minecraft:diamond_boots'
+#        - 'minecraft:golden_helmet'
+#        - 'minecraft:golden_chestplate'
+#        - 'minecraft:golden_leggings'
+#        - 'minecraft:golden_boots'
 
 # items that can be spawned, but not with additional nbt tags
 allowedItems:
