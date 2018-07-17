@@ -793,6 +793,7 @@ groups:
                             - '{Potion : "minecraft:strong_swiftness"}'
                             - '{Potion : "minecraft:slowness"}'
                             - '{Potion : "minecraft:long_slowness"}'
+                            - '{Potion : "minecraft:strong_slowness"}'
                             - '{Potion : "minecraft:water_breathing"}'
                             - '{Potion : "minecraft:long_water_breathing"}'
                             - '{Potion : "minecraft:healing"}'
@@ -812,7 +813,10 @@ groups:
                             - '{Potion : "minecraft:long_weakness"}'
                             - '{Potion : "minecraft:luck"}'
                             - '{Potion : "minecraft:turtle_master"}'
+                            - '{Potion : "minecraft:long_turtle_master"}'
+                            - '{Potion : "minecraft:strong_turtle_master"}'
                             - '{Potion : "minecraft:slow_falling"}'
+                            - '{Potion : "minecraft:long_slow_falling"}'
             'minecraft:shield': {}
             'minecraft:totem_of_undying': {}
             'minecraft:trident': {}
@@ -871,6 +875,7 @@ groups:
                     - '{Potion : "minecraft:strong_swiftness"}'
                     - '{Potion : "minecraft:slowness"}'
                     - '{Potion : "minecraft:long_slowness"}'
+                    - '{Potion : "minecraft:strong_slowness"}'
                     - '{Potion : "minecraft:water_breathing"}'
                     - '{Potion : "minecraft:long_water_breathing"}'
                     - '{Potion : "minecraft:healing"}'
@@ -926,6 +931,7 @@ groups:
                     - '{Potion : "minecraft:strong_swiftness"}'
                     - '{Potion : "minecraft:slowness"}'
                     - '{Potion : "minecraft:long_slowness"}'
+                    - '{Potion : "minecraft:strong_slowness"}'
                     - '{Potion : "minecraft:water_breathing"}'
                     - '{Potion : "minecraft:long_water_breathing"}'
                     - '{Potion : "minecraft:healing"}'
@@ -970,6 +976,7 @@ groups:
                     - '{Potion : "minecraft:strong_swiftness"}'
                     - '{Potion : "minecraft:slowness"}'
                     - '{Potion : "minecraft:long_slowness"}'
+                    - '{Potion : "minecraft:strong_slowness"}'
                     - '{Potion : "minecraft:water_breathing"}'
                     - '{Potion : "minecraft:long_water_breathing"}'
                     - '{Potion : "minecraft:healing"}'
