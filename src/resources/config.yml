@@ -2,8 +2,8 @@
 # Limits item clicks to rateLimit per rateLimitTime.
 # Example below for limiting to 100 item clicks or drops per 60 seconds.
 #
-rateLimit: 100
-rateLimitTime: 60
+#rateLimit: 100
+#rateLimitTime: 60
 
 # Custom blacklists
 #
