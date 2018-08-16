@@ -87,14 +87,14 @@
   </dependencies>
   <distributionManagement>
     <repository>
-      <id>cyberiantiger.repo</id>
-      <name>CyberianTiger Maven Repository</name>
-      <url>dav:http://cyberiantiger.org/maven</url>
+      <id>nexus</id>
+      <name>Releases</name>
+      <url>https://www.iani.de/nexus/content/repositories/releases/</url>
     </repository>
     <snapshotRepository>
-      <id>cyberiantiger.repo</id>
-      <name>CyberianTiger Maven Repository</name>
-      <url>dav:http://cyberiantiger.org/maven</url>
+      <id>nexus</id>
+      <name>Snapshot</name>
+      <url>https://www.iani.de/nexus/content/repositories/snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
 </project>
