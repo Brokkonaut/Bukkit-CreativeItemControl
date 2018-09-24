@@ -362,7 +362,7 @@ groups:
             'minecraft:lime_shulker_box': {}
             'minecraft:pink_shulker_box': {}
             'minecraft:gray_shulker_box': {}
-            'minecraft:silver_shulker_box': {}
+            'minecraft:light_gray_shulker_box': {}
             'minecraft:cyan_shulker_box': {}
             'minecraft:purple_shulker_box': {}
             'minecraft:blue_shulker_box': {}
@@ -378,7 +378,7 @@ groups:
             'minecraft:lime_glazed_terracotta': {}
             'minecraft:pink_glazed_terracotta': {}
             'minecraft:gray_glazed_terracotta': {}
-            'minecraft:silver_glazed_terracotta': {}
+            'minecraft:light_gray_glazed_terracotta': {}
             'minecraft:cyan_glazed_terracotta': {}
             'minecraft:purple_glazed_terracotta': {}
             'minecraft:blue_glazed_terracotta': {}
@@ -416,7 +416,7 @@ groups:
             'minecraft:lime_bed': {}
             'minecraft:pink_bed': {}
             'minecraft:gray_bed': {}
-            'minecraft:silver_bed': {}
+            'minecraft:light_gray_bed': {}
             'minecraft:cyan_bed': {}
             'minecraft:purple_bed': {}
             'minecraft:blue_bed': {}
@@ -441,7 +441,7 @@ groups:
             'minecraft:lime_banner': {}
             'minecraft:pink_banner': {}
             'minecraft:gray_banner': {}
-            'minecraft:silver_banner': {}
+            'minecraft:light_gray_banner': {}
             'minecraft:cyan_banner': {}
             'minecraft:purple_banner': {}
             'minecraft:blue_banner': {}
