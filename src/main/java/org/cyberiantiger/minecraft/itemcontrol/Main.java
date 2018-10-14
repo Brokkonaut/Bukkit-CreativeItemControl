@@ -265,7 +265,12 @@ public class Main extends JavaPlugin implements Listener {
     }
 
     private boolean isInInventory(PlayerInventory inventory, ItemStack cursor) {
-        return inventory.containsAtLeast(cursor, 1);
+        for (ItemStack contentStack : inventory.getContents()) {
+            if (contentStack != null && contentStack.isSimilar(cursor)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @EventHandler(priority = EventPriority.LOWEST)
