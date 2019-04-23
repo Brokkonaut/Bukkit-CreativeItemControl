@@ -83,7 +83,9 @@ groups:
             'minecraft:acacia_slab': {}
             'minecraft:dark_oak_slab': {}
             'minecraft:stone_slab': {}
+            'minecraft:smooth_stone_slab': {}
             'minecraft:sandstone_slab': {}
+            'minecraft:cut_sandstone_slab': {}
             'minecraft:petrified_oak_slab': {}
             'minecraft:cobblestone_slab': {}
             'minecraft:brick_slab': {}
@@ -91,6 +93,7 @@ groups:
             'minecraft:nether_brick_slab': {}
             'minecraft:quartz_slab': {}
             'minecraft:red_sandstone_slab': {}
+            'minecraft:cut_red_sandstone_slab': {}
             'minecraft:purpur_slab': {}
             'minecraft:prismarine_slab': {}
             'minecraft:prismarine_brick_slab': {}
@@ -241,6 +244,34 @@ groups:
             'minecraft:horn_coral_block': {}
             'minecraft:blue_ice': {}
             'minecraft:dried_kelp_block': {}
+            'minecraft:polished_granite_stairs': {}
+            'minecraft:smooth_red_sandstone_stairs': {}
+            'minecraft:mossy_stone_brick_stairs': {}
+            'minecraft:polished_diorite_stairs': {}
+            'minecraft:mossy_cobblestone_stairs': {}
+            'minecraft:end_stone_brick_stairs': {}
+            'minecraft:stone_stairs': {}
+            'minecraft:smooth_sandstone_stairs': {}
+            'minecraft:smooth_quartz_stairs': {}
+            'minecraft:granite_stairs': {}
+            'minecraft:andesite_stairs': {}
+            'minecraft:red_nether_brick_stairs': {}
+            'minecraft:polished_andesite_stairs': {}
+            'minecraft:diorite_stairs': {}
+            'minecraft:polished_granite_slab': {}
+            'minecraft:smooth_red_sandstone_slab': {}
+            'minecraft:mossy_stone_brick_slab': {}
+            'minecraft:polished_diorite_slab': {}
+            'minecraft:mossy_cobblestone_slab': {}
+            'minecraft:end_stone_brick_slab': {}
+            'minecraft:stone_slab': {}
+            'minecraft:smooth_sandstone_slab': {}
+            'minecraft:smooth_quartz_slab': {}
+            'minecraft:granite_slab': {}
+            'minecraft:andesite_slab': {}
+            'minecraft:red_nether_brick_slab': {}
+            'minecraft:polished_andesite_slab': {}
+            'minecraft:diorite_slab': {}
     decoration:
         items:
             'minecraft:oak_sapling': {}
@@ -271,6 +302,9 @@ groups:
             'minecraft:white_tulip': {}
             'minecraft:pink_tulip': {}
             'minecraft:oxeye_daisy': {}
+            'minecraft:cornflower': {}
+            'minecraft:lily_of_the_valley': {}
+            'minecraft:wither_rose': {}
             'minecraft:brown_mushroom': {}
             'minecraft:red_mushroom': {}
             'minecraft:torch': {}
@@ -310,6 +344,18 @@ groups:
             'minecraft:ender_chest': {} 
             'minecraft:cobblestone_wall': {} 
             'minecraft:mossy_cobblestone_wall': {} 
+            'minecraft:brick_wall': {}
+            'minecraft:prismarine_wall': {}
+            'minecraft:red_sandstone_wall': {}
+            'minecraft:mossy_stone_brick_wall': {}
+            'minecraft:granite_wall': {}
+            'minecraft:stone_brick_wall': {}
+            'minecraft:nether_brick_wall': {}
+            'minecraft:andesite_wall': {}
+            'minecraft:red_nether_brick_wall': {}
+            'minecraft:sandstone_wall': {}
+            'minecraft:end_stone_brick_wall': {}
+            'minecraft:diorite_wall': {}
             'minecraft:anvil': {}
             'minecraft:chipped_anvil': {}
             'minecraft:damaged_anvil': {}
@@ -406,8 +452,14 @@ groups:
             'minecraft:dead_bubble_coral_fan': {}
             'minecraft:dead_fire_coral_fan': {}
             'minecraft:dead_horn_coral_fan': {}
+            'minecraft:scaffolding': {}
             'minecraft:painting': {}
-            'minecraft:sign': {}
+            'minecraft:oak_sign': {}
+            'minecraft:spruce_sign': {}
+            'minecraft:birch_sign': {}
+            'minecraft:jungle_sign': {}
+            'minecraft:acacia_sign': {}
+            'minecraft:dark_oak_sign': {}
             'minecraft:white_bed': {}
             'minecraft:orange_bed': {}
             'minecraft:magenta_bed': {}
@@ -450,6 +502,18 @@ groups:
             'minecraft:red_banner': {}
             'minecraft:black_banner': {}
             'minecraft:end_crystal': {}
+            'minecraft:loom': {}
+            'minecraft:barrel': {}
+            'minecraft:smoker': {}
+            'minecraft:blast_furnace': {}
+            'minecraft:cartography_table': {}
+            'minecraft:fletching_table': {}
+            'minecraft:grindstone': {}
+            'minecraft:smithing_table': {}
+            'minecraft:stonecutter': {}
+            'minecraft:bell': {}
+            'minecraft:lantern': {}
+            'minecraft:campfire': {}
     redstone:
         items:
             'minecraft:dispenser': {}
@@ -506,6 +570,7 @@ groups:
             'minecraft:repeater': {}
             'minecraft:comparator': {}
             'minecraft:redstone': {}
+            'minecraft:lectern': {}
     transportation:
         items:
             'minecraft:powered_rail': {}
@@ -531,6 +596,7 @@ groups:
             'minecraft:beacon': {}
             'minecraft:turtle_egg': {}
             'minecraft:conduit': {}
+            'minecraft:composter': {}
             'minecraft:scute': {}
             'minecraft:coal': {}
             'minecraft:charcoal': {}
@@ -559,14 +625,15 @@ groups:
             'minecraft:clay_ball': {}
             'minecraft:sugar_cane': {}
             'minecraft:kelp': {}
+            'minecraft:bamboo': {}
             'minecraft:paper': {}
             'minecraft:book': {}
             'minecraft:slime_ball': {}
             'minecraft:egg': {}
             'minecraft:glowstone_dust': {}
             'minecraft:ink_sac': {}
-            'minecraft:rose_red': {}
-            'minecraft:cactus_green': {}
+            'minecraft:red_dye': {}
+            'minecraft:green_dye': {}
             'minecraft:cocoa_beans': {}
             'minecraft:lapis_lazuli': {}
             'minecraft:purple_dye': {}
@@ -575,11 +642,15 @@ groups:
             'minecraft:gray_dye': {}
             'minecraft:pink_dye': {}
             'minecraft:lime_dye': {}
-            'minecraft:dandelion_yellow': {}
+            'minecraft:yellow_dye': {}
             'minecraft:light_blue_dye': {}
             'minecraft:magenta_dye': {}
             'minecraft:orange_dye': {}
             'minecraft:bone_meal': {}
+            'minecraft:blue_dye': {}
+            'minecraft:brown_dye': {}
+            'minecraft:black_dye': {}
+            'minecraft:white_dye': {}
             'minecraft:bone': {}
             'minecraft:sugar': {}
             'minecraft:pumpkin_seeds': {}
@@ -640,6 +711,12 @@ groups:
             'minecraft:parrot_spawn_egg': {}
             'minecraft:phantom_spawn_egg': {}
             'minecraft:vindicator_spawn_egg': {}
+            'minecraft:fox_spawn_egg': {}
+            'minecraft:panda_spawn_egg': {}
+            'minecraft:pillager_spawn_egg': {}
+            'minecraft:ravager_spawn_egg': {}
+            'minecraft:trader_llama_spawn_egg': {}
+            'minecraft:wandering_trader_spawn_egg': {}
             'minecraft:experience_bottle': {}
             'minecraft:fire_charge': {}
             'minecraft:writable_book': {}
@@ -656,6 +733,7 @@ groups:
             'minecraft:iron_horse_armor': {}
             'minecraft:golden_horse_armor': {}
             'minecraft:diamond_horse_armor': {}
+            'minecraft:leather_horse_armor': {}
             'minecraft:chorus_fruit': {}
             'minecraft:popped_chorus_fruit': {}
             'minecraft:beetroot_seeds': {}
@@ -675,6 +753,11 @@ groups:
             'minecraft:music_disc_wait': {}
             'minecraft:nautilus_shell': {}
             'minecraft:heart_of_the_sea': {}
+            'minecraft:flower_banner_pattern': {}
+            'minecraft:creeper_banner_pattern': {}
+            'minecraft:skull_banner_pattern': {}
+            'minecraft:mojang_banner_pattern': {}
+            'minecraft:globe_banner_pattern': {}
     foodstuffs:
         items:
             'minecraft:apple': {}
@@ -712,6 +795,7 @@ groups:
             'minecraft:cooked_mutton': {}
             'minecraft:beetroot': {}
             'minecraft:beetroot_soup': {}
+            'minecraft:sweet_berries': {}
     tools:
         items:
             'minecraft:iron_shovel': {}
@@ -830,6 +914,7 @@ groups:
             'minecraft:shield': {}
             'minecraft:totem_of_undying': {}
             'minecraft:trident': {}
+            'minecraft:crossbow': {}
             'minecraft:enchanted_book':
                     tags:
                             - '{StoredEnchantments : [{lvl : 4s, id : "minecraft:protection" }]}'
@@ -859,6 +944,9 @@ groups:
                             - '{StoredEnchantments : [{lvl : 5s, id : "minecraft:impaling" }]}'
                             - '{StoredEnchantments : [{lvl : 3s, id : "minecraft:riptide" }]}'
                             - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:channeling" }]}'
+                            - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:multishot" }]}'
+                            - '{StoredEnchantments : [{lvl : 3s, id : "minecraft:quick_charge" }]}'
+                            - '{StoredEnchantments : [{lvl : 4s, id : "minecraft:piercing" }]}'
                             - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:mending" }]}'
                             - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:vanishing_curse" }]}'
     brewing:
