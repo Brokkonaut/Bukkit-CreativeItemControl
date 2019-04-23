@@ -14,7 +14,7 @@
 name: "CreativeItemControl"
 version: "${version}-${project.build.number}"
 main: "org.cyberiantiger.minecraft.itemcontrol.Main"
-api-version: 1.13
+api-version: 1.14
 commands:
         cicreload:
                 usage: /cicreload
