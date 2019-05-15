@@ -32,8 +32,7 @@ blacklist:
 # Whitelist - items to allow arbitrary nbt on.
 # Enchanted items may not be safe e.g. looting 32000.
 whitelist:
-        - 'minecraft:skull'
-#        - 'minecraft:banner'
+        - 'minecraft:player_head'
 #        - 'minecraft:bow'
 #        - 'minecraft:iron_sword'
 #        - 'minecraft:wooden_sword'
