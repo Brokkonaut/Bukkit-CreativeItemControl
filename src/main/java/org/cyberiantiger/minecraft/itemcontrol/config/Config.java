@@ -24,7 +24,7 @@ public class Config {
     private Set<String> allowedItems;
 
     public Map<String, Blacklist> getBlacklist() {
-        return (Map<String, Blacklist>) (blacklist == null ? Collections.emptyMap() : blacklist);
+        return blacklist == null ? Collections.emptyMap() : blacklist;
     }
 
     public Action getUnavailable() {
@@ -44,11 +44,11 @@ public class Config {
     }
 
     public Set<String> getWhitelist() {
-        return (Set<String>) (whitelist == null ? Collections.emptySet() : whitelist);
+        return whitelist == null ? Collections.emptySet() : whitelist;
     }
 
     public Set<String> getAllowedItems() {
-        return (Set<String>) (allowedItems == null ? Collections.emptySet() : allowedItems);
+        return allowedItems == null ? Collections.emptySet() : allowedItems;
     }
 
     public int getRateLimit() {

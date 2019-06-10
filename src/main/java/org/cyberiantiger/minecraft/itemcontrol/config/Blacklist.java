@@ -15,6 +15,6 @@ public class Blacklist {
     private Set<String> items;
 
     public Set<String> getItems() {
-        return (Set<String>) (items == null ? Collections.emptySet() : items);
+        return items == null ? Collections.emptySet() : items;
     }
 }
