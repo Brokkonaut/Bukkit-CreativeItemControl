@@ -514,6 +514,10 @@ groups:
             'minecraft:bell': {}
             'minecraft:lantern': {}
             'minecraft:campfire': {}
+            'minecraft:bee_nest': {}
+            'minecraft:beehive': {}
+            'minecraft:honey_block': {}
+            'minecraft:honeycomb_block': {}
     redstone:
         items:
             'minecraft:dispenser': {}
@@ -660,6 +664,7 @@ groups:
             'minecraft:gold_nugget': {}
             'minecraft:nether_wart': {}
             'minecraft:ender_eye': {}
+            'minecraft:bee_spawn_egg': {}
             'minecraft:elder_guardian_spawn_egg': {}
             'minecraft:wither_skeleton_spawn_egg': {}
             'minecraft:stray_spawn_egg': {}
@@ -759,6 +764,7 @@ groups:
             'minecraft:skull_banner_pattern': {}
             'minecraft:mojang_banner_pattern': {}
             'minecraft:globe_banner_pattern': {}
+            'minecraft:honeycomb': {}
     foodstuffs:
         items:
             'minecraft:apple': {}
@@ -797,6 +803,7 @@ groups:
             'minecraft:beetroot': {}
             'minecraft:beetroot_soup': {}
             'minecraft:sweet_berries': {}
+            'minecraft:honey_bottle': {}
     tools:
         items:
             'minecraft:iron_shovel': {}
