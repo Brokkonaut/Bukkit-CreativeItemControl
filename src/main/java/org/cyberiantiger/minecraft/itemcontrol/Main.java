@@ -321,8 +321,13 @@ public class Main extends JavaPlugin implements Listener {
         if (p.hasPermission(PERMISSION_BLACKLIST_BYPASS)) {
             return;
         }
-        //needs a way to check if item is air or null?
-        CompoundTag itemTag = tools.readItemStack(e.getItem());
+      
+        ItemStack item = e.getItem();
+        if (item == null || item.getType() == Material.AIR) {
+            return;
+        }
+        
+        CompoundTag itemTag = tools.readItemStack(item);
         if (!checkBlacklist(p, itemTag)) {
             e.setCancelled(true);
         }
