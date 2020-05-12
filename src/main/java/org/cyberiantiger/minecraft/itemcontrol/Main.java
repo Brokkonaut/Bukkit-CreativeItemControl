@@ -322,7 +322,7 @@ public class Main extends JavaPlugin implements Listener {
             return;
         }
         //needs a way to check if item is air or null?
-        CompoundTag itemTag = tools.readItemStack(event.getItem());
+        CompoundTag itemTag = tools.readItemStack(e.getItem());
         if (!checkBlacklist(p, itemTag)) {
             e.setCancelled(true);
         }
