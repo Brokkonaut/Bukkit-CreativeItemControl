@@ -12,6 +12,8 @@ groups:
             'minecraft:dirt': {}
             'minecraft:coarse_dirt': {}
             'minecraft:podzol': {}
+            'minecraft:crimson_nylium': {}
+            'minecraft:warped_nylium': {}
             'minecraft:cobblestone': {}
             'minecraft:oak_planks': {}
             'minecraft:spruce_planks': {}
@@ -19,6 +21,8 @@ groups:
             'minecraft:jungle_planks': {}
             'minecraft:acacia_planks': {}
             'minecraft:dark_oak_planks': {}
+            'minecraft:crimson_planks': {}
+            'minecraft:warped_planks': {}
             'minecraft:bedrock': {}
             'minecraft:sand': {}
             'minecraft:red_sand': {}
@@ -26,30 +30,39 @@ groups:
             'minecraft:gold_ore': {}
             'minecraft:iron_ore': {}
             'minecraft:coal_ore': {}
+            'minecraft:nether_gold_ore': {}
             'minecraft:oak_log': {}
             'minecraft:spruce_log': {}
             'minecraft:birch_log': {}
             'minecraft:jungle_log': {}
             'minecraft:acacia_log': {}
             'minecraft:dark_oak_log': {}
+            'minecraft:crimson_stem': {}
+            'minecraft:warped_stem': {}
             'minecraft:stripped_oak_log': {}
             'minecraft:stripped_spruce_log': {}
             'minecraft:stripped_birch_log': {}
             'minecraft:stripped_jungle_log': {}
             'minecraft:stripped_acacia_log': {}
             'minecraft:stripped_dark_oak_log': {}
+            'minecraft:stripped_crimson_stem': {}
+            'minecraft:stripped_warped_stem': {}
             'minecraft:oak_wood': {}
             'minecraft:spruce_wood': {}
             'minecraft:birch_wood': {}
             'minecraft:jungle_wood': {}
             'minecraft:acacia_wood': {}
             'minecraft:dark_oak_wood': {}
+            'minecraft:crimson_hyphae': {}
+            'minecraft:warped_hyphae': {}
             'minecraft:stripped_oak_wood': {}
             'minecraft:stripped_spruce_wood': {}
             'minecraft:stripped_birch_wood': {}
             'minecraft:stripped_jungle_wood': {}
             'minecraft:stripped_acacia_wood': {}
             'minecraft:stripped_dark_oak_wood': {}
+            'minecraft:stripped_crimson_hyphae': {}
+            'minecraft:stripped_warped_hyphae': {}
             'minecraft:sponge': {}
             'minecraft:wet_sponge': {}
             'minecraft:glass': {}
@@ -82,6 +95,8 @@ groups:
             'minecraft:jungle_slab': {}
             'minecraft:acacia_slab': {}
             'minecraft:dark_oak_slab': {}
+            'minecraft:crimson_slab': {}
+            'minecraft:warped_slab': {}
             'minecraft:stone_slab': {}
             'minecraft:smooth_stone_slab': {}
             'minecraft:sandstone_slab': {}
@@ -122,6 +137,9 @@ groups:
             'minecraft:carved_pumpkin': {}
             'minecraft:netherrack': {}
             'minecraft:soul_sand': {}
+            'minecraft:soul_soil': {}
+            'minecraft:basalt': {}
+            'minecraft:polished_basalt': {}
             'minecraft:glowstone': {}
             'minecraft:jack_o_lantern': {}
             'minecraft:stone_bricks': {}
@@ -133,6 +151,8 @@ groups:
             'minecraft:stone_brick_stairs': {}
             'minecraft:mycelium': {}
             'minecraft:nether_bricks': {}
+            'minecraft:cracked_nether_bricks': {}
+            'minecraft:chiseled_nether_bricks': {}
             'minecraft:nether_brick_stairs': {}
             'minecraft:end_stone': {}
             'minecraft:end_stone_bricks': {}
@@ -142,9 +162,12 @@ groups:
             'minecraft:spruce_stairs': {}
             'minecraft:birch_stairs': {}
             'minecraft:jungle_stairs': {}
+            'minecraft:crimson_stairs': {}
+            'minecraft:warped_stairs': {}
             'minecraft:nether_quartz_ore': {}
             'minecraft:chiseled_quartz_block': {}
             'minecraft:quartz_block': {}
+            'minecraft:quartz_bricks': {}
             'minecraft:quartz_pillar': {}
             'minecraft:quartz_stairs': {}
             'minecraft:white_terracotta': {}
@@ -272,6 +295,21 @@ groups:
             'minecraft:red_nether_brick_slab': {}
             'minecraft:polished_andesite_slab': {}
             'minecraft:diorite_slab': {}
+            'minecraft:netherite_block': {}
+            'minecraft:ancient_debris': {}
+            'minecraft:crying_obsidian': {}
+            'minecraft:blackstone': {}
+            'minecraft:blackstone_slab': {}
+            'minecraft:blackstone_stairs': {}
+            'minecraft:gilded_blackstone': {}
+            'minecraft:polished_blackstone': {}
+            'minecraft:polished_blackstone_slab': {}
+            'minecraft:polished_blackstone_stairs': {}
+            'minecraft:chiseled_polished_blackstone': {}
+            'minecraft:polished_blackstone_bricks': {}
+            'minecraft:polished_blackstone_brick_slab': {}
+            'minecraft:polished_blackstone_brick_stairs': {}
+            'minecraft:cracked_polished_blackstone_bricks': {}
     decoration:
         items:
             'minecraft:oak_sapling': {}
@@ -307,6 +345,13 @@ groups:
             'minecraft:wither_rose': {}
             'minecraft:brown_mushroom': {}
             'minecraft:red_mushroom': {}
+            'minecraft:crimson_fungus': {}
+            'minecraft:warped_fungus': {}
+            'minecraft:crimson_roots': {}
+            'minecraft:warped_roots': {}
+            'minecraft:nether_sprouts': {}
+            'minecraft:weeping_vines': {}
+            'minecraft:twisting_vines': {}
             'minecraft:torch': {}
             'minecraft:end_rod': {}
             'minecraft:chorus_plant': {}
@@ -325,6 +370,9 @@ groups:
             'minecraft:jungle_fence': {}
             'minecraft:acacia_fence': {}
             'minecraft:dark_oak_fence': {}
+            'minecraft:crimson_fence': {}
+            'minecraft:warped_fence': {}
+            'minecraft:soul_torch': {}
             'minecraft:infested_stone': {}
             'minecraft:infested_cobblestone': {}
             'minecraft:infested_stone_bricks': {}
@@ -334,7 +382,8 @@ groups:
             'minecraft:brown_mushroom_block': {}
             'minecraft:red_mushroom_block': {}
             'minecraft:mushroom_stem': {}
-            'minecraft:iron_bars': {} 
+            'minecraft:iron_bars': {}
+            'minecraft:chain': {}
             'minecraft:glass_pane': {} 
             'minecraft:vine': {} 
             'minecraft:lily_pad': {} 
@@ -356,6 +405,9 @@ groups:
             'minecraft:sandstone_wall': {}
             'minecraft:end_stone_brick_wall': {}
             'minecraft:diorite_wall': {}
+            'minecraft:blackstone_wall': {}
+            'minecraft:polished_blackstone_wall': {}
+            'minecraft:polished_blackstone_brick_wall': {}
             'minecraft:anvil': {}
             'minecraft:chipped_anvil': {}
             'minecraft:damaged_anvil': {}
@@ -460,6 +512,8 @@ groups:
             'minecraft:jungle_sign': {}
             'minecraft:acacia_sign': {}
             'minecraft:dark_oak_sign': {}
+            'minecraft:crimson_sign': {}
+            'minecraft:warped_sign': {}
             'minecraft:white_bed': {}
             'minecraft:orange_bed': {}
             'minecraft:magenta_bed': {}
@@ -513,11 +567,16 @@ groups:
             'minecraft:stonecutter': {}
             'minecraft:bell': {}
             'minecraft:lantern': {}
+            'minecraft:soul_lantern': {}
             'minecraft:campfire': {}
+            'minecraft:soul_campfire': {}
+            'minecraft:shroomlight': {}
             'minecraft:bee_nest': {}
             'minecraft:beehive': {}
             'minecraft:honey_block': {}
             'minecraft:honeycomb_block': {}
+            'minecraft:lodestone': {}
+            'minecraft:respawn_anchor': {}
     redstone:
         items:
             'minecraft:dispenser': {}
@@ -533,6 +592,9 @@ groups:
             'minecraft:jungle_pressure_plate': {}
             'minecraft:acacia_pressure_plate': {}
             'minecraft:dark_oak_pressure_plate': {}
+            'minecraft:crimson_pressure_plate': {}
+            'minecraft:warped_pressure_plate': {}
+            'minecraft:polished_blackstone_pressure_plate': {}
             'minecraft:redstone_torch': {} 
             'minecraft:stone_button': {} 
             'minecraft:oak_trapdoor': {}
@@ -541,12 +603,16 @@ groups:
             'minecraft:jungle_trapdoor': {}
             'minecraft:acacia_trapdoor': {}
             'minecraft:dark_oak_trapdoor': {}
+            'minecraft:crimson_trapdoor': {}
+            'minecraft:warped_trapdoor': {}
             'minecraft:oak_fence_gate': {}
             'minecraft:spruce_fence_gate': {}
             'minecraft:birch_fence_gate': {}
             'minecraft:jungle_fence_gate': {}
             'minecraft:acacia_fence_gate': {}
             'minecraft:dark_oak_fence_gate': {}
+            'minecraft:crimson_fence_gate': {}
+            'minecraft:warped_fence_gate': {}
             'minecraft:redstone_lamp': {}
             'minecraft:tripwire_hook': {}
             'minecraft:oak_button': {}
@@ -555,6 +621,9 @@ groups:
             'minecraft:jungle_button': {}
             'minecraft:acacia_button': {}
             'minecraft:dark_oak_button': {}
+            'minecraft:crimson_button': {}
+            'minecraft:warped_button': {}
+            'minecraft:polished_blackstone_button': {}
             'minecraft:trapped_chest': {} 
             'minecraft:light_weighted_pressure_plate': {} 
             'minecraft:heavy_weighted_pressure_plate': {}
@@ -571,10 +640,13 @@ groups:
             'minecraft:jungle_door': {}
             'minecraft:acacia_door': {}
             'minecraft:dark_oak_door': {}
+            'minecraft:crimson_door': {}
+            'minecraft:warped_door': {}
             'minecraft:repeater': {}
             'minecraft:comparator': {}
             'minecraft:redstone': {}
             'minecraft:lectern': {}
+            'minecraft:target': {}
     transportation:
         items:
             'minecraft:powered_rail': {}
@@ -587,6 +659,7 @@ groups:
             'minecraft:chest_minecart': {}
             'minecraft:furnace_minecart': {}
             'minecraft:carrot_on_a_stick': {}
+            'minecraft:warped_fungus_on_a_stick': {}
             'minecraft:tnt_minecart': {}
             'minecraft:hopper_minecart': {}
             'minecraft:elytra': {}
@@ -607,6 +680,8 @@ groups:
             'minecraft:diamond': {}
             'minecraft:iron_ingot': {}
             'minecraft:gold_ingot': {}
+            'minecraft:netherite_ingot': {}
+            'minecraft:netherite_scrap': {}
             'minecraft:stick': {}
             'minecraft:bowl': {}
             'minecraft:string': {}
@@ -681,7 +756,6 @@ groups:
             'minecraft:zombie_spawn_egg': {}
             'minecraft:slime_spawn_egg': {}
             'minecraft:ghast_spawn_egg': {}
-            'minecraft:zombie_pigman_spawn_egg': {}
             'minecraft:enderman_spawn_egg': {}
             'minecraft:cave_spider_spawn_egg': {}
             'minecraft:silverfish_spawn_egg': {}
@@ -723,6 +797,11 @@ groups:
             'minecraft:ravager_spawn_egg': {}
             'minecraft:trader_llama_spawn_egg': {}
             'minecraft:wandering_trader_spawn_egg': {}
+            'minecraft:hoglin_spawn_egg': {}
+            'minecraft:zoglin_spawn_egg': {}
+            'minecraft:piglin_spawn_egg': {}
+            'minecraft:zombified_piglin_spawn_egg': {}
+            'minecraft:strider_spawn_egg': {}
             'minecraft:experience_bottle': {}
             'minecraft:fire_charge': {}
             'minecraft:writable_book': {}
@@ -757,6 +836,7 @@ groups:
             'minecraft:music_disc_ward': {}
             'minecraft:music_disc_11': {}
             'minecraft:music_disc_wait': {}
+            'minecraft:music_disc_pigstep': {}
             'minecraft:nautilus_shell': {}
             'minecraft:heart_of_the_sea': {}
             'minecraft:flower_banner_pattern': {}
@@ -764,6 +844,7 @@ groups:
             'minecraft:skull_banner_pattern': {}
             'minecraft:mojang_banner_pattern': {}
             'minecraft:globe_banner_pattern': {}
+            'minecraft:piglin_banner_pattern': {}
             'minecraft:honeycomb': {}
     foodstuffs:
         items:
@@ -822,11 +903,15 @@ groups:
             'minecraft:golden_shovel': {}
             'minecraft:golden_pickaxe': {}
             'minecraft:golden_axe': {}
+            'minecraft:netherite_shovel': {}
+            'minecraft:netherite_pickaxe': {}
+            'minecraft:netherite_axe': {}
             'minecraft:wooden_hoe': {}
             'minecraft:stone_hoe': {}
             'minecraft:iron_hoe': {}
             'minecraft:diamond_hoe': {}
             'minecraft:golden_hoe': {}
+            'minecraft:netherite_hoe': {}
             'minecraft:compass': {}
             'minecraft:fishing_rod': {}
             'minecraft:clock': {}
@@ -853,6 +938,7 @@ groups:
             'minecraft:stone_sword': {}
             'minecraft:diamond_sword': {}
             'minecraft:golden_sword': {}
+            'minecraft:netherite_sword': {}
             'minecraft:leather_helmet': {}
             'minecraft:leather_chestplate': {}
             'minecraft:leather_leggings': {}
@@ -873,6 +959,10 @@ groups:
             'minecraft:golden_chestplate': {}
             'minecraft:golden_leggings': {}
             'minecraft:golden_boots': {}
+            'minecraft:netherite_helmet': {}
+            'minecraft:netherite_chestplate': {}
+            'minecraft:netherite_leggings': {}
+            'minecraft:netherite_boots': {}
             'minecraft:spectral_arrow': {}
             'minecraft:tipped_arrow':
                     tags:
@@ -957,6 +1047,7 @@ groups:
                             - '{StoredEnchantments : [{lvl : 4s, id : "minecraft:piercing" }]}'
                             - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:mending" }]}'
                             - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:vanishing_curse" }]}'
+                            - '{StoredEnchantments : [{lvl : 3s, id : "minecraft:soul_speed" }]}'
     brewing:
         items:
             'minecraft:ghast_tear': {}
