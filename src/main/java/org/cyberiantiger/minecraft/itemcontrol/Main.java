@@ -47,6 +47,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryCreativeEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
@@ -311,6 +312,24 @@ public class Main extends JavaPlugin implements Listener {
         if (!checkBlacklist(p, itemTag)) {
             e.setCancelled(true);
             item.remove();
+        }
+    }
+    
+    @EventHandler(priority = EventPriority.LOWEST)
+    public void onPlayerInteract(PlayerInteractEvent e) {
+        Player p = e.getPlayer();
+        if (p.hasPermission(PERMISSION_BLACKLIST_BYPASS)) {
+            return;
+        }
+      
+        ItemStack item = e.getItem();
+        if (item == null || item.getType() == Material.AIR) {
+            return;
+        }
+        
+        CompoundTag itemTag = tools.readItemStack(item);
+        if (!checkBlacklist(p, itemTag)) {
+            e.setCancelled(true);
         }
     }
 
