@@ -15,6 +15,7 @@
  */
 package org.cyberiantiger.minecraft.itemcontrol;
 
+import com.google.common.base.Charsets;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,7 +30,6 @@ import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
-
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -47,8 +47,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryCreativeEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.permissions.Permission;
@@ -69,8 +69,6 @@ import org.yaml.snakeyaml.constructor.CustomClassLoaderConstructor;
 import org.yaml.snakeyaml.error.YAMLException;
 import org.yaml.snakeyaml.introspector.BeanAccess;
 
-import com.google.common.base.Charsets;
-
 /**
  *
  * @author antony
@@ -85,7 +83,7 @@ public class Main extends JavaPlugin implements Listener {
     private static final String ITEMS = "items.yml";
 
     // Key is a player, can't be bothered to use generics to hide this type erasure.
-    private Map<Object, PlayerState> playerStates = new WeakHashMap<Object, PlayerState>();
+    private Map<Object, PlayerState> playerStates = new WeakHashMap<>();
     private NBTTools tools;
     private Config config;
     private ItemGroups itemGroups;
@@ -238,19 +236,19 @@ public class Main extends JavaPlugin implements Listener {
                 }
             } else if (e instanceof ArmorStand) {
                 ArmorStand as = (ArmorStand) e;
-                if (isSimilar(as.getBoots(), cursor)) {
+                if (isSimilar(as.getEquipment().getBoots(), cursor)) {
                     return true;
                 }
-                if (isSimilar(as.getLeggings(), cursor)) {
+                if (isSimilar(as.getEquipment().getLeggings(), cursor)) {
                     return true;
                 }
-                if (isSimilar(as.getChestplate(), cursor)) {
+                if (isSimilar(as.getEquipment().getChestplate(), cursor)) {
                     return true;
                 }
-                if (isSimilar(as.getHelmet(), cursor)) {
+                if (isSimilar(as.getEquipment().getHelmet(), cursor)) {
                     return true;
                 }
-                if (isSimilar(as.getItemInHand(), cursor)) {
+                if (isSimilar(as.getEquipment().getItemInMainHand(), cursor)) {
                     return true;
                 }
                 if (isSimilar(as.getEquipment().getItemInOffHand(), cursor)) {
@@ -314,19 +312,19 @@ public class Main extends JavaPlugin implements Listener {
             item.remove();
         }
     }
-    
+
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerInteract(PlayerInteractEvent e) {
         Player p = e.getPlayer();
         if (p.hasPermission(PERMISSION_BLACKLIST_BYPASS)) {
             return;
         }
-      
+
         ItemStack item = e.getItem();
         if (item == null || item.getType() == Material.AIR) {
             return;
         }
-        
+
         CompoundTag itemTag = tools.readItemStack(item);
         if (!checkBlacklist(p, itemTag)) {
             e.setCancelled(true);
