@@ -16,6 +16,7 @@
 package org.cyberiantiger.minecraft.itemcontrol;
 
 import com.google.common.base.Charsets;
+import com.google.common.base.Objects;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,13 +26,21 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.WeakHashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
+import org.bukkit.Chunk;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Banner;
+import org.bukkit.block.BlockState;
+import org.bukkit.block.Skull;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.ArmorStand;
@@ -61,6 +70,7 @@ import org.cyberiantiger.minecraft.itemcontrol.items.ItemGroup;
 import org.cyberiantiger.minecraft.itemcontrol.items.ItemGroups;
 import org.cyberiantiger.minecraft.itemcontrol.items.ItemType;
 import org.cyberiantiger.minecraft.nbt.CompoundTag;
+import org.cyberiantiger.minecraft.nbt.ListTag;
 import org.cyberiantiger.minecraft.nbt.TagType;
 import org.cyberiantiger.minecraft.unsafe.CBShim;
 import org.cyberiantiger.minecraft.unsafe.NBTTools;
@@ -81,6 +91,23 @@ public class Main extends JavaPlugin implements Listener {
     private static final ItemStack EMPTY_CURSOR = new ItemStack(Material.AIR);
     private static final String CONFIG = "config.yml";
     private static final String ITEMS = "items.yml";
+    private static final Set<Material> BANNER_ITEMS = Collections.unmodifiableSet(EnumSet.of(
+            Material.BLACK_BANNER,
+            Material.BLUE_BANNER,
+            Material.BROWN_BANNER,
+            Material.CYAN_BANNER,
+            Material.GRAY_BANNER,
+            Material.GREEN_BANNER,
+            Material.LIGHT_BLUE_BANNER,
+            Material.LIGHT_GRAY_BANNER,
+            Material.LIME_BANNER,
+            Material.MAGENTA_BANNER,
+            Material.ORANGE_BANNER,
+            Material.PINK_BANNER,
+            Material.PURPLE_BANNER,
+            Material.RED_BANNER,
+            Material.WHITE_BANNER,
+            Material.YELLOW_BANNER));
 
     // Key is a player, can't be bothered to use generics to hide this type erasure.
     private Map<Object, PlayerState> playerStates = new WeakHashMap<>();
@@ -219,7 +246,7 @@ public class Main extends JavaPlugin implements Listener {
                     e.setCancelled(true);
                     return;
                 }
-                if (!cursor.isSimilar(expectedCursor) && !isInInventory(whoClicked.getInventory(), cursor) && !isAroundPlayer(whoClicked, cursor) && !checkMenuAccess(whoClicked, clickedTag)) {
+                if (!cursor.isSimilar(expectedCursor) && !isInInventory(whoClicked.getInventory(), cursor) && !isAroundPlayer(whoClicked, cursor, clickedTag) && !checkMenuAccess(whoClicked, clickedTag)) {
                     e.setCancelled(true);
                     return;
                 }
@@ -227,7 +254,7 @@ public class Main extends JavaPlugin implements Listener {
         }
     }
 
-    private boolean isAroundPlayer(HumanEntity player, ItemStack cursor) {
+    private boolean isAroundPlayer(HumanEntity player, ItemStack cursor, CompoundTag cursorTag) {
         List<Entity> nearby = player.getNearbyEntities(6, 6, 6);
         for (Entity e : nearby) {
             if (e instanceof ItemFrame) {
@@ -253,6 +280,77 @@ public class Main extends JavaPlugin implements Listener {
                 }
                 if (isSimilar(as.getEquipment().getItemInOffHand(), cursor)) {
                     return true;
+                }
+            }
+        }
+        if (cursor.getType() == Material.PLAYER_HEAD) {
+            CompoundTag headData = cursorTag.getCompound("tag");
+            if (headData != null) {
+                CompoundTag skullOwnerData = headData.getCompound("SkullOwner");
+                if (skullOwnerData != null && headData.getValue().size() == 1) {
+                    Location playerLocation = player.getLocation();
+                    int playerX = playerLocation.getBlockX();
+                    int playerZ = playerLocation.getBlockZ();
+                    int minChunkX = (playerX - 7) >> 4;
+                    int maxChunkX = (playerX + 7) >> 4;
+                    int minChunkZ = (playerZ - 7) >> 4;
+                    int maxChunkZ = (playerZ + 7) >> 4;
+                    Location blockLocation = playerLocation.clone();
+                    for (int chunkX = minChunkX; chunkX <= maxChunkX; chunkX++) {
+                        for (int chunkZ = minChunkZ; chunkZ <= maxChunkZ; chunkZ++) {
+                            Chunk chunk = playerLocation.getWorld().getChunkAt(chunkX, chunkZ);
+                            for (BlockState bs : chunk.getTileEntities()) {
+                                if (bs instanceof Skull) {
+                                    bs.getLocation(blockLocation);
+                                    if (blockLocation.distanceSquared(playerLocation) < 7 * 7) {
+                                        CompoundTag skullTag = tools.readTileEntity(bs.getBlock());
+                                        if (skullTag != null) {
+                                            CompoundTag existingSkullOwnerData = skullTag.getCompound("SkullOwner");
+                                            if (existingSkullOwnerData != null && existingSkullOwnerData.equals(skullOwnerData)) {
+                                                return true;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (BANNER_ITEMS.contains(cursor.getType())) {
+            CompoundTag tagData = cursorTag.getCompound("tag");
+            if (tagData != null) {
+                CompoundTag tagBlockEntityTag = tagData.getCompound("BlockEntityTag");
+                if (tagBlockEntityTag != null) {
+                    ListTag patternsTag = tagBlockEntityTag.getList("Patterns");
+                    Location playerLocation = player.getLocation();
+                    int playerX = playerLocation.getBlockX();
+                    int playerZ = playerLocation.getBlockZ();
+                    int minChunkX = (playerX - 7) >> 4;
+                    int maxChunkX = (playerX + 7) >> 4;
+                    int minChunkZ = (playerZ - 7) >> 4;
+                    int maxChunkZ = (playerZ + 7) >> 4;
+                    Location blockLocation = playerLocation.clone();
+                    for (int chunkX = minChunkX; chunkX <= maxChunkX; chunkX++) {
+                        for (int chunkZ = minChunkZ; chunkZ <= maxChunkZ; chunkZ++) {
+                            Chunk chunk = playerLocation.getWorld().getChunkAt(chunkX, chunkZ);
+                            for (BlockState bs : chunk.getTileEntities()) {
+                                if (bs instanceof Banner) {
+                                    bs.getLocation(blockLocation);
+                                    if (blockLocation.distanceSquared(playerLocation) < 7 * 7) {
+                                        CompoundTag bannerTag = tools.readTileEntity(bs.getBlock());
+                                        if (bannerTag != null) {
+                                            ListTag existingPatternsTag = bannerTag.getList("Patterns");
+                                            if (Objects.equal(existingPatternsTag, patternsTag)) {
+                                                return true;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
