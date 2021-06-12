@@ -311,6 +311,72 @@ groups:
             'minecraft:polished_blackstone_brick_slab': {}
             'minecraft:polished_blackstone_brick_stairs': {}
             'minecraft:cracked_polished_blackstone_bricks': {}
+            'minecraft:deepslate': {}
+            'minecraft:cobbled_deepslate': {}
+            'minecraft:polished_deepslate': {}
+            'minecraft:calcite': {}
+            'minecraft:tuff': {}
+            'minecraft:dripstone_block': {}
+            'minecraft:rooted_dirt': {}
+            'minecraft:deepslate_coal_ore': {}
+            'minecraft:deepslate_iron_ore': {}
+            'minecraft:deepslate_copper_ore': {}
+            'minecraft:deepslate_gold_ore': {}
+            'minecraft:deepslate_redstone_ore': {}
+            'minecraft:deepslate_emerald_ore': {}
+            'minecraft:deepslate_lapis_ore': {}
+            'minecraft:deepslate_diamond_ore': {}
+            'minecraft:raw_iron_block': {}
+            'minecraft:raw_copper_block': {}
+            'minecraft:raw_gold_block': {}
+            'minecraft:amethyst_block': {}
+            'minecraft:budding_amethyst': {}
+            'minecraft:copper_block': {}
+            'minecraft:exposed_copper': {}
+            'minecraft:weathered_copper': {}
+            'minecraft:oxidized_copper': {}
+            'minecraft:cut_copper': {}
+            'minecraft:exposed_cut_copper': {}
+            'minecraft:weathered_cut_copper': {}
+            'minecraft:oxidized_cut_copper': {}
+            'minecraft:cut_copper_stairs': {}
+            'minecraft:exposed_cut_copper_stairs': {}
+            'minecraft:weathered_cut_copper_stairs': {}
+            'minecraft:oxidized_cut_copper_stairs': {}
+            'minecraft:cut_copper_slab': {}
+            'minecraft:exposed_cut_copper_slab': {}
+            'minecraft:weathered_cut_copper_slab': {}
+            'minecraft:oxidized_cut_copper_slab': {}
+            'minecraft:waxed_copper_block': {}
+            'minecraft:waxed_exposed_copper': {}
+            'minecraft:waxed_weathered_copper': {}
+            'minecraft:waxed_oxidized_copper': {}
+            'minecraft:waxed_cut_copper': {}
+            'minecraft:waxed_exposed_cut_copper': {}
+            'minecraft:waxed_weathered_cut_copper': {}
+            'minecraft:waxed_oxidized_cut_copper': {}
+            'minecraft:waxed_cut_copper_stairs': {}
+            'minecraft:waxed_exposed_cut_copper_stairs': {}
+            'minecraft:waxed_weathered_cut_copper_stairs': {}
+            'minecraft:waxed_oxidized_cut_copper_stairs': {}
+            'minecraft:waxed_cut_copper_slab': {}
+            'minecraft:waxed_exposed_cut_copper_slab': {}
+            'minecraft:waxed_weathered_cut_copper_slab': {}
+            'minecraft:waxed_oxidized_cut_copper_slab': {}
+            'minecraft:tinted_glass': {}
+            'minecraft:deepslate_bricks': {}
+            'minecraft:cracked_deepslate_bricks': {}
+            'minecraft:deepslate_tiles': {}
+            'minecraft:cracked_deepslate_tiles': {}
+            'minecraft:chiseled_deepslate': {}
+            'minecraft:cobbled_deepslate_stairs': {}
+            'minecraft:polished_deepslate_stairs': {}
+            'minecraft:deepslate_brick_stairs': {}
+            'minecraft:deepslate_tile_stairs': {}
+            'minecraft:cobbled_deepslate_slab': {}
+            'minecraft:polished_deepslate_slab': {}
+            'minecraft:deepslate_brick_slab': {}
+            'minecraft:deepslate_tile_slab': {}
     decoration:
         items:
             'minecraft:oak_sapling': {}
@@ -429,7 +495,7 @@ groups:
             'minecraft:red_carpet': {}
             'minecraft:black_carpet': {}
             'minecraft:slime_block': {}
-            'minecraft:grass_path': {}
+            'minecraft:dirt_path': {}
             'minecraft:sunflower': {}
             'minecraft:lilac': {}
             'minecraft:rose_bush': {}
@@ -578,6 +644,45 @@ groups:
             'minecraft:honeycomb_block': {}
             'minecraft:lodestone': {}
             'minecraft:respawn_anchor': {}
+            'minecraft:azalea_leaves': {}
+            'minecraft:flowering_azalea_leaves': {}
+            'minecraft:azalea': {}
+            'minecraft:flowering_azalea': {}
+            'minecraft:spore_blossom': {}
+            'minecraft:moss_carpet': {}
+            'minecraft:moss_block': {}
+            'minecraft:hanging_roots': {}
+            'minecraft:big_dripleaf': {}
+            'minecraft:small_dripleaf': {}
+            'minecraft:infested_deepslate': {}
+            'minecraft:glow_lichen': {}
+            'minecraft:cobbled_deepslate_wall': {}
+            'minecraft:polished_deepslate_wall': {}
+            'minecraft:deepslate_brick_wall': {}
+            'minecraft:deepslate_tile_wall': {}
+            'minecraft:glow_item_frame': {}
+            'minecraft:candle': {}
+            'minecraft:white_candle': {}
+            'minecraft:orange_candle': {}
+            'minecraft:magenta_candle': {}
+            'minecraft:light_blue_candle': {}
+            'minecraft:yellow_candle': {}
+            'minecraft:lime_candle': {}
+            'minecraft:pink_candle': {}
+            'minecraft:gray_candle': {}
+            'minecraft:light_gray_candle': {}
+            'minecraft:cyan_candle': {}
+            'minecraft:purple_candle': {}
+            'minecraft:blue_candle': {}
+            'minecraft:brown_candle': {}
+            'minecraft:green_candle': {}
+            'minecraft:red_candle': {}
+            'minecraft:black_candle': {}
+            'minecraft:small_amethyst_bud': {}
+            'minecraft:medium_amethyst_bud': {}
+            'minecraft:large_amethyst_bud': {}
+            'minecraft:amethyst_cluster': {}
+            'minecraft:pointed_dripstone': {}
     redstone:
         items:
             'minecraft:dispenser': {}
@@ -848,6 +953,16 @@ groups:
             'minecraft:globe_banner_pattern': {}
             'minecraft:piglin_banner_pattern': {}
             'minecraft:honeycomb': {}
+            'minecraft:amethyst_shard': {}
+            'minecraft:raw_iron': {}
+            'minecraft:raw_copper': {}
+            'minecraft:raw_gold': {}
+            'minecraft:powder_snow_bucket': {}
+            'minecraft:axolotl_bucket': {}
+            'minecraft:glow_ink_sac': {}
+            'minecraft:axolotl_spawn_egg': {}
+            'minecraft:goat_spawn_egg': {}
+            'minecraft:glow_squid_spawn_egg': {}
     foodstuffs:
         items:
             'minecraft:apple': {}
@@ -887,6 +1002,7 @@ groups:
             'minecraft:beetroot_soup': {}
             'minecraft:sweet_berries': {}
             'minecraft:honey_bottle': {}
+            'minecraft:glow_berries': {}
     tools:
         items:
             'minecraft:iron_shovel': {}
@@ -930,6 +1046,7 @@ groups:
                             - '{StoredEnchantments : [{lvl : 3s, id : "minecraft:lure" }]}'
                             - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:mending" }]}'
                             - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:vanishing_curse" }]}'
+            'minecraft:spyglass': {}
     combat:
         items:
             'minecraft:turtle_helmet': {}
