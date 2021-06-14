@@ -377,6 +377,7 @@ groups:
             'minecraft:polished_deepslate_slab': {}
             'minecraft:deepslate_brick_slab': {}
             'minecraft:deepslate_tile_slab': {}
+            'minecraft:smooth_basalt': {}
     decoration:
         items:
             'minecraft:oak_sapling': {}
@@ -753,6 +754,7 @@ groups:
             'minecraft:redstone': {}
             'minecraft:lectern': {}
             'minecraft:target': {}
+            'minecraft:lightning_rod': {}
     transportation:
         items:
             'minecraft:powered_rail': {}
