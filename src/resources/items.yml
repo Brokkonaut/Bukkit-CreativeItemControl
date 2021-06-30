@@ -318,6 +318,7 @@ groups:
             'minecraft:tuff': {}
             'minecraft:dripstone_block': {}
             'minecraft:rooted_dirt': {}
+            'minecraft:copper_ore': {}
             'minecraft:deepslate_coal_ore': {}
             'minecraft:deepslate_iron_ore': {}
             'minecraft:deepslate_copper_ore': {}
