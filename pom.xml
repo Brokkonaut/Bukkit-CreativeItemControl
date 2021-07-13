@@ -14,6 +14,7 @@
     <tag>HEAD</tag>
   </scm>
   <build>
+    <finalName>creativeitemcontrol</finalName>
     <sourceDirectory>src/main/java</sourceDirectory>
     <resources>
       <resource>
