@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.cyberiantiger.minecraft</groupId>
   <artifactId>creativeitemcontrol</artifactId>
-  <version>1.17-SNAPSHOT</version>
+  <version>1.18-SNAPSHOT</version>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.number>brokko</project.build.number>

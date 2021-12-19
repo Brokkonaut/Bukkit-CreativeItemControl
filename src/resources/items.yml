@@ -947,6 +947,7 @@ groups:
             'minecraft:music_disc_11': {}
             'minecraft:music_disc_wait': {}
             'minecraft:music_disc_pigstep': {}
+            'minecraft:music_disc_otherside': {}
             'minecraft:nautilus_shell': {}
             'minecraft:heart_of_the_sea': {}
             'minecraft:flower_banner_pattern': {}
