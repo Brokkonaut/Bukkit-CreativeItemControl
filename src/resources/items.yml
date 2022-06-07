@@ -379,6 +379,22 @@ groups:
             'minecraft:deepslate_brick_slab': {}
             'minecraft:deepslate_tile_slab': {}
             'minecraft:smooth_basalt': {}
+            'minecraft:mud': {}
+            'minecraft:mangrove_planks': {}
+            'minecraft:mangrove_log': {}
+            'minecraft:mangrove_roots': {}
+            'minecraft:muddy_mangrove_roots': {}
+            'minecraft:mangrove_planks': {}
+            'minecraft:stripped_mangrove_log': {}
+            'minecraft:mangrove_wood': {}
+            'minecraft:stripped_mangrove_wood': {}
+            'minecraft:mangrove_slab': {}
+            'minecraft:mangrove_stairs': {}
+            'minecraft:mud_brick_slab': {}
+            'minecraft:mud_brick_stairs': {}
+            'minecraft:mud_bricks': {}
+            'minecraft:packed_mud': {}
+            'minecraft:reinforced_deepslate': {}
     decoration:
         items:
             'minecraft:oak_sapling': {}
@@ -685,6 +701,18 @@ groups:
             'minecraft:large_amethyst_bud': {}
             'minecraft:amethyst_cluster': {}
             'minecraft:pointed_dripstone': {}
+            'minecraft:pearlescent_froglight': {}
+            'minecraft:verdant_froglight': {}
+            'minecraft:ochre_froglight': {}
+            'minecraft:sculk': {}
+            'minecraft:sculk_vein': {}
+            'minecraft:sculk_catalyst': {}
+            'minecraft:sculk_shrieker': {}
+            'minecraft:mangrove_leaves': {}
+            'minecraft:mangrove_propagule': {}
+            'minecraft:mangrove_fence': {}
+            'minecraft:mangrove_sign': {}
+            'minecraft:mud_brick_wall': {}
     redstone:
         items:
             'minecraft:dispenser': {}
@@ -756,6 +784,12 @@ groups:
             'minecraft:lectern': {}
             'minecraft:target': {}
             'minecraft:lightning_rod': {}
+            'minecraft:sculk_sensor': {}
+            'minecraft:mangrove_button': {}
+            'minecraft:mangrove_pressure_plate': {}
+            'minecraft:mangrove_door': {}
+            'minecraft:mangrove_trapdoor': {}
+            'minecraft:mangrove_fence_gate': {}
     transportation:
         items:
             'minecraft:powered_rail': {}
@@ -764,7 +798,6 @@ groups:
             'minecraft:activator_rail': {}
             'minecraft:minecart': {}
             'minecraft:saddle': {}
-            'minecraft:oak_boat': {}
             'minecraft:chest_minecart': {}
             'minecraft:furnace_minecart': {}
             'minecraft:carrot_on_a_stick': {}
@@ -772,11 +805,20 @@ groups:
             'minecraft:tnt_minecart': {}
             'minecraft:hopper_minecart': {}
             'minecraft:elytra': {}
+            'minecraft:oak_boat': {}
             'minecraft:spruce_boat': {}
             'minecraft:birch_boat': {}
             'minecraft:jungle_boat': {}
             'minecraft:acacia_boat': {}
             'minecraft:dark_oak_boat': {}
+            'minecraft:mangrove_boat': {}
+            'minecraft:oak_chest_boat': {}
+            'minecraft:spruce_chest_boat': {}
+            'minecraft:birch_chest_boat': {}
+            'minecraft:jungle_chest_boat': {}
+            'minecraft:acacia_chest_boat': {}
+            'minecraft:dark_oak_chest_boat': {}
+            'minecraft:mangrove_chest_boat': {}
     miscellaneous:
         items:
             'minecraft:beacon': {}
@@ -968,6 +1010,24 @@ groups:
             'minecraft:goat_spawn_egg': {}
             'minecraft:glow_squid_spawn_egg': {}
             'minecraft:copper_ingot': {}
+            'minecraft:tadpole_bucket': {}
+            'minecraft:allay_spawn_egg': {}
+            'minecraft:frog_spawn_egg': {}
+            'minecraft:tadpole_spawn_egg': {}
+            'minecraft:music_disc_5': {}
+            'minecraft:disc_fragment_5': {}
+            'minecraft:frogspawn': {}
+            'minecraft:echo_shard': {}
+            'minecraft:goat_horn':
+                    tags:
+                            - '{instrument : "minecraft:ponder_goat_horn"}'
+                            - '{instrument : "minecraft:sing_goat_horn"}'
+                            - '{instrument : "minecraft:seek_goat_horn"}'
+                            - '{instrument : "minecraft:feel_goat_horn"}'
+                            - '{instrument : "minecraft:admire_goat_horn"}'
+                            - '{instrument : "minecraft:call_goat_horn"}'
+                            - '{instrument : "minecraft:yearn_goat_horn"}'
+                            - '{instrument : "minecraft:dream_goat_horn"}'
     foodstuffs:
         items:
             'minecraft:apple': {}
@@ -1052,6 +1112,7 @@ groups:
                             - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:mending" }]}'
                             - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:vanishing_curse" }]}'
             'minecraft:spyglass': {}
+            'minecraft:recovery_compass': {}
     combat:
         items:
             'minecraft:turtle_helmet': {}
@@ -1172,6 +1233,7 @@ groups:
                             - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:mending" }]}'
                             - '{StoredEnchantments : [{lvl : 1s, id : "minecraft:vanishing_curse" }]}'
                             - '{StoredEnchantments : [{lvl : 3s, id : "minecraft:soul_speed" }]}'
+                            - '{StoredEnchantments : [{lvl : 3s, id : "minecraft:swift_sneak" }]}'
     brewing:
         items:
             'minecraft:ghast_tear': {}
