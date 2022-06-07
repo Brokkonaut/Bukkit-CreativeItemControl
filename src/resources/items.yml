@@ -1014,6 +1014,7 @@ groups:
             'minecraft:allay_spawn_egg': {}
             'minecraft:frog_spawn_egg': {}
             'minecraft:tadpole_spawn_egg': {}
+            'minecraft:warden_spawn_egg': {}
             'minecraft:music_disc_5': {}
             'minecraft:disc_fragment_5': {}
             'minecraft:frogspawn': {}
