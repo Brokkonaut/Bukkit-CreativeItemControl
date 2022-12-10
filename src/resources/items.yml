@@ -395,6 +395,34 @@ groups:
             'minecraft:mud_bricks': {}
             'minecraft:packed_mud': {}
             'minecraft:reinforced_deepslate': {}
+            'minecraft:bamboo_mosaic': {}
+            'minecraft:bamboo_block': {}
+            'minecraft:stripped_bamboo_block': {}
+            'minecraft:bamboo_planks': {}
+            'minecraft:bamboo_sign': {}
+            'minecraft:bamboo_slab': {}
+            'minecraft:bamboo_stairs': {}
+            'minecraft:bamboo_mosaic_stairs': {}
+            'minecraft:bamboo_mosaic_slab': {}
+            'minecraft:bamboo_button': {}
+            'minecraft:bamboo_fence': {}
+            'minecraft:bamboo_fence_gate': {}
+            'minecraft:bamboo_pressure_plate': {}
+            'minecraft:bamboo_trapdoor': {}
+            'minecraft:bamboo_raft': {}
+            'minecraft:bamboo_chest_raft': {}
+            'minecraft:chiseled_bookshelf': {}
+            'minecraft:piglin_head': {}
+            'minecraft:oak_hanging_sign': {}
+            'minecraft:spruce_hanging_sign': {}
+            'minecraft:birch_hanging_sign': {}
+            'minecraft:acacia_hanging_sign': {}
+            'minecraft:jungle_hanging_sign': {}
+            'minecraft:dark_oak_hanging_sign': {}
+            'minecraft:mangrove_hanging_sign': {}
+            'minecraft:bamboo_hanging_sign': {}
+            'minecraft:crimson_hanging_sign': {}
+            'minecraft:warped_hanging_sign': {}
     decoration:
         items:
             'minecraft:oak_sapling': {}
@@ -954,6 +982,11 @@ groups:
             'minecraft:zombified_piglin_spawn_egg': {}
             'minecraft:strider_spawn_egg': {}
             'minecraft:piglin_brute_spawn_egg': {}
+            'minecraft:ender_dragon_spawn_egg': {}
+            'minecraft:iron_golem_spawn_egg': {}
+            'minecraft:snow_golem_spawn_egg': {}
+            'minecraft:wither_spawn_egg': {}
+            'minecraft:camel_spawn_egg': {}
             'minecraft:experience_bottle': {}
             'minecraft:fire_charge': {}
             'minecraft:writable_book': {}
