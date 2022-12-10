@@ -423,6 +423,7 @@ groups:
             'minecraft:bamboo_hanging_sign': {}
             'minecraft:crimson_hanging_sign': {}
             'minecraft:warped_hanging_sign': {}
+            'minecraft:spawner': {}
     decoration:
         items:
             'minecraft:oak_sapling': {}
