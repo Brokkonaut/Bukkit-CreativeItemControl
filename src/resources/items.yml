@@ -425,6 +425,59 @@ groups:
             'minecraft:crimson_hanging_sign': {}
             'minecraft:warped_hanging_sign': {}
             'minecraft:spawner': {}
+            'minecraft:cherry_log': {}
+            'minecraft:cherry_wood': {}
+            'minecraft:stripped_cherry_log': {}
+            'minecraft:stripped_cherry_wood': {}
+            'minecraft:cherry_planks': {}
+            'minecraft:cherry_stairs': {}
+            'minecraft:cherry_slab': {}
+            'minecraft:cherry_fence': {}
+            'minecraft:cherry_fence_gate': {}
+            'minecraft:cherry_door': {}
+            'minecraft:cherry_trapdoor': {}
+            'minecraft:cherry_pressure_plate': {}
+            'minecraft:cherry_button': {}
+            'minecraft:cherry_leaves': {}
+            'minecraft:cherry_sapling': {}
+            'minecraft:cherry_sign': {}
+            'minecraft:cherry_hanging_sign': {}
+            'minecraft:cherry_boat': {}
+            'minecraft:cherry_chest_boat': {}
+            'minecraft:pink_petals': {}
+            'minecraft:decorated_pot': {}
+            'minecraft:pottery_shard_archer': {}
+            'minecraft:pottery_shard_prize': {}
+            'minecraft:pottery_shard_arms_up': {}
+            'minecraft:pottery_shard_skull': {}
+            'minecraft:suspicious_sand': {}
+            'minecraft:torchflower': {}
+            'minecraft:torchflower_seeds': {}
+            'minecraft:brush': {}
+            'minecraft:netherite_upgrade_smithing_template': {}
+            'minecraft:sentry_armor_trim_smithing_template': {}
+            'minecraft:dune_armor_trim_smithing_template': {}
+            'minecraft:coast_armor_trim_smithing_template': {}
+            'minecraft:wild_armor_trim_smithing_template': {}
+            'minecraft:ward_armor_trim_smithing_template': {}
+            'minecraft:eye_armor_trim_smithing_template': {}
+            'minecraft:vex_armor_trim_smithing_template': {}
+            'minecraft:tide_armor_trim_smithing_template': {}
+            'minecraft:snout_armor_trim_smithing_template': {}
+            'minecraft:rib_armor_trim_smithing_template': {}
+            'minecraft:spire_armor_trim_smithing_template': {}
+            'minecraft:sniffer_spawn_egg': {}
+            'minecraft:suspicious_stew':
+                tags:
+                    - '{"Effects" : [{"EffectDuration" : 7, "EffectId" : 23b}]}'
+                    - '{"Effects" : [{"EffectDuration" : 100, "EffectId" : 16b}]}'
+                    - '{"Effects" : [{"EffectDuration" : 80, "EffectId" : 12b}]}'
+                    - '{"Effects" : [{"EffectDuration" : 160, "EffectId" : 15b}]}'
+                    - '{"Effects" : [{"EffectDuration" : 180, "EffectId" : 18b}]}'
+                    - '{"Effects" : [{"EffectDuration" : 160, "EffectId" : 10b}]}'
+                    - '{"Effects" : [{"EffectDuration" : 120, "EffectId" : 8b}]}'
+                    - '{"Effects" : [{"EffectDuration" : 240, "EffectId" : 19b}]}'
+                    - '{"Effects" : [{"EffectDuration" : 160, "EffectId" : 20b}]}'
     decoration:
         items:
             'minecraft:oak_sapling': {}
@@ -620,7 +673,34 @@ groups:
             'minecraft:dead_fire_coral_fan': {}
             'minecraft:dead_horn_coral_fan': {}
             'minecraft:scaffolding': {}
-            'minecraft:painting': {}
+            'minecraft:painting':
+                tags:
+                    - '{"EntityTag" : {"variant" : "minecraft:kebab"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:aztec"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:alban"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:aztec2"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:bomb"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:plant"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:wasteland"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:wanderer"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:graham"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:pool"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:courbet"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:sea"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:sunset"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:creebet"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:match"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:bust"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:stage"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:void"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:skull_and_roses"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:wither"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:fighters"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:skeleton"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:donkey_kong"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:pointer"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:pigscene"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:burning_skull"}}'
             'minecraft:oak_sign': {}
             'minecraft:spruce_sign': {}
             'minecraft:birch_sign': {}
@@ -654,7 +734,9 @@ groups:
             'minecraft:creeper_head': {}
             'minecraft:dragon_head': {}
             'minecraft:armor_stand': {}
-            'minecraft:white_banner': {}
+            'minecraft:white_banner':
+                tags:
+                    - '{"HideFlags" : 32, "BlockEntityTag" : {"Patterns" : [{"Pattern" : "mr", "Color" : 9}, {"Pattern" : "bs", "Color" : 8}, {"Pattern" : "cs", "Color" : 7}, {"Pattern" : "bo", "Color" : 8}, {"Pattern" : "ms", "Color" : 15}, {"Pattern" : "hh", "Color" : 8}, {"Pattern" : "mc", "Color" : 8}, {"Pattern" : "bo", "Color" : 15}]}, "display" : {"Name" : "{\"color\":\"gold\",\"translate\":\"block.minecraft.ominous_banner\"}"}}'
             'minecraft:orange_banner': {}
             'minecraft:magenta_banner': {}
             'minecraft:light_blue_banner': {}
@@ -995,7 +1077,11 @@ groups:
             'minecraft:emerald': {}
             'minecraft:map': {}
             'minecraft:nether_star': {}
-            'minecraft:firework_rocket': {}
+            'minecraft:firework_rocket':
+                tags:
+                    - '{"Fireworks" : {"Flight" : 1b}}'
+                    - '{"Fireworks" : {"Flight" : 2b}}'
+                    - '{"Fireworks" : {"Flight" : 3b}}'
             'minecraft:firework_star': {}
             'minecraft:nether_brick': {}
             'minecraft:quartz': {}
