@@ -27,7 +27,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.EnumSet;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -91,7 +91,7 @@ public class Main extends JavaPlugin implements Listener {
     private static final ItemStack EMPTY_CURSOR = new ItemStack(Material.AIR);
     private static final String CONFIG = "config.yml";
     private static final String ITEMS = "items.yml";
-    private static final Set<Material> BANNER_ITEMS = Collections.unmodifiableSet(EnumSet.of(
+    private static final Set<Material> BANNER_ITEMS = Collections.unmodifiableSet(new HashSet<>(List.of(
             Material.BLACK_BANNER,
             Material.BLUE_BANNER,
             Material.BROWN_BANNER,
@@ -107,7 +107,7 @@ public class Main extends JavaPlugin implements Listener {
             Material.PURPLE_BANNER,
             Material.RED_BANNER,
             Material.WHITE_BANNER,
-            Material.YELLOW_BANNER));
+            Material.YELLOW_BANNER)));
 
     // Key is a player, can't be bothered to use generics to hide this type erasure.
     private Map<Object, PlayerState> playerStates = new WeakHashMap<>();
