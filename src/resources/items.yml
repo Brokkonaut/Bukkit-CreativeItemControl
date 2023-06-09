@@ -446,13 +446,32 @@ groups:
             'minecraft:cherry_chest_boat': {}
             'minecraft:pink_petals': {}
             'minecraft:decorated_pot': {}
-            'minecraft:pottery_shard_archer': {}
-            'minecraft:pottery_shard_prize': {}
-            'minecraft:pottery_shard_arms_up': {}
-            'minecraft:pottery_shard_skull': {}
+            'minecraft:angler_pottery_sherd': {}
+            'minecraft:archer_pottery_sherd': {}
+            'minecraft:arms_up_pottery_sherd': {}
+            'minecraft:blade_pottery_sherd': {}
+            'minecraft:brewer_pottery_sherd': {}
+            'minecraft:burn_pottery_sherd': {}
+            'minecraft:danger_pottery_sherd': {}
+            'minecraft:explorer_pottery_sherd': {}
+            'minecraft:friend_pottery_sherd': {}
+            'minecraft:heart_pottery_sherd': {}
+            'minecraft:heartbreak_pottery_sherd': {}
+            'minecraft:howl_pottery_sherd': {}
+            'minecraft:miner_pottery_sherd': {}
+            'minecraft:mourner_pottery_sherd': {}
+            'minecraft:plenty_pottery_sherd': {}
+            'minecraft:prize_pottery_sherd': {}
+            'minecraft:sheaf_pottery_sherd': {}
+            'minecraft:shelter_pottery_sherd': {}
+            'minecraft:skull_pottery_sherd': {}
+            'minecraft:snort_pottery_sherd': {}
             'minecraft:suspicious_sand': {}
+            'minecraft:suspicious_gravel': {}
             'minecraft:torchflower': {}
             'minecraft:torchflower_seeds': {}
+            'minecraft:pitcher_plant': {}
+            'minecraft:pitcher_pod': {}
             'minecraft:brush': {}
             'minecraft:netherite_upgrade_smithing_template': {}
             'minecraft:sentry_armor_trim_smithing_template': {}
@@ -466,6 +485,11 @@ groups:
             'minecraft:snout_armor_trim_smithing_template': {}
             'minecraft:rib_armor_trim_smithing_template': {}
             'minecraft:spire_armor_trim_smithing_template': {}
+            'minecraft:host_armor_trim_smithing_template': {}
+            'minecraft:raiser_armor_trim_smithing_template': {}
+            'minecraft:shaper_armor_trim_smithing_template': {}
+            'minecraft:silence_armor_trim_smithing_template': {}
+            'minecraft:wayfinder_armor_trim_smithing_template': {}
             'minecraft:sniffer_spawn_egg': {}
             'minecraft:suspicious_stew':
                 tags:
@@ -897,6 +921,7 @@ groups:
             'minecraft:target': {}
             'minecraft:lightning_rod': {}
             'minecraft:sculk_sensor': {}
+            'minecraft:calibrated_sculk_sensor': {}
             'minecraft:mangrove_button': {}
             'minecraft:mangrove_pressure_plate': {}
             'minecraft:mangrove_door': {}
@@ -1111,6 +1136,7 @@ groups:
             'minecraft:music_disc_wait': {}
             'minecraft:music_disc_pigstep': {}
             'minecraft:music_disc_otherside': {}
+            'minecraft:music_disc_relic': {}
             'minecraft:nautilus_shell': {}
             'minecraft:heart_of_the_sea': {}
             'minecraft:flower_banner_pattern': {}
@@ -1139,6 +1165,7 @@ groups:
             'minecraft:music_disc_5': {}
             'minecraft:disc_fragment_5': {}
             'minecraft:frogspawn': {}
+            'minecraft:sniffer_egg': {}
             'minecraft:echo_shard': {}
             'minecraft:goat_horn':
                     tags:

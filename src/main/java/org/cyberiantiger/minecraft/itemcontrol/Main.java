@@ -74,6 +74,7 @@ import org.cyberiantiger.minecraft.nbt.ListTag;
 import org.cyberiantiger.minecraft.nbt.TagType;
 import org.cyberiantiger.minecraft.unsafe.CBShim;
 import org.cyberiantiger.minecraft.unsafe.NBTTools;
+import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.CustomClassLoaderConstructor;
 import org.yaml.snakeyaml.error.YAMLException;
@@ -138,7 +139,7 @@ public class Main extends JavaPlugin implements Listener {
     private void loadConfig() {
         config = new Config();
         try {
-            Yaml configLoader = new Yaml(new CustomClassLoaderConstructor(Config.class, getClass().getClassLoader()));
+            Yaml configLoader = new Yaml(new CustomClassLoaderConstructor(Config.class, getClass().getClassLoader(), new LoaderOptions()));
             configLoader.setBeanAccess(BeanAccess.FIELD);
             config = configLoader.loadAs(openDataFile(CONFIG), Config.class);
             Permission parent = getServer().getPluginManager().getPermission(PERMISSION_BLACKLIST_BYPASS);
@@ -166,7 +167,7 @@ public class Main extends JavaPlugin implements Listener {
     private void loadItems() {
         itemGroups = new ItemGroups();
         try {
-            Yaml configLoader = new Yaml(new CustomClassLoaderConstructor(ItemGroups.class, getClass().getClassLoader()));
+            Yaml configLoader = new Yaml(new CustomClassLoaderConstructor(ItemGroups.class, getClass().getClassLoader(), new LoaderOptions()));
             configLoader.setBeanAccess(BeanAccess.FIELD);
             itemGroups = configLoader.loadAs(openResource(ITEMS), ItemGroups.class);
         } catch (IOException ex) {
