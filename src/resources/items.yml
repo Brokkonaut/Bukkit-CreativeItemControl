@@ -517,7 +517,7 @@ groups:
             'minecraft:acacia_leaves': {}
             'minecraft:dark_oak_leaves': {}
             'minecraft:cobweb': {}
-            'minecraft:grass': {}
+            'minecraft:short_grass': {}
             'minecraft:fern': {}
             'minecraft:dead_bush': {}
             'minecraft:seagrass': {}
@@ -1096,6 +1096,7 @@ groups:
             'minecraft:snow_golem_spawn_egg': {}
             'minecraft:wither_spawn_egg': {}
             'minecraft:camel_spawn_egg': {}
+            'minecraft:breeze_spawn_egg': {}
             'minecraft:experience_bottle': {}
             'minecraft:fire_charge': {}
             'minecraft:writable_book': {}

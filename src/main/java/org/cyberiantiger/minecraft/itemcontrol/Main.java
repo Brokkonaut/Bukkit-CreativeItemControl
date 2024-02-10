@@ -458,29 +458,34 @@ public class Main extends JavaPlugin implements Listener {
                 found = true;
                 hasAccess = true;
             } else {
-                for (Map.Entry<String, ItemGroup> e : itemGroups.getGroups().entrySet()) {
-                    String name = e.getKey();
-                    ItemGroup group = e.getValue();
-                    ItemType type = group.getItems().get(itemId);
-                    if (type != null) {
-                        if (tag != null && tag.containsKey("Damage", TagType.INT)) {
-                            tag.remove("Damage");
-                            if (tag.getValue().isEmpty()) {
-                                tag = null;
+                if (tag == null) {
+                    found = true;
+                    hasAccess = true;
+                } else {
+                    for (Map.Entry<String, ItemGroup> e : itemGroups.getGroups().entrySet()) {
+                        String name = e.getKey();
+                        ItemGroup group = e.getValue();
+                        ItemType type = group.getItems().get(itemId);
+                        if (type != null) {
+                            if (tag != null && tag.containsKey("Damage", TagType.INT)) {
+                                tag.remove("Damage");
+                                if (tag.getValue().isEmpty()) {
+                                    tag = null;
+                                }
                             }
-                        }
-                        if (tag == null || type.getParsedTags().contains(tag)) {
-                            found = true;
-                            if (whoClicked.hasPermission(PERMISSION_MENU_PREFIX + name)) {
-                                hasAccess = true;
+                            if (tag == null || type.getParsedTags().contains(tag)) {
+                                found = true;
+                                if (whoClicked.hasPermission(PERMISSION_MENU_PREFIX + name)) {
+                                    hasAccess = true;
+                                }
                             }
                         }
                     }
-                }
-                if (!hasAccess) {
-                    if (config.getAllowedItems().contains(itemId) && tag == null) {
-                        found = true;
-                        hasAccess = true;
+                    if (!hasAccess) {
+                        if (config.getAllowedItems().contains(itemId) && tag == null) {
+                            found = true;
+                            hasAccess = true;
+                        }
                     }
                 }
             }
