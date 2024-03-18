@@ -725,6 +725,28 @@ groups:
                     - '{"EntityTag" : {"variant" : "minecraft:pointer"}}'
                     - '{"EntityTag" : {"variant" : "minecraft:pigscene"}}'
                     - '{"EntityTag" : {"variant" : "minecraft:burning_skull"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:earth"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:wind"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:water"}}'
+                    - '{"EntityTag" : {"variant" : "minecraft:fire"}}'
+            'minecraft:light':
+                tags:
+                    - '{"BlockStateTag" : {"level" : "0"}}'
+                    - '{"BlockStateTag" : {"level" : "1"}}'
+                    - '{"BlockStateTag" : {"level" : "2"}}'
+                    - '{"BlockStateTag" : {"level" : "3"}}'
+                    - '{"BlockStateTag" : {"level" : "4"}}'
+                    - '{"BlockStateTag" : {"level" : "5"}}'
+                    - '{"BlockStateTag" : {"level" : "6"}}'
+                    - '{"BlockStateTag" : {"level" : "7"}}'
+                    - '{"BlockStateTag" : {"level" : "8"}}'
+                    - '{"BlockStateTag" : {"level" : "9"}}'
+                    - '{"BlockStateTag" : {"level" : "10"}}'
+                    - '{"BlockStateTag" : {"level" : "11"}}'
+                    - '{"BlockStateTag" : {"level" : "12"}}'
+                    - '{"BlockStateTag" : {"level" : "13"}}'
+                    - '{"BlockStateTag" : {"level" : "14"}}'
+                    - '{"BlockStateTag" : {"level" : "15"}}'
             'minecraft:oak_sign': {}
             'minecraft:spruce_sign': {}
             'minecraft:birch_sign': {}
