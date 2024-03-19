@@ -27,11 +27,12 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.WeakHashMap;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import org.bukkit.Chunk;
@@ -45,10 +46,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.ItemFrame;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -57,6 +56,7 @@ import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.inventory.InventoryCreativeEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.permissions.Permission;
@@ -109,8 +109,7 @@ public class Main extends JavaPlugin implements Listener {
             Material.WHITE_BANNER,
             Material.YELLOW_BANNER)));
 
-    // Key is a player, can't be bothered to use generics to hide this type erasure.
-    private Map<Object, PlayerState> playerStates = new WeakHashMap<>();
+    private Map<UUID, PlayerState> playerStates = new HashMap<>();
     private NBTTools tools;
     private Config config;
     private ItemGroups itemGroups;
@@ -205,25 +204,20 @@ public class Main extends JavaPlugin implements Listener {
     // If cursor is EMPTY_CURSOR, item is picked up.
     // If cursor is not EMPTY_CURSOR, one or more items is dropped (spawned in).
 
-    private PlayerState getPlayerState(Object player) {
-        PlayerState result = playerStates.get(player);
-        if (result == null) {
-            playerStates.put(player, result = new PlayerState());
-        }
-        return result;
+    private PlayerState getPlayerState(Player player) {
+        return playerStates.computeIfAbsent(player.getUniqueId(), uuid -> new PlayerState());
     }
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void onCreativeEvent(InventoryCreativeEvent e) {
-        HumanEntity whoClicked = e.getWhoClicked();
-        if (whoClicked instanceof Player && whoClicked.getGameMode() == GameMode.CREATIVE) {
-            if (whoClicked.hasPermission(PERMISSION_BYPASS)) {
+        if (e.getWhoClicked() instanceof Player player && player.getGameMode() == GameMode.CREATIVE) {
+            if (player.hasPermission(PERMISSION_BYPASS)) {
                 return;
             }
-            PlayerState state = getPlayerState(whoClicked);
+            PlayerState state = getPlayerState(player);
             if (!state.testClick()) {
                 Action action = config.getOnRateLimit();
-                performAction(config.getOnRateLimit(), (Player) whoClicked, null);
+                performAction(config.getOnRateLimit(), player, null);
                 if (action.isBlock()) {
                     e.setCancelled(true);
                     return;
@@ -242,11 +236,11 @@ public class Main extends JavaPlugin implements Listener {
             // getLogger().info("Got: " + clickedTag);
 
             if (clickedTag != null) {
-                if (!whoClicked.hasPermission(PERMISSION_BLACKLIST_BYPASS) && !checkBlacklist(whoClicked, clickedTag)) {
+                if (!player.hasPermission(PERMISSION_BLACKLIST_BYPASS) && !checkBlacklist(player, clickedTag)) {
                     e.setCancelled(true);
                     return;
                 }
-                if (!cursor.isSimilar(expectedCursor) && !isInInventory(whoClicked.getInventory(), cursor) && !isAroundPlayer(whoClicked, cursor, clickedTag) && !checkMenuAccess(whoClicked, clickedTag)) {
+                if (!cursor.isSimilar(expectedCursor) && !isInInventory(player.getInventory(), cursor) && !isAroundPlayer(player, cursor, clickedTag) && !checkMenuAccess(player, clickedTag)) {
                     e.setCancelled(true);
                     return;
                 }
@@ -254,7 +248,7 @@ public class Main extends JavaPlugin implements Listener {
         }
     }
 
-    private boolean isAroundPlayer(HumanEntity player, ItemStack cursor, CompoundTag cursorTag) {
+    private boolean isAroundPlayer(Player player, ItemStack cursor, CompoundTag cursorTag) {
         List<Entity> nearby = player.getNearbyEntities(6, 6, 6);
         for (Entity e : nearby) {
             if (e instanceof ItemFrame) {
@@ -395,19 +389,16 @@ public class Main extends JavaPlugin implements Listener {
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerPickupItem(EntityPickupItemEvent e) {
-        LivingEntity ent = e.getEntity();
-        if (!(ent instanceof Player)) {
-            return;
-        }
-        Player p = (Player) ent;
-        if (p.hasPermission(PERMISSION_BLACKLIST_BYPASS)) {
-            return;
-        }
-        Item item = e.getItem();
-        CompoundTag itemTag = tools.readItemStack(item.getItemStack());
-        if (!checkBlacklist(p, itemTag)) {
-            e.setCancelled(true);
-            item.remove();
+        if (e.getEntity() instanceof Player player) {
+            if (player.hasPermission(PERMISSION_BLACKLIST_BYPASS)) {
+                return;
+            }
+            Item item = e.getItem();
+            CompoundTag itemTag = tools.readItemStack(item.getItemStack());
+            if (!checkBlacklist(player, itemTag)) {
+                e.setCancelled(true);
+                item.remove();
+            }
         }
     }
 
@@ -434,15 +425,19 @@ public class Main extends JavaPlugin implements Listener {
         if (e.isCancelled()) {
             return;
         }
-        HumanEntity whoClicked = e.getWhoClicked();
-        if (whoClicked instanceof Player && whoClicked.getGameMode() == GameMode.CREATIVE) {
-            PlayerState state = getPlayerState(whoClicked);
+        if (e.getWhoClicked() instanceof Player player && player.getGameMode() == GameMode.CREATIVE) {
+            PlayerState state = getPlayerState(player);
             state.setLastItem(e.getCurrentItem());
             // getLogger().info("Set Expected: " + tools.readItemStack(e.getCurrentItem()));
         }
     }
 
-    private boolean checkMenuAccess(HumanEntity whoClicked, CompoundTag itemTag) {
+    @EventHandler(priority = EventPriority.MONITOR)
+    public void onPlayerQuit(PlayerQuitEvent e) {
+        playerStates.remove(e.getPlayer().getUniqueId());
+    }
+
+    private boolean checkMenuAccess(Player whoClicked, CompoundTag itemTag) {
         boolean found = false;
         boolean hasAccess = false;
         String itemId = itemTag.containsKey("id", TagType.STRING) ? itemTag.getString("id") : null;
@@ -487,21 +482,21 @@ public class Main extends JavaPlugin implements Listener {
         if (!found) {
             Action action = config.getUnavailable();
             if (action.isBlock()) {
-                performAction(action, (Player) whoClicked, itemTag);
+                performAction(action, whoClicked, itemTag);
                 return hasAccess;
             }
         }
         if (!hasAccess) {
             Action action = config.getNopermission();
             if (action.isBlock()) {
-                performAction(action, (Player) whoClicked, itemTag);
+                performAction(action, whoClicked, itemTag);
                 return hasAccess;
             }
         }
         return true;
     }
 
-    private boolean checkBlacklist(HumanEntity whoClicked, CompoundTag itemTag) {
+    private boolean checkBlacklist(Player whoClicked, CompoundTag itemTag) {
         Action blacklistAction = config.getBlacklisted();
         if (!blacklistAction.isBlock()) {
             return true;
@@ -514,7 +509,7 @@ public class Main extends JavaPlugin implements Listener {
             String name = e.getKey();
             Blacklist value = e.getValue();
             if (!whoClicked.hasPermission(PERMISSION_BLACKLIST_PREFIX + name) && value.getItems().contains(itemId)) {
-                performAction(blacklistAction, (Player) whoClicked, itemTag);
+                performAction(blacklistAction, whoClicked, itemTag);
                 return false;
             }
         }
