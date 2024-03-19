@@ -54,7 +54,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPickupItemEvent;
-import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryCreativeEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -441,11 +440,6 @@ public class Main extends JavaPlugin implements Listener {
             state.setLastItem(e.getCurrentItem());
             // getLogger().info("Set Expected: " + tools.readItemStack(e.getCurrentItem()));
         }
-    }
-
-    @EventHandler(priority = EventPriority.MONITOR)
-    public void monitorInventoryClose(InventoryCloseEvent e) {
-        getPlayerState(e.getPlayer()).setLastItem(null);
     }
 
     private boolean checkMenuAccess(HumanEntity whoClicked, CompoundTag itemTag) {
