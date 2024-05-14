@@ -17,6 +17,10 @@ package org.cyberiantiger.minecraft.itemcontrol;
 
 import com.google.common.base.Charsets;
 import com.google.common.base.Objects;
+import de.cubeside.nmsutils.NMSUtils;
+import de.cubeside.nmsutils.nbt.CompoundTag;
+import de.cubeside.nmsutils.nbt.ListTag;
+import de.cubeside.nmsutils.nbt.TagType;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -68,11 +72,6 @@ import org.cyberiantiger.minecraft.itemcontrol.event.BlockedCreativeInventoryAct
 import org.cyberiantiger.minecraft.itemcontrol.items.ItemGroup;
 import org.cyberiantiger.minecraft.itemcontrol.items.ItemGroups;
 import org.cyberiantiger.minecraft.itemcontrol.items.ItemType;
-import org.cyberiantiger.minecraft.nbt.CompoundTag;
-import org.cyberiantiger.minecraft.nbt.ListTag;
-import org.cyberiantiger.minecraft.nbt.TagType;
-import org.cyberiantiger.minecraft.unsafe.CBShim;
-import org.cyberiantiger.minecraft.unsafe.NBTTools;
 import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.CustomClassLoaderConstructor;
@@ -110,9 +109,18 @@ public class Main extends JavaPlugin implements Listener {
             Material.YELLOW_BANNER)));
 
     private Map<UUID, PlayerState> playerStates = new HashMap<>();
-    private NBTTools tools;
+    private NMSUtils tools;
     private Config config;
     private ItemGroups itemGroups;
+    private static Main instance;
+
+    public Main() {
+        instance = this;
+    }
+
+    public static Main getInstance() {
+        return instance;
+    }
 
     private File getDataFile(String name) {
         return new File(getDataFolder(), name);
@@ -181,7 +189,7 @@ public class Main extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
-        tools = CBShim.createShim(NBTTools.class, this);
+        tools = NMSUtils.createInstance(this);
         saveDefaultConfig();
         loadConfig();
         loadItems();
@@ -231,7 +239,7 @@ public class Main extends JavaPlugin implements Listener {
             if (cursor == null || cursor.getType() == Material.AIR) {
                 return;
             }
-            CompoundTag clickedTag = tools.readItemStack(cursor);
+            CompoundTag clickedTag = tools.getMiscUtils().getItemStackNbt(cursor);
             // getLogger().info("Expected: " + tools.readItemStack(expectedCursor));
             // getLogger().info("Got: " + clickedTag);
 
@@ -281,7 +289,7 @@ public class Main extends JavaPlugin implements Listener {
             CompoundTag headData = cursorTag.getCompound("tag");
             if (headData != null) {
                 CompoundTag skullOwnerData = headData.getCompound("SkullOwner");
-                if (skullOwnerData != null && headData.getValue().size() == 1) {
+                if (skullOwnerData != null && headData.size() == 1) {
                     Location playerLocation = player.getLocation();
                     int playerX = playerLocation.getBlockX();
                     int playerZ = playerLocation.getBlockZ();
@@ -297,7 +305,7 @@ public class Main extends JavaPlugin implements Listener {
                                 if (bs instanceof Skull) {
                                     bs.getLocation(blockLocation);
                                     if (blockLocation.distanceSquared(playerLocation) < 7 * 7) {
-                                        CompoundTag skullTag = tools.readTileEntity(bs.getBlock());
+                                        CompoundTag skullTag = tools.getMiscUtils().getTileEntityNbt(bs.getBlock());
                                         if (skullTag != null) {
                                             CompoundTag existingSkullOwnerData = skullTag.getCompound("SkullOwner");
                                             if (existingSkullOwnerData != null && existingSkullOwnerData.equals(skullOwnerData)) {
@@ -333,7 +341,7 @@ public class Main extends JavaPlugin implements Listener {
                                 if (bs instanceof Banner) {
                                     bs.getLocation(blockLocation);
                                     if (blockLocation.distanceSquared(playerLocation) < 7 * 7) {
-                                        CompoundTag bannerTag = tools.readTileEntity(bs.getBlock());
+                                        CompoundTag bannerTag = tools.getMiscUtils().getTileEntityNbt(bs.getBlock());
                                         if (bannerTag != null) {
                                             ListTag existingPatternsTag = bannerTag.getList("Patterns");
                                             if (Objects.equal(existingPatternsTag, patternsTag)) {
@@ -380,7 +388,7 @@ public class Main extends JavaPlugin implements Listener {
             }
         }
         Item item = e.getItemDrop();
-        CompoundTag itemTag = tools.readItemStack(item.getItemStack());
+        CompoundTag itemTag = tools.getMiscUtils().getItemStackNbt(item.getItemStack());
         if (!checkBlacklist(p, itemTag)) {
             e.setCancelled(true);
             item.remove();
@@ -394,7 +402,7 @@ public class Main extends JavaPlugin implements Listener {
                 return;
             }
             Item item = e.getItem();
-            CompoundTag itemTag = tools.readItemStack(item.getItemStack());
+            CompoundTag itemTag = tools.getMiscUtils().getItemStackNbt(item.getItemStack());
             if (!checkBlacklist(player, itemTag)) {
                 e.setCancelled(true);
                 item.remove();
@@ -414,7 +422,7 @@ public class Main extends JavaPlugin implements Listener {
             return;
         }
 
-        CompoundTag itemTag = tools.readItemStack(item);
+        CompoundTag itemTag = tools.getMiscUtils().getItemStackNbt(item);
         if (!checkBlacklist(p, itemTag)) {
             e.setCancelled(true);
         }
@@ -458,7 +466,7 @@ public class Main extends JavaPlugin implements Listener {
                         if (type != null) {
                             if (tag != null && tag.containsKey("Damage", TagType.INT)) {
                                 tag.remove("Damage");
-                                if (tag.getValue().isEmpty()) {
+                                if (tag.size() == 0) {
                                     tag = null;
                                 }
                             }
@@ -570,5 +578,9 @@ public class Main extends JavaPlugin implements Listener {
             }
             return true;
         }
+    }
+
+    public NMSUtils getTools() {
+        return tools;
     }
 }

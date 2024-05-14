@@ -4,19 +4,14 @@
  */
 package org.cyberiantiger.minecraft.itemcontrol.items;
 
-import java.io.IOException;
-import java.io.StringReader;
+import de.cubeside.nmsutils.nbt.CompoundTag;
+import de.cubeside.nmsutils.nbt.ListTag;
+import de.cubeside.nmsutils.nbt.TagType;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import org.cyberiantiger.minecraft.nbt.CompoundTag;
-import org.cyberiantiger.minecraft.nbt.ListTag;
-import org.cyberiantiger.minecraft.nbt.MojangsonParser;
-import org.cyberiantiger.minecraft.nbt.Tag;
-import org.cyberiantiger.minecraft.nbt.TagTuple;
-import org.cyberiantiger.minecraft.nbt.TagType;
+import org.cyberiantiger.minecraft.itemcontrol.Main;
 
 /**
  *
@@ -37,40 +32,31 @@ public class ItemType {
             if (tags.isEmpty()) {
                 parsedTags = Collections.emptySet();
             } else {
-                parsedTags = new HashSet<CompoundTag>(tags.size());
+                parsedTags = new HashSet<>(tags.size());
                 for (String tag : tags) {
                     try {
-                        MojangsonParser parser = new MojangsonParser(new StringReader(tag));
-                        TagTuple<?> result = parser.parse();
-                        CompoundTag compoundTag = (CompoundTag) result.getValue();
+                        CompoundTag compoundTag = Main.getInstance().getTools().getNbtUtils().parseString(tag);
                         parsedTags.add(compoundTag);
 
                         // accept books with lower enchantment levels too
                         if (compoundTag.containsKey("StoredEnchantments", TagType.LIST)) {
                             ListTag enchList = compoundTag.getList("StoredEnchantments");
-                            Tag<?>[] enchArray = enchList.getValue();
-                            if (enchArray.length == 1) {
-                                if (enchArray[0] instanceof CompoundTag) {
-                                    CompoundTag ench = (CompoundTag) enchArray[0];
-                                    if (ench.containsKey("lvl", TagType.SHORT)) {
-                                        int level = ench.getShort("lvl") - 1;
-                                        while (level >= 1) {
-                                            parser = new MojangsonParser(new StringReader(tag));
-                                            result = parser.parse();
-                                            CompoundTag compoundTag2 = (CompoundTag) result.getValue();
-                                            ListTag enchList2 = compoundTag2.getList("StoredEnchantments");
-                                            Tag<?>[] enchArray2 = enchList2.getValue();
-                                            CompoundTag ench2 = (CompoundTag) enchArray2[0];
-                                            ench2.setShort("lvl", (short) level);
-                                            parsedTags.add(compoundTag2);
+                            if (enchList.size() == 1 && enchList.getElementType() == TagType.COMPOUND) {
+                                CompoundTag ench = enchList.getCompound(0);
+                                if (ench.containsKey("lvl", TagType.SHORT)) {
+                                    int level = ench.getShort("lvl") - 1;
+                                    while (level >= 1) {
+                                        CompoundTag compoundTag2 = Main.getInstance().getTools().getNbtUtils().parseString(tag);
+                                        ListTag enchList2 = compoundTag2.getList("StoredEnchantments");
+                                        enchList2.getCompound(0).setShort("lvl", (short) level);
+                                        parsedTags.add(compoundTag2);
 
-                                            level -= 1;
-                                        }
+                                        level -= 1;
                                     }
                                 }
                             }
                         }
-                    } catch (IOException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }

@@ -25,9 +25,9 @@
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.11.0</version>
+        <version>3.13.0</version>
         <configuration>
-          <release>17</release>
+          <release>21</release>
         </configuration>
       </plugin>
       <plugin>
@@ -36,7 +36,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
-        <version>3.4.1</version>
+        <version>3.5.3</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -44,11 +44,12 @@
               <goal>shade</goal>
             </goals>
             <configuration>
-              <artifactSet>
-                <includes>
-                  <include>org.cyberiantiger.minecraft:*</include>
-                </includes>
-              </artifactSet>
+              <relocations>
+                <relocation>
+                  <pattern>de.cubeside.nmsutils</pattern>
+                  <shadedPattern>org.cyberiantiger.minecraft.itemcontrol.libs.nmsutils</shadedPattern>
+                </relocation>
+              </relocations>
             </configuration>
           </execution>
         </executions>
@@ -69,13 +70,13 @@
     <dependency>
       <groupId>org.spigotmc</groupId>
       <artifactId>spigot-api</artifactId>
-      <version>1.20-R0.1-SNAPSHOT</version>
+      <version>1.20.6-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.cyberiantiger.minecraft</groupId>
-      <artifactId>libnbt</artifactId>
-      <version>2.11-SNAPSHOT</version>
+      <groupId>de.cubeside.nmsutils</groupId>
+      <artifactId>nmsutils-plugin</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
   <distributionManagement>

@@ -1,10 +1,10 @@
 package org.cyberiantiger.minecraft.itemcontrol.event;
 
+import de.cubeside.nmsutils.nbt.CompoundTag;
 import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.player.PlayerEvent;
 import org.cyberiantiger.minecraft.itemcontrol.config.Action;
-import org.cyberiantiger.minecraft.nbt.CompoundTag;
 
 public class BlockedCreativeInventoryActionEvent extends PlayerEvent {
     private static final HandlerList handlers = new HandlerList();
