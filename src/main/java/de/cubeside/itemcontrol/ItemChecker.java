@@ -10,11 +10,15 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.Registry;
 
 public class ItemChecker {
-    public static boolean filterItem(CompoundTag clickedTag, GroupConfig group) {
+    public static Boolean filterItem(CompoundTag stack, GroupConfig group) {
         boolean modified = false;
-        NamespacedKey id = NamespacedKey.fromString(clickedTag.getString("id", "air"));
+        NamespacedKey id = NamespacedKey.fromString(stack.getString("id", "air"));
         Material m = id == null ? null : Registry.MATERIAL.get(id);
-        CompoundTag components = clickedTag.getCompound("components");
+        if (group.getForbiddenItems().contains(m)) {
+            stack.clear();
+            return null;
+        }
+        CompoundTag components = stack.getCompound("components");
         if (components != null && !group.isAllowAllComponents()) {
             for (String keyString : new ArrayList<>(components.getAllKeys())) {
                 NamespacedKey key = NamespacedKey.fromString(keyString);
@@ -25,11 +29,11 @@ public class ItemChecker {
                     ComponentCheck check = group.getComponentHandler(key);
                     if (check != null) {
                         try {
-                            modified |= check.enforce(m, components, keyString);
+                            modified |= check.enforce(group, m, components, keyString);
                         } catch (Exception ex) {
                             Main.getInstance().getLogger().log(Level.SEVERE, "Could not execute check for " + key, ex);
-                            Main.getInstance().getLogger().log(Level.SEVERE, Main.getInstance().getTools().getNbtUtils().writeString(clickedTag));
-                            clickedTag.remove("components");
+                            Main.getInstance().getLogger().log(Level.SEVERE, Main.getInstance().getTools().getNbtUtils().writeString(stack));
+                            stack.remove("components");
                             modified = true;
                         }
                     } else {
@@ -39,7 +43,7 @@ public class ItemChecker {
                 }
             }
             if (components.size() == 0) {
-                clickedTag.remove("components");
+                stack.remove("components");
                 modified = true;
             }
         }

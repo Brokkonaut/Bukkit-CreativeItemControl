@@ -1,5 +1,6 @@
 package de.cubeside.itemcontrol.checks;
 
+import de.cubeside.itemcontrol.config.GroupConfig;
 import de.cubeside.nmsutils.nbt.CompoundTag;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -10,5 +11,5 @@ public interface ComponentCheck {
 
     public void loadConfig(ConfigurationSection section);
 
-    public boolean enforce(Material material, CompoundTag itemTag, String key);
+    public boolean enforce(GroupConfig group, Material material, CompoundTag itemTag, String key);
 }

@@ -8,8 +8,8 @@ import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.ConfigurationSection;
 
-public class CheckChargedProjectiles implements ComponentCheck {
-    private static final NamespacedKey KEY = NamespacedKey.fromString("minecraft:charged_projectiles");
+public class CheckBundleContents implements ComponentCheck {
+    private static final NamespacedKey KEY = NamespacedKey.fromString("minecraft:bundle_contents");
 
     @Override
     public NamespacedKey getComponentKey() {

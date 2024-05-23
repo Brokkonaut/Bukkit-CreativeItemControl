@@ -147,12 +147,17 @@ public class Main extends JavaPlugin implements Listener {
                 return;
             }
 
-            // getLogger().info("Got: " + clickedTag);
+            getLogger().info("Got: " + clickedTag);
             if (clickedTag != null) {
-                // getLogger().info("String: " + tools.getNbtUtils().writeString(clickedTag));
-                boolean modified = ItemChecker.filterItem(clickedTag, group);
+                getLogger().info("String: " + tools.getNbtUtils().writeString(clickedTag));
+                Boolean modified = ItemChecker.filterItem(clickedTag, group);
+                if (modified == null) {
+                    player.sendMessage(ComponentUtil.color("This item is not available!", ChatColor.DARK_RED));
+                    e.setCancelled(true);
+                    return;
+                }
 
-                // getLogger().info("Result: " + tools.getNbtUtils().writeString(clickedTag));
+                getLogger().info("Result: " + tools.getNbtUtils().writeString(clickedTag));
                 if (modified) {
                     ItemStack newStack = tools.getNbtUtils().createItemStack(clickedTag);
                     if (newStack == null) {

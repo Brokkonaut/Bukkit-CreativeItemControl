@@ -1,5 +1,6 @@
 package de.cubeside.itemcontrol.checks;
 
+import de.cubeside.itemcontrol.config.GroupConfig;
 import de.cubeside.nmsutils.nbt.CompoundTag;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -18,7 +19,7 @@ public class CheckDyedColor implements ComponentCheck {
     }
 
     @Override
-    public boolean enforce(Material material, CompoundTag itemComponentsTag, String key) {
+    public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key) {
         return false;
     }
 }

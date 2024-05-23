@@ -8,9 +8,11 @@ import de.cubeside.itemcontrol.checks.CheckBees;
 import de.cubeside.itemcontrol.checks.CheckBlockEntityData;
 import de.cubeside.itemcontrol.checks.CheckBlockState;
 import de.cubeside.itemcontrol.checks.CheckBucketEntityData;
+import de.cubeside.itemcontrol.checks.CheckBundleContents;
 import de.cubeside.itemcontrol.checks.CheckCanBreak;
 import de.cubeside.itemcontrol.checks.CheckCanPlaceOn;
 import de.cubeside.itemcontrol.checks.CheckChargedProjectiles;
+import de.cubeside.itemcontrol.checks.CheckContainer;
 import de.cubeside.itemcontrol.checks.CheckContainerLoot;
 import de.cubeside.itemcontrol.checks.CheckCustomData;
 import de.cubeside.itemcontrol.checks.CheckCustomModelData;
@@ -24,6 +26,7 @@ import de.cubeside.itemcontrol.checks.CheckEntityData;
 import de.cubeside.itemcontrol.checks.CheckFireResistant;
 import de.cubeside.itemcontrol.checks.CheckFireworkExplosion;
 import de.cubeside.itemcontrol.checks.CheckFireworks;
+import de.cubeside.itemcontrol.checks.CheckFood;
 import de.cubeside.itemcontrol.checks.CheckHideAdditionalTooltip;
 import de.cubeside.itemcontrol.checks.CheckHideTooltip;
 import de.cubeside.itemcontrol.checks.CheckInstrument;
@@ -34,6 +37,7 @@ import de.cubeside.itemcontrol.checks.CheckLock;
 import de.cubeside.itemcontrol.checks.CheckLodestoneTracker;
 import de.cubeside.itemcontrol.checks.CheckLore;
 import de.cubeside.itemcontrol.checks.CheckMapColor;
+import de.cubeside.itemcontrol.checks.CheckMapDecorations;
 import de.cubeside.itemcontrol.checks.CheckMapId;
 import de.cubeside.itemcontrol.checks.CheckMaxDamage;
 import de.cubeside.itemcontrol.checks.CheckMaxStackSize;
@@ -75,11 +79,11 @@ public class GroupConfig {
             CheckBlockEntityData::new,
             CheckBlockState::new,
             CheckBucketEntityData::new,
-            // FIXME bundle_contents
+            CheckBundleContents::new,
             CheckCanBreak::new,
             CheckCanPlaceOn::new,
             CheckChargedProjectiles::new,
-            // FIXME container
+            CheckContainer::new,
             CheckContainerLoot::new,
             CheckCustomData::new,
             CheckCustomModelData::new,
@@ -93,7 +97,7 @@ public class GroupConfig {
             CheckFireResistant::new,
             CheckFireworkExplosion::new,
             CheckFireworks::new,
-            // food
+            CheckFood::new,
             CheckHideAdditionalTooltip::new,
             CheckHideTooltip::new,
             CheckInstrument::new,
@@ -104,7 +108,7 @@ public class GroupConfig {
             CheckLodestoneTracker::new,
             CheckLore::new,
             CheckMapColor::new,
-            // map_decorations
+            CheckMapDecorations::new,
             CheckMapId::new,
             CheckMaxDamage::new,
             CheckMaxStackSize::new,

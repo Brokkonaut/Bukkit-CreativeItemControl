@@ -1,5 +1,6 @@
 package de.cubeside.itemcontrol.checks;
 
+import de.cubeside.itemcontrol.config.GroupConfig;
 import de.cubeside.itemcontrol.util.ConfigUtil;
 import de.cubeside.nmsutils.nbt.CompoundTag;
 import de.cubeside.nmsutils.nbt.ListTag;
@@ -29,7 +30,7 @@ public class CheckBees implements ComponentCheck {
     }
 
     @Override
-    public boolean enforce(Material material, CompoundTag itemComponentsTag, String key) {
+    public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key) {
         boolean changed = false;
 
         ListTag beesList = itemComponentsTag.getList(key);

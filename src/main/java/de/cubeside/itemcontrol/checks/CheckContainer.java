@@ -8,8 +8,8 @@ import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.ConfigurationSection;
 
-public class CheckChargedProjectiles implements ComponentCheck {
-    private static final NamespacedKey KEY = NamespacedKey.fromString("minecraft:charged_projectiles");
+public class CheckContainer implements ComponentCheck {
+    private static final NamespacedKey KEY = NamespacedKey.fromString("minecraft:container");
 
     @Override
     public NamespacedKey getComponentKey() {
@@ -27,15 +27,21 @@ public class CheckChargedProjectiles implements ComponentCheck {
         ListTag itemList = itemComponentsTag.getList(key);
         if (itemList != null) {
             for (int i = itemList.size() - 1; i >= 0; i--) {
-                CompoundTag stack = itemList.getCompound(i);
-                if (stack == null) {
+                CompoundTag entry = itemList.getCompound(i);
+                if (entry == null) {
                     itemList.remove(i);
                     changed = true;
                 } else {
-                    Boolean result = ItemChecker.filterItem(stack, group);
-                    changed |= result != Boolean.FALSE;
-                    if (result == null) {
+                    CompoundTag stack = entry.getCompound("item");
+                    if (stack == null) {
                         itemList.remove(i);
+                        changed = true;
+                    } else {
+                        Boolean result = ItemChecker.filterItem(stack, group);
+                        changed |= result != Boolean.FALSE;
+                        if (result == null) {
+                            itemList.remove(i);
+                        }
                     }
                 }
             }

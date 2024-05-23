@@ -1,6 +1,7 @@
 package de.cubeside.itemcontrol.checks;
 
 import de.cubeside.itemcontrol.Main;
+import de.cubeside.itemcontrol.config.GroupConfig;
 import de.cubeside.itemcontrol.util.ConfigUtil;
 import de.cubeside.nmsutils.nbt.CompoundTag;
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public abstract class BaseCheckEnchantments implements ComponentCheck {
     }
 
     @Override
-    public boolean enforce(Material material, CompoundTag itemComponentsTag, String key) {
+    public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key) {
         return enforceEnchantmentLevels(material, itemComponentsTag, key, false);
     }
 
