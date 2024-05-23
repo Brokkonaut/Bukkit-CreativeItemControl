@@ -40,7 +40,7 @@ public class CheckPotDecorations implements ComponentCheck {
                 String s = sheardList.getString(i);
                 if (s != null) {
                     NamespacedKey sheardKey = NamespacedKey.fromString(s);
-                    Material m = sheardKey == null ? Registry.MATERIAL.get(sheardKey) : null;
+                    Material m = sheardKey != null ? Registry.MATERIAL.get(sheardKey) : null;
                     if (m == null || (m != Material.BRICK && !Tag.ITEMS_DECORATED_POT_SHERDS.isTagged(m))) {
                         sheardList.remove(i);
                         changed = true;
@@ -49,6 +49,10 @@ public class CheckPotDecorations implements ComponentCheck {
                     sheardList.remove(i);
                     changed = true;
                 }
+            }
+            if (sheardList.isEmpty()) {
+                itemComponentsTag.remove(key);
+                changed = true;
             }
         } else {
             itemComponentsTag.remove(key);
