@@ -135,14 +135,18 @@ public class Main extends JavaPlugin implements Listener {
             GroupConfig group = pluginConfig.getGroup(player);
 
             if (group.getForbiddenItems().contains(m)) {
-                player.sendMessage(ComponentUtil.color("This item is not available!", ChatColor.DARK_RED));
+                if (pluginConfig.getUnavailableMessage() != null) {
+                    player.sendMessage(ComponentUtil.color(pluginConfig.getUnavailableMessage().replace("$itemtype$", m.getKey().asMinimalString()), ChatColor.DARK_RED));
+                }
                 e.setCancelled(true);
                 return;
             }
 
             byte[] serialized = tools.getNbtUtils().writeBinary(clickedTag);
             if (group.getMaxItemSizeBytes() >= 0 && serialized.length > group.getMaxItemSizeBytes()) {
-                player.sendMessage(ComponentUtil.color("Invalid item (size)!", ChatColor.DARK_RED));
+                if (pluginConfig.getTooLargeMessage() != null) {
+                    player.sendMessage(ComponentUtil.color(pluginConfig.getTooLargeMessage().replace("$itemtype$", m.getKey().asMinimalString()), ChatColor.DARK_RED));
+                }
                 e.setCancelled(true);
                 return;
             }
@@ -152,7 +156,9 @@ public class Main extends JavaPlugin implements Listener {
                 getLogger().info("String: " + tools.getNbtUtils().writeString(clickedTag));
                 Boolean modified = ItemChecker.filterItem(clickedTag, group);
                 if (modified == null) {
-                    player.sendMessage(ComponentUtil.color("This item is not available!", ChatColor.DARK_RED));
+                    if (pluginConfig.getUnavailableMessage() != null) {
+                        player.sendMessage(ComponentUtil.color(pluginConfig.getUnavailableMessage().replace("$itemtype$", m.getKey().asMinimalString()), ChatColor.DARK_RED));
+                    }
                     e.setCancelled(true);
                     return;
                 }

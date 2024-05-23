@@ -9,14 +9,11 @@
 # https://minecraft.wiki/w/Data_component_format
 #
 # If an item is blocked, the player gets the message configured in messages.unavailable.
-# Players with the permission creativeitemcontrol.watch will get the message confiured in
-# messages.broadcastUnavailalable. %1$s is the player name and %2$s is the item type.
-# If creativeitemcontrol wants to block an item, a BlockedCreativeInventoryActionEvent is called
-# so other plugins my react on the event and allow the item or perform other actions.
+# $itemtype$ can be used for the item type in the message.
 
 messages:
-  unavailable: 'You do not have permission for %2$s.'
-  broadcastUnavailalable: '%1$s attempted to spawn in %2$s'
+  unavailable: 'This item is not available!'
+  tooLarge: 'This item is blocked, because it contained too much data!'
 groups:
   default:
     max_item_size_bytes: 50000
@@ -63,6 +60,90 @@ groups:
         allow: true
         allow_formating: false
         max_length: 40
+      enchantment_glint_override:
+        allow: false
+      enchantments:
+        allow_on_all_items: false
+        allow_hidden: false
+        override_max_level: {}
+      entity_data:
+        allow: false
+      fire_resistant:
+        allow: false
+      firework_explosion:
+        allow: false
+      fireworks:
+        allow: true
+        max_exposions: 8
+        max_flight_time: 3
+      food:
+        allow: false
+        allow_converts_to: false
+        allow_effects: false
+      hide_additional_tooltip:
+        allow: false
+      hide_tooltip:
+        allow: false
+      instrument:
+        allow_custom: false
+      item_name:
+        allow: true
+        allow_formating: true
+        max_length: 4000
+      lock:
+        allow: false
+      lodestone_tracker:
+        allow: false
+      lore:
+        allow: false
+        allow_formating: false
+        max_lines: 40
+        max_length: 4000
+      map_decorations:
+        allow: false
+        max_decorations: 50
+      map_id:
+        allow: false
+      max_damage:
+        allow: false
+      max_stack_size:
+        allow: false
+      note_block_sound:
+        allow: false
+      ominous_bottle_amplifier:
+        allow: false
+      pot_decorations:
+        allow: false
+      potion_contents:
+        allow: true
+        custom_color: false
+        custom_effects: false
+      profile:
+        allow: false
+      rarity:
+        allow: false
+      recipes:
+        allow: false
+      repair_cost:
+        allow: false
+      stored_enchantments:
+        allow_on_all_items: true
+        allow_hidden: true
+        override_max_level: {}
+      suspicious_stew_effects:
+        allow: true
+        max_duration: 160
+      tool:
+        allow: false
+      trim:
+        allow: false
+        allow_hidden: true
+      unbreakable:
+        allow: false
+      writable_book_content:
+        allow: false
+      written_book_content:
+        allow: false
   builder:
     priority: 10
     max_item_size_bytes: 50000
@@ -198,3 +279,122 @@ groups:
     max_item_size_bytes: -1
     forbidden_items: []
     allow_all_components: true
+    components:
+      attribute_modifiers:
+        allow_hidden: true
+        allow_all: false
+        allow:
+          - generic.movement_speed
+      banner_patterns:
+        max_patterns: 16
+      bees:
+        max_bees: 3
+        allow_entity_data: false
+        allow_all_entities: false
+      block_entity_data:
+        allow: false
+      block_state:
+        allow: true
+      bucket_entity_data:
+        allow: true
+      can_break:
+        allow: true
+      can_place_on:
+        allow: true
+      container_loot:
+        allow: true
+      custom_data:
+        allow_all: false
+        allowed_keys: []
+      custom_model_data:
+        allow: true
+      custom_name:
+        allow: true
+        allow_formating: true
+        max_length: 4000
+      enchantment_glint_override:
+        allow: true
+      enchantments:
+        allow_on_all_items: true
+        allow_hidden: true
+        override_max_level:
+          protection: 4
+      entity_data:
+        allow: true
+      fire_resistant:
+        allow: true
+      firework_explosion:
+        allow: true
+      fireworks:
+        allow: true
+        max_exposions: 256
+        max_flight_time: 127
+      food:
+        allow: true
+        allow_converts_to: true
+        allow_effects: true
+      hide_additional_tooltip:
+        allow: true
+      hide_tooltip:
+        allow: true
+      instrument:
+        allow_custom: false
+      item_name:
+        allow: true
+        allow_formating: true
+        max_length: 4000
+      lock:
+        allow: true
+      lodestone_tracker:
+        allow: true
+      lore:
+        allow: true
+        allow_formating: true
+        max_lines: 40
+        max_length: 4000
+      map_decorations:
+        allow: true
+        max_decorations: 50
+      map_id:
+        allow: true
+      max_damage:
+        allow: true
+      max_stack_size:
+        allow: true
+      note_block_sound:
+        allow: true
+      ominous_bottle_amplifier:
+        allow: true
+      pot_decorations:
+        allow: true
+      potion_contents:
+        allow: true
+        custom_color: true
+        custom_effects: true
+      profile:
+        allow: true
+      rarity:
+        allow: true
+      recipes:
+        allow: true
+      repair_cost:
+        allow: true
+      stored_enchantments:
+        allow_on_all_items: true
+        allow_hidden: true
+        override_max_level:
+          protection: 4
+      suspicious_stew_effects:
+        allow: true
+        max_duration: 160
+      tool:
+        allow: true
+      trim:
+        allow: true
+        allow_hidden: true
+      unbreakable:
+        allow: true
+      writable_book_content:
+        allow: true
+      written_book_content:
+        allow: true

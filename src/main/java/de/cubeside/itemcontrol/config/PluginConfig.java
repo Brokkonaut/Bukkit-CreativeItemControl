@@ -10,12 +10,14 @@ import org.bukkit.entity.Player;
 public class PluginConfig {
     private GroupConfig defaultGroup;
     private ArrayList<GroupConfig> groups;
+    private String unavailableMessage;
+    private String tooLargeMessage;
 
     public PluginConfig(Main main, YamlConfiguration yamlConfig) {
         ConfigurationSection messagesSection = yamlConfig.getConfigurationSection("messages");
         if (messagesSection != null) {
-            messagesSection.getString("unavailable");
-            messagesSection.getString("broadcastUnavailalable");
+            unavailableMessage = messagesSection.getString("unavailable");
+            tooLargeMessage = messagesSection.getString("tooLarge");
         }
         ConfigurationSection groupsSection = ConfigUtil.getOrCreateSection(yamlConfig, "groups");
         ConfigurationSection defaultGroupSection = ConfigUtil.getOrCreateSection(groupsSection, "default");
@@ -39,5 +41,13 @@ public class PluginConfig {
             }
         }
         return defaultGroup;
+    }
+
+    public String getUnavailableMessage() {
+        return unavailableMessage;
+    }
+
+    public String getTooLargeMessage() {
+        return tooLargeMessage;
     }
 }
