@@ -155,9 +155,10 @@ public class Main extends JavaPlugin implements Listener {
                 return;
             }
 
-            getLogger().info("Got: " + clickedTag);
             if (clickedTag != null) {
-                getLogger().info("String: " + tools.getNbtUtils().writeString(clickedTag));
+                if (pluginConfig.isDebug()) {
+                    getLogger().info("Input from " + player.getName() + ": " + tools.getNbtUtils().writeString(clickedTag));
+                }
                 Boolean modified = ItemChecker.filterItem(clickedTag, group);
                 if (modified == null) {
                     if (pluginConfig.getUnavailableMessage() != null) {
@@ -167,7 +168,9 @@ public class Main extends JavaPlugin implements Listener {
                     return;
                 }
 
-                getLogger().info("Result: " + tools.getNbtUtils().writeString(clickedTag));
+                if (pluginConfig.isDebug()) {
+                    getLogger().info("Result: " + tools.getNbtUtils().writeString(clickedTag));
+                }
                 if (modified) {
                     ItemStack newStack = tools.getNbtUtils().createItemStack(clickedTag);
                     if (newStack == null) {

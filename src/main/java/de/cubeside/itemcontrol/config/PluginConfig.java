@@ -12,8 +12,10 @@ public class PluginConfig {
     private ArrayList<GroupConfig> groups;
     private String unavailableMessage;
     private String tooLargeMessage;
+    private boolean debug;
 
     public PluginConfig(Main main, YamlConfiguration yamlConfig) {
+        debug = ConfigUtil.getOrCreate(yamlConfig, "debug", false);
         ConfigurationSection messagesSection = yamlConfig.getConfigurationSection("messages");
         if (messagesSection != null) {
             unavailableMessage = messagesSection.getString("unavailable");
@@ -49,5 +51,9 @@ public class PluginConfig {
 
     public String getTooLargeMessage() {
         return tooLargeMessage;
+    }
+
+    public boolean isDebug() {
+        return debug;
     }
 }

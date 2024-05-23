@@ -10,7 +10,7 @@
 #
 # If an item is blocked, the player gets the message configured in messages.unavailable.
 # $itemtype$ can be used for the item type in the message.
-
+debug: false
 messages:
   unavailable: 'This item is not available!'
   tooLarge: 'This item is blocked, because it contained too much data!'
