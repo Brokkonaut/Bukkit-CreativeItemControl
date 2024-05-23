@@ -77,6 +77,13 @@ public class Main extends JavaPlugin implements Listener {
             yamlConfig.load(configFile);
         } catch (IOException | InvalidConfigurationException e) {
             getLogger().log(Level.SEVERE, "Could not load config file: " + e.getMessage());
+            if (configFile.isFile()) {
+                File configBackupFile = new File(getDataFolder(), "config." + System.currentTimeMillis() + ".yml");
+                configFile.renameTo(configBackupFile);
+                saveDefaultConfig();
+                reloadConfig();
+                return;
+            }
         }
         pluginConfig = new PluginConfig(this, yamlConfig);
     }
@@ -116,9 +123,6 @@ public class Main extends JavaPlugin implements Listener {
             PlayerState state = getPlayerState(player);
 
             ItemStack expectedCursor = state.getLastItem();
-            if (expectedCursor == null) {
-                expectedCursor = EMPTY_CURSOR;
-            }
             ItemStack cursor = e.getCursor();
             Material m = cursor == null ? Material.AIR : cursor.getType();
             if (m == Material.AIR) {
@@ -244,7 +248,7 @@ public class Main extends JavaPlugin implements Listener {
         }
 
         public ItemStack getLastItem() {
-            return lastItem;
+            return lastItem == null ? EMPTY_CURSOR : lastItem;
         }
 
         public void setLastItem(ItemStack lastItem) {
