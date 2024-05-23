@@ -1,107 +1,200 @@
-# Rate limiting (defaults to disabled)
-# Limits item clicks to rateLimit per rateLimitTime.
-# Example below for limiting to 100 item clicks or drops per 60 seconds.
+# Here you can configure what items are allowed to be created by different players.
+# There can be multiple permission groups, the default group must exist. If there
+# are more groups, the one with the highest priotiry where the player has the required
+# permission ist used. the permission to use items of a group is 
+# creativeitemcontrol.group.[.groupname], for example creativeitemcontrol.group.builder
+# 
+# forbidden items are not allowed to be spawned with any components, otherwise the components
+# are checked, for details about components hava a look at the minecraft wiki:
+# https://minecraft.wiki/w/Data_component_format
 #
-#rateLimit: 100
-#rateLimitTime: 60
+# If an item is blocked, the player gets the message configured in messages.unavailable.
+# Players with the permission creativeitemcontrol.watch will get the message confiured in
+# messages.broadcastUnavailalable. %1$s is the player name and %2$s is the item type.
+# If creativeitemcontrol wants to block an item, a BlockedCreativeInventoryActionEvent is called
+# so other plugins my react on the event and allow the item or perform other actions.
 
-# Custom blacklists
-#
-# You can name these whatever you want, a permission with the appropriate name
-# will be created automatically.
-#
-# The lists below serve only as an example, feel free to rename, remove or
-# add lists according to your server's needs.
-blacklist:
-#        basic:
-#                items:
-#                        - 'minecraft:barrier'
-#                        - 'minecraft:water_bucket'
-#                        - 'minecraft:flint_and_steel'
-#                        - 'minecraft:monster_egg'
-#        spawner:
-#                items:
-#                        - 'minecraft:mob_spawner'
-#                        - 'minecraft:spawn_egg'
-#        limited:
-#                items:
-#                        - 'minecraft:lava_bucket'
-#                        - 'minecraft:tnt'
-#                        - 'minecraft:tnt_minecart'
-
-# Whitelist - items to allow arbitrary nbt on.
-# Enchanted items may not be safe e.g. looting 32000.
-whitelist:
-        - 'minecraft:player_head'
-#        - 'minecraft:bow'
-#        - 'minecraft:iron_sword'
-#        - 'minecraft:wooden_sword'
-#        - 'minecraft:stone_sword'
-#        - 'minecraft:diamond_sword'
-#        - 'minecraft:golden_sword'
-#        - 'minecraft:leather_helmet'
-#        - 'minecraft:leather_chestplate'
-#        - 'minecraft:leather_leggings'
-#        - 'minecraft:leather_boots'
-#        - 'minecraft:chainmail_helmet'
-#        - 'minecraft:chainmail_chestplate'
-#        - 'minecraft:chainmail_leggings'
-#        - 'minecraft:chainmail_boots'
-#        - 'minecraft:iron_helmet'
-#        - 'minecraft:iron_chestplate'
-#        - 'minecraft:iron_leggings'
-#        - 'minecraft:iron_boots'
-#        - 'minecraft:diamond_helmet'
-#        - 'minecraft:diamond_chestplate'
-#        - 'minecraft:diamond_leggings'
-#        - 'minecraft:diamond_boots'
-#        - 'minecraft:golden_helmet'
-#        - 'minecraft:golden_chestplate'
-#        - 'minecraft:golden_leggings'
-#        - 'minecraft:golden_boots'
-
-# items that can be spawned, but not with additional nbt tags
-allowedItems:
-        - 'minecraft:barrier'
-
-# In strings
-# %1$s - player name.
-# %2$s - item name.
-# %3$s - full item nbt.
-# Note: you can limit the length of the strings with the following:
-# %3$.80s - full item nbt (limited to 80 characters).
-
-# Action when a player spawns an item not in the creative menu.
-unavailable:
-# Optional, defaults to true
-#        block: true
-
-# Optional, if not set, no message is sent.
-        message: 'You do not have permission for %2$s.'
-
-# Optional, defaults to bukkit.broadcast.admin
-#        broadcastPermission: bukkit.broadcast.admin
-
-# Optional, if not set, no broadcast is sent.
-        broadcastMessage: '%1$s attempted to spawn in %3$s'
-
-# List of commands, to run.
-#        commands: 
-#                - 'kick %1$s You do not have permission for %2$s.'
-
-# Action when a player spawns an item in the creative menu they have no permission for.
-# Any of the values from the unavailable action can be set here.
-nopermission:
-        message: 'You do not have permission for %2$s.'
-
-# Action when a player spawns an item which is blacklisted.
-# Any of the values from the unavailable action can be set here.
-blacklisted:
-        message: 'You do not have permission for %2$s.'
-
-# Action when a player exceeds the item click/drop rate limit
-# Note: this check is performed first
-# This might be extremely spammy for admins.
-onRateLimit:
-        broadcastMessage: '%1$s exceeded rate limit for inventory clicks or dropped items'
-        message: 'Do not click so fast!'
+messages:
+  unavailable: 'You do not have permission for %2$s.'
+  broadcastUnavailalable: '%1$s attempted to spawn in %2$s'
+groups:
+  default:
+    max_item_size_bytes: 50000
+    forbidden_items:
+      - command_block
+      - chain_command_block
+      - repeating_command_block
+      - command_block_minecart
+      - jigsaw
+      - structure_block
+      - structure_void
+      - barrier
+      - debug_stick
+      - light
+    allow_all_components: false
+    components:
+      attribute_modifiers:
+        allow_all: false
+        allow: []
+      banner_patterns:
+        max_patterns: 6
+      bees:
+        max_bees: 0
+        allow_entity_data: false
+        allow_all_entities: false
+      block_entity_data:
+        allow: false
+      block_state:
+        allow: true
+      bucket_entity_data:
+        allow: true
+      can_break:
+        allow: false
+      can_place_on:
+        allow: false
+      container_loot:
+        allow: false
+      custom_data:
+        allow_all: false
+        allowed_keys: []
+      custom_model_data:
+        allow: false
+      custom_name:
+        allow: true
+        allow_formating: false
+        max_length: 40
+  builder:
+    priority: 10
+    max_item_size_bytes: 50000
+    forbidden_items:
+      - command_block
+      - chain_command_block
+      - repeating_command_block
+      - command_block_minecart
+      - jigsaw
+      - structure_block
+    allow_all_components: false
+    components:
+      attribute_modifiers:
+        allow_hidden: true
+        allow_all: false
+        allow:
+          - generic.movement_speed
+      banner_patterns:
+        max_patterns: 16
+      bees:
+        max_bees: 3
+        allow_entity_data: false
+        allow_all_entities: false
+      block_entity_data:
+        allow: false
+      block_state:
+        allow: true
+      bucket_entity_data:
+        allow: true
+      can_break:
+        allow: true
+      can_place_on:
+        allow: true
+      container_loot:
+        allow: true
+      custom_data:
+        allow_all: false
+        allowed_keys: []
+      custom_model_data:
+        allow: true
+      custom_name:
+        allow: true
+        allow_formating: true
+        max_length: 4000
+      enchantment_glint_override:
+        allow: true
+      enchantments:
+        allow_on_all_items: true
+        allow_hidden: true
+        override_max_level:
+          protection: 4
+      entity_data:
+        allow: true
+      fire_resistant:
+        allow: true
+      firework_explosion:
+        allow: true
+      fireworks:
+        allow: true
+        max_exposions: 256
+        max_flight_time: 127
+      food:
+        allow: true
+        allow_converts_to: true
+        allow_effects: true
+      hide_additional_tooltip:
+        allow: true
+      hide_tooltip:
+        allow: true
+      instrument:
+        allow_custom: false
+      item_name:
+        allow: true
+        allow_formating: true
+        max_length: 4000
+      lock:
+        allow: true
+      lodestone_tracker:
+        allow: true
+      lore:
+        allow: true
+        allow_formating: true
+        max_lines: 40
+        max_length: 4000
+      map_decorations:
+        allow: true
+        max_decorations: 50
+      map_id:
+        allow: true
+      max_damage:
+        allow: true
+      max_stack_size:
+        allow: true
+      note_block_sound:
+        allow: true
+      ominous_bottle_amplifier:
+        allow: true
+      pot_decorations:
+        allow: true
+      potion_contents:
+        allow: true
+        custom_color: true
+        custom_effects: true
+      profile:
+        allow: true
+      rarity:
+        allow: true
+      recipes:
+        allow: true
+      repair_cost:
+        allow: true
+      stored_enchantments:
+        allow_on_all_items: true
+        allow_hidden: true
+        override_max_level:
+          protection: 4
+      suspicious_stew_effects:
+        allow: true
+        max_duration: 160
+      tool:
+        allow: true
+      trim:
+        allow: true
+        allow_hidden: true
+      unbreakable:
+        allow: true
+      writable_book_content:
+        allow: true
+      written_book_content:
+        allow: true
+  admin:
+    priority: 20
+    max_item_size_bytes: -1
+    forbidden_items: []
+    allow_all_components: true
