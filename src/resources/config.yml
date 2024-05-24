@@ -71,7 +71,7 @@ groups:
       fire_resistant:
         allow: false
       firework_explosion:
-        allow: false
+        allow: true
       fireworks:
         allow: true
         max_exposions: 8
@@ -87,7 +87,7 @@ groups:
       instrument:
         allow_custom: false
       item_name:
-        allow: true
+        allow: false
         allow_formating: true
         max_length: 4000
       lock:
@@ -113,7 +113,7 @@ groups:
       ominous_bottle_amplifier:
         allow: false
       pot_decorations:
-        allow: false
+        allow: true
       potion_contents:
         allow: true
         custom_color: false
@@ -127,8 +127,8 @@ groups:
       repair_cost:
         allow: false
       stored_enchantments:
-        allow_on_all_items: true
-        allow_hidden: true
+        allow_on_all_items: false
+        allow_hidden: false
         override_max_level: {}
       suspicious_stew_effects:
         allow: true
@@ -137,7 +137,7 @@ groups:
         allow: false
       trim:
         allow: false
-        allow_hidden: true
+        allow_hidden: false
       unbreakable:
         allow: false
       writable_book_content:
