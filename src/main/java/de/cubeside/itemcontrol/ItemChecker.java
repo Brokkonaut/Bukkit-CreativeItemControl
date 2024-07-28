@@ -18,6 +18,10 @@ public class ItemChecker {
             stack.clear();
             return null;
         }
+        int count = stack.getInt("count", 1);
+        if (count < 1 || count > 99) {
+            stack.setInt("count", 1);
+        }
         CompoundTag components = stack.getCompound("components");
         if (components != null && !group.isAllowAllComponents()) {
             for (String keyString : new ArrayList<>(components.getAllKeys())) {
