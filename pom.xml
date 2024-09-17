@@ -33,11 +33,10 @@
     </dependencies>
     <build>
         <finalName>creativeitemcontrol</finalName>
-        <sourceDirectory>src/main/java</sourceDirectory>
         <resources>
             <resource>
+                <directory>src/main/resources</directory>
                 <filtering>true</filtering>
-                <directory>src/resources</directory>
             </resource>
         </resources>
         <plugins>
@@ -47,9 +46,6 @@
                 <configuration>
                     <release>21</release>
                 </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-release-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

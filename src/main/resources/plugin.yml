@@ -1,5 +1,5 @@
 name: "CreativeItemControl"
-version: "${version}-${project.build.number}"
+version: "${version}-${buildNumber}"
 main: "de.cubeside.itemcontrol.Main"
 api-version: 1.20
 commands:
