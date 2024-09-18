@@ -68,6 +68,7 @@ groups:
         override_max_level: {}
       entity_data:
         allow: false
+        allowPaintings: true
       fire_resistant:
         allow: false
       firework_explosion:
@@ -111,7 +112,7 @@ groups:
       note_block_sound:
         allow: false
       ominous_bottle_amplifier:
-        allow: false
+        allow: true
       pot_decorations:
         allow: true
       potion_contents:
@@ -196,7 +197,8 @@ groups:
         override_max_level:
           protection: 4
       entity_data:
-        allow: true
+        allow: false
+        allowPaintings: true
       fire_resistant:
         allow: true
       firework_explosion:
@@ -321,6 +323,7 @@ groups:
           protection: 4
       entity_data:
         allow: true
+        allowPaintings: true
       fire_resistant:
         allow: true
       firework_explosion:
