@@ -28,7 +28,7 @@
         </dependency>
         <dependency>
             <groupId>de.cubeside.nmsutils</groupId>
-            <artifactId>nmsutils-plugin</artifactId>
+            <artifactId>nmsutils-standalone</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
@@ -66,6 +66,14 @@
                                         de.cubeside.itemcontrol.libs.nmsutils</shadedPattern>
                                 </relocation>
                             </relocations>
+                            <filters>
+                                <filter>
+                                    <artifact>de.cubeside.nmsutils:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.MF</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
                         </configuration>
                     </execution>
                 </executions>
