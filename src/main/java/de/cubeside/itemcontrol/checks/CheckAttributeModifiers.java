@@ -5,6 +5,7 @@ import de.cubeside.itemcontrol.config.GroupConfig;
 import de.cubeside.itemcontrol.util.ConfigUtil;
 import de.cubeside.nmsutils.nbt.CompoundTag;
 import de.cubeside.nmsutils.nbt.ListTag;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import org.bukkit.Material;
@@ -30,12 +31,28 @@ public class CheckAttributeModifiers implements ComponentCheck {
         allowAll = ConfigUtil.getOrCreate(data, "allow_all", false);
         allowHidden = ConfigUtil.getOrCreate(data, "allow_hidden", false);
         allowed.clear();
+        boolean rewriteAllow = false;
         for (String s : ConfigUtil.getOrCreate(data, "allow", List.of())) {
+            if (s.startsWith("generic.")) {
+                s = s.substring(8);
+                rewriteAllow = true;
+            }
             NamespacedKey key = NamespacedKey.fromString(s);
             if (key == null || Registry.ATTRIBUTE.get(key) == null) {
                 Main.getInstance().getLogger().warning("Invalid attribute modifier: " + s);
             } else {
                 allowed.add(key);
+            }
+        }
+        if (rewriteAllow) {
+            ArrayList<String> allow = new ArrayList<>();
+            for (String s : ConfigUtil.getOrCreate(data, "allow", List.of())) {
+                if (s.startsWith("generic.")) {
+                    s = s.substring(8);
+                }
+                allow.add(s);
+                data.set("allow", allow);
+                Main.getInstance().saveConfig();
             }
         }
     }

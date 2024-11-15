@@ -161,7 +161,7 @@ groups:
         allow_hidden: true
         allow_all: false
         allow:
-          - generic.movement_speed
+          - movement_speed
       banner_patterns:
         max_patterns: 16
       bees:
@@ -286,7 +286,7 @@ groups:
         allow_hidden: true
         allow_all: false
         allow:
-          - generic.movement_speed
+          - movement_speed
       banner_patterns:
         max_patterns: 16
       bees:
