@@ -12,25 +12,31 @@ import de.cubeside.itemcontrol.checks.CheckBundleContents;
 import de.cubeside.itemcontrol.checks.CheckCanBreak;
 import de.cubeside.itemcontrol.checks.CheckCanPlaceOn;
 import de.cubeside.itemcontrol.checks.CheckChargedProjectiles;
+import de.cubeside.itemcontrol.checks.CheckConsumable;
 import de.cubeside.itemcontrol.checks.CheckContainer;
 import de.cubeside.itemcontrol.checks.CheckContainerLoot;
 import de.cubeside.itemcontrol.checks.CheckCustomData;
 import de.cubeside.itemcontrol.checks.CheckCustomModelData;
 import de.cubeside.itemcontrol.checks.CheckCustomName;
 import de.cubeside.itemcontrol.checks.CheckDamage;
+import de.cubeside.itemcontrol.checks.CheckDamageResistant;
+import de.cubeside.itemcontrol.checks.CheckDeathProtection;
 import de.cubeside.itemcontrol.checks.CheckDebugStickState;
 import de.cubeside.itemcontrol.checks.CheckDyedColor;
+import de.cubeside.itemcontrol.checks.CheckEnchantable;
 import de.cubeside.itemcontrol.checks.CheckEnchantmentGlintOverride;
 import de.cubeside.itemcontrol.checks.CheckEnchantments;
 import de.cubeside.itemcontrol.checks.CheckEntityData;
-import de.cubeside.itemcontrol.checks.CheckFireResistant;
+import de.cubeside.itemcontrol.checks.CheckEquippable;
 import de.cubeside.itemcontrol.checks.CheckFireworkExplosion;
 import de.cubeside.itemcontrol.checks.CheckFireworks;
 import de.cubeside.itemcontrol.checks.CheckFood;
+import de.cubeside.itemcontrol.checks.CheckGlider;
 import de.cubeside.itemcontrol.checks.CheckHideAdditionalTooltip;
 import de.cubeside.itemcontrol.checks.CheckHideTooltip;
 import de.cubeside.itemcontrol.checks.CheckInstrument;
 import de.cubeside.itemcontrol.checks.CheckIntangibleProjectile;
+import de.cubeside.itemcontrol.checks.CheckItemModel;
 import de.cubeside.itemcontrol.checks.CheckItemName;
 import de.cubeside.itemcontrol.checks.CheckJukeboxPlayable;
 import de.cubeside.itemcontrol.checks.CheckLock;
@@ -49,11 +55,15 @@ import de.cubeside.itemcontrol.checks.CheckProfile;
 import de.cubeside.itemcontrol.checks.CheckRarity;
 import de.cubeside.itemcontrol.checks.CheckRecipes;
 import de.cubeside.itemcontrol.checks.CheckRepairCost;
+import de.cubeside.itemcontrol.checks.CheckRepairable;
 import de.cubeside.itemcontrol.checks.CheckStoredEnchantments;
 import de.cubeside.itemcontrol.checks.CheckSuspiciousStewEffects;
 import de.cubeside.itemcontrol.checks.CheckTool;
+import de.cubeside.itemcontrol.checks.CheckTooltipStyle;
 import de.cubeside.itemcontrol.checks.CheckTrim;
 import de.cubeside.itemcontrol.checks.CheckUnbreakable;
+import de.cubeside.itemcontrol.checks.CheckUseCooldown;
+import de.cubeside.itemcontrol.checks.CheckUseRemainder;
 import de.cubeside.itemcontrol.checks.CheckWritableBookContent;
 import de.cubeside.itemcontrol.checks.CheckWrittenBookContent;
 import de.cubeside.itemcontrol.checks.ComponentCheck;
@@ -83,25 +93,31 @@ public class GroupConfig {
             CheckCanBreak::new,
             CheckCanPlaceOn::new,
             CheckChargedProjectiles::new,
+            CheckConsumable::new,
             CheckContainer::new,
             CheckContainerLoot::new,
             CheckCustomData::new,
             CheckCustomModelData::new,
             CheckCustomName::new,
             CheckDamage::new,
+            CheckDamageResistant::new,
+            CheckDeathProtection::new,
             CheckDebugStickState::new,
             CheckDyedColor::new,
+            CheckEnchantable::new,
             CheckEnchantmentGlintOverride::new,
             CheckEnchantments::new,
             CheckEntityData::new,
-            CheckFireResistant::new,
+            CheckEquippable::new,
             CheckFireworkExplosion::new,
             CheckFireworks::new,
             CheckFood::new,
+            CheckGlider::new,
             CheckHideAdditionalTooltip::new,
             CheckHideTooltip::new,
             CheckInstrument::new,
             CheckIntangibleProjectile::new,
+            CheckItemModel::new,
             CheckItemName::new,
             CheckJukeboxPlayable::new,
             CheckLock::new,
@@ -119,12 +135,16 @@ public class GroupConfig {
             CheckProfile::new,
             CheckRarity::new,
             CheckRecipes::new,
+            CheckRepairable::new,
             CheckRepairCost::new,
             CheckStoredEnchantments::new,
             CheckSuspiciousStewEffects::new,
             CheckTool::new,
+            CheckTooltipStyle::new,
             CheckTrim::new,
             CheckUnbreakable::new,
+            CheckUseCooldown::new,
+            CheckUseRemainder::new,
             CheckWritableBookContent::new,
             CheckWrittenBookContent::new,
     };

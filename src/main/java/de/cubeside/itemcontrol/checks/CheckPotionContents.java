@@ -13,6 +13,9 @@ public class CheckPotionContents implements ComponentCheck {
     private boolean allow;
     private boolean customColor;
     private boolean customEffects;
+    private boolean customName;
+    private boolean customNameAllowFormating;
+    private int customNameMaxLength;
 
     @Override
     public NamespacedKey getComponentKey() {
@@ -25,6 +28,9 @@ public class CheckPotionContents implements ComponentCheck {
         allow = ConfigUtil.getOrCreate(data, "allow", true);
         customColor = ConfigUtil.getOrCreate(data, "custom_color", false);
         customEffects = ConfigUtil.getOrCreate(data, "custom_effects", false);
+        customName = ConfigUtil.getOrCreate(data, "custom_name", false);
+        customNameAllowFormating = ConfigUtil.getOrCreate(data, "custom_name_allow_formating", false);
+        customNameMaxLength = ConfigUtil.getOrCreate(data, "custom_name_max_length", 4000);
     }
 
     @Override
@@ -41,6 +47,9 @@ public class CheckPotionContents implements ComponentCheck {
             }
             if (!customEffects && compound.containsKey("custom_effects")) {
                 compound.remove("custom_effects");
+                changed = true;
+            }
+            if (BaseCheckName.enforce(compound, "custom_name", customName, customNameAllowFormating, customNameMaxLength)) {
                 changed = true;
             }
         }

@@ -49,6 +49,11 @@ groups:
         allow: false
       can_place_on:
         allow: false
+      consumable:
+        allow: false
+        allow_sounds: false
+        allow_effects: false
+        allow_teleport: false
       container_loot:
         allow: false
       custom_data:
@@ -60,6 +65,15 @@ groups:
         allow: true
         allow_formating: false
         max_length: 40
+      damage_resistant:
+        allow: false
+      death_protection:
+        allow: false
+        allow_sounds: false
+        allow_effects: false
+        allow_teleport: false
+      enchantable:
+        allow: false
       enchantment_glint_override:
         allow: false
       enchantments:
@@ -69,7 +83,7 @@ groups:
       entity_data:
         allow: false
         allowPaintings: true
-      fire_resistant:
+      equippable:
         allow: false
       firework_explosion:
         allow: true
@@ -79,8 +93,8 @@ groups:
         max_flight_time: 3
       food:
         allow: false
-        allow_converts_to: false
-        allow_effects: false
+      glider:
+        allow: false
       hide_additional_tooltip:
         allow: false
       hide_tooltip:
@@ -91,6 +105,8 @@ groups:
         allow: false
         allow_formating: true
         max_length: 4000
+      item_model:
+        allow: false
       lock:
         allow: false
       lodestone_tracker:
@@ -119,6 +135,9 @@ groups:
         allow: true
         custom_color: false
         custom_effects: false
+        custom_name: false
+        custom_name_allow_formating: false
+        custom_name_max_length: 4000
       profile:
         allow: false
       rarity:
@@ -126,6 +145,8 @@ groups:
       recipes:
         allow: false
       repair_cost:
+        allow: false
+      repairable:
         allow: false
       stored_enchantments:
         allow_on_all_items: false
@@ -136,10 +157,16 @@ groups:
         max_duration: 160
       tool:
         allow: false
+      tooltip_style:
+        allow: false
       trim:
         allow: false
         allow_hidden: false
       unbreakable:
+        allow: false
+      use_cooldown:
+        allow: false
+      use_remainder:
         allow: false
       writable_book_content:
         allow: false
@@ -178,6 +205,11 @@ groups:
         allow: true
       can_place_on:
         allow: true
+      consumable:
+        allow: true
+        allow_sounds: true
+        allow_effects: true
+        allow_teleport: true
       container_loot:
         allow: true
       custom_data:
@@ -189,6 +221,15 @@ groups:
         allow: true
         allow_formating: true
         max_length: 4000
+      damage_resistant:
+        allow: true
+      death_protection:
+        allow: true
+        allow_sounds: true
+        allow_effects: true
+        allow_teleport: true
+      enchantable:
+        allow: true
       enchantment_glint_override:
         allow: true
       enchantments:
@@ -199,7 +240,7 @@ groups:
       entity_data:
         allow: false
         allowPaintings: true
-      fire_resistant:
+      equippable:
         allow: true
       firework_explosion:
         allow: true
@@ -209,8 +250,8 @@ groups:
         max_flight_time: 127
       food:
         allow: true
-        allow_converts_to: true
-        allow_effects: true
+      glider:
+        allow: true
       hide_additional_tooltip:
         allow: true
       hide_tooltip:
@@ -221,6 +262,8 @@ groups:
         allow: true
         allow_formating: true
         max_length: 4000
+      item_model:
+        allow: true
       lock:
         allow: true
       lodestone_tracker:
@@ -249,6 +292,9 @@ groups:
         allow: true
         custom_color: true
         custom_effects: true
+        custom_name: true
+        custom_name_allow_formating: true
+        custom_name_max_length: 4000
       profile:
         allow: true
       rarity:
@@ -256,6 +302,8 @@ groups:
       recipes:
         allow: true
       repair_cost:
+        allow: true
+      repairable:
         allow: true
       stored_enchantments:
         allow_on_all_items: true
@@ -267,10 +315,16 @@ groups:
         max_duration: 160
       tool:
         allow: true
+      tooltip_style:
+        allow: true
       trim:
         allow: true
         allow_hidden: true
       unbreakable:
+        allow: true
+      use_cooldown:
+        allow: true
+      use_remainder:
         allow: true
       writable_book_content:
         allow: true
@@ -303,6 +357,11 @@ groups:
         allow: true
       can_place_on:
         allow: true
+      consumable:
+        allow: true
+        allow_sounds: true
+        allow_effects: true
+        allow_teleport: true
       container_loot:
         allow: true
       custom_data:
@@ -314,6 +373,15 @@ groups:
         allow: true
         allow_formating: true
         max_length: 4000
+      damage_resistant:
+        allow: true
+      death_protection:
+        allow: true
+        allow_sounds: true
+        allow_effects: true
+        allow_teleport: true
+      enchantable:
+        allow: true
       enchantment_glint_override:
         allow: true
       enchantments:
@@ -324,7 +392,7 @@ groups:
       entity_data:
         allow: true
         allowPaintings: true
-      fire_resistant:
+      equippable:
         allow: true
       firework_explosion:
         allow: true
@@ -334,14 +402,16 @@ groups:
         max_flight_time: 127
       food:
         allow: true
-        allow_converts_to: true
-        allow_effects: true
+      glider:
+        allow: true
       hide_additional_tooltip:
         allow: true
       hide_tooltip:
         allow: true
       instrument:
         allow_custom: false
+      item_model:
+        allow: true
       item_name:
         allow: true
         allow_formating: true
@@ -374,6 +444,9 @@ groups:
         allow: true
         custom_color: true
         custom_effects: true
+        custom_name: true
+        custom_name_allow_formating: true
+        custom_name_max_length: 4000
       profile:
         allow: true
       rarity:
@@ -381,6 +454,8 @@ groups:
       recipes:
         allow: true
       repair_cost:
+        allow: true
+      repairable:
         allow: true
       stored_enchantments:
         allow_on_all_items: true
@@ -392,10 +467,16 @@ groups:
         max_duration: 160
       tool:
         allow: true
+      tooltip_style:
+        allow: true
       trim:
         allow: true
         allow_hidden: true
       unbreakable:
+        allow: true
+      use_cooldown:
+        allow: true
+      use_remainder:
         allow: true
       writable_book_content:
         allow: true

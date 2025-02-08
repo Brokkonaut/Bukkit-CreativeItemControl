@@ -7,8 +7,8 @@ import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.ConfigurationSection;
 
-public class CheckFireResistant implements ComponentCheck {
-    private static final NamespacedKey KEY = NamespacedKey.fromString("minecraft:fire_resistant");
+public class CheckDamageResistant implements ComponentCheck {
+    private static final NamespacedKey KEY = NamespacedKey.fromString("minecraft:damage_resistant");
 
     private boolean allow;
 

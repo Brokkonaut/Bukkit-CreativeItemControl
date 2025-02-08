@@ -7,8 +7,8 @@ import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.ConfigurationSection;
 
-public class CheckFood implements ComponentCheck {
-    private static final NamespacedKey KEY = NamespacedKey.fromString("minecraft:food");
+public class CheckEnchantable implements ComponentCheck {
+    private static final NamespacedKey KEY = NamespacedKey.fromString("minecraft:enchantable");
 
     private boolean allow;
 

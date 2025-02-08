@@ -25,26 +25,32 @@ public abstract class BaseCheckName implements ComponentCheck {
 
     @Override
     public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key) {
-        boolean changed = false;
+        return enforce(itemComponentsTag, key, allow, allowFormating, maxLength);
+    }
 
-        String customNameJson = itemComponentsTag.getString(key);
+    public static boolean enforce(CompoundTag parentTag, String key, boolean allow, boolean allowFormating, int maxLength) {
+        if (!parentTag.containsKey(key)) {
+            return false;
+        }
+        boolean changed = false;
+        String customNameJson = parentTag.getString(key);
         if (customNameJson != null && allow) {
             try {
                 BaseComponent component = ComponentSerializer.deserialize(customNameJson);
                 String plain = ChatColor.stripColor(component.toLegacyText());
                 if (plain.length() > maxLength) {
-                    itemComponentsTag.remove(key);
+                    parentTag.remove(key);
                     changed = true;
                 } else if (!allowFormating) {
-                    itemComponentsTag.setString(key, ComponentSerializer.toString(new TextComponent(plain)));
+                    parentTag.setString(key, ComponentSerializer.toString(new TextComponent(plain)));
                     changed = true;
                 }
             } catch (IllegalArgumentException e) {
-                itemComponentsTag.remove(key);
+                parentTag.remove(key);
                 changed = true;
             }
         } else {
-            itemComponentsTag.remove(key);
+            parentTag.remove(key);
             changed = true;
         }
         return changed;
