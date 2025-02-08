@@ -2,7 +2,6 @@ package de.cubeside.itemcontrol;
 
 import de.cubeside.itemcontrol.config.GroupConfig;
 import de.cubeside.itemcontrol.config.PluginConfig;
-import de.cubeside.itemcontrol.util.ComponentUtil;
 import de.cubeside.nmsutils.NMSUtils;
 import de.cubeside.nmsutils.nbt.CompoundTag;
 import java.io.File;
@@ -12,7 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.logging.Level;
-import net.md_5.bungee.api.ChatColor;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -101,7 +101,7 @@ public class Main extends JavaPlugin implements Listener {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         reloadConfig();
         playerStates.clear();
-        sender.sendMessage(ComponentUtil.color("CreativeItemControl reloaded.", ChatColor.GREEN));
+        sender.sendMessage(Component.text("CreativeItemControl reloaded.", NamedTextColor.GREEN));
         return true;
     }
 
@@ -140,7 +140,7 @@ public class Main extends JavaPlugin implements Listener {
 
             if (group.getForbiddenItems().contains(m)) {
                 if (pluginConfig.getUnavailableMessage() != null) {
-                    player.sendMessage(ComponentUtil.color(pluginConfig.getUnavailableMessage().replace("$itemtype$", m.getKey().asMinimalString()), ChatColor.DARK_RED));
+                    player.sendMessage(Component.text(pluginConfig.getUnavailableMessage().replace("$itemtype$", m.getKey().asMinimalString()), NamedTextColor.DARK_RED));
                 }
                 e.setCancelled(true);
                 return;
@@ -149,7 +149,7 @@ public class Main extends JavaPlugin implements Listener {
             byte[] serialized = tools.getNbtUtils().writeBinary(clickedTag);
             if (group.getMaxItemSizeBytes() >= 0 && serialized.length > group.getMaxItemSizeBytes()) {
                 if (pluginConfig.getTooLargeMessage() != null) {
-                    player.sendMessage(ComponentUtil.color(pluginConfig.getTooLargeMessage().replace("$itemtype$", m.getKey().asMinimalString()), ChatColor.DARK_RED));
+                    player.sendMessage(Component.text(pluginConfig.getTooLargeMessage().replace("$itemtype$", m.getKey().asMinimalString()), NamedTextColor.DARK_RED));
                 }
                 e.setCancelled(true);
                 return;
@@ -162,7 +162,7 @@ public class Main extends JavaPlugin implements Listener {
                 Boolean modified = ItemChecker.filterItem(clickedTag, group);
                 if (modified == null) {
                     if (pluginConfig.getUnavailableMessage() != null) {
-                        player.sendMessage(ComponentUtil.color(pluginConfig.getUnavailableMessage().replace("$itemtype$", m.getKey().asMinimalString()), ChatColor.DARK_RED));
+                        player.sendMessage(Component.text(pluginConfig.getUnavailableMessage().replace("$itemtype$", m.getKey().asMinimalString()), NamedTextColor.DARK_RED));
                     }
                     e.setCancelled(true);
                     return;

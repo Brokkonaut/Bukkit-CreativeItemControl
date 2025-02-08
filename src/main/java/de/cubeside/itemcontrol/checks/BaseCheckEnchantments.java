@@ -4,14 +4,19 @@ import de.cubeside.itemcontrol.Main;
 import de.cubeside.itemcontrol.config.GroupConfig;
 import de.cubeside.itemcontrol.util.ConfigUtil;
 import de.cubeside.nmsutils.nbt.CompoundTag;
+import io.papermc.paper.registry.RegistryAccess;
+import io.papermc.paper.registry.RegistryKey;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Registry;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.enchantments.Enchantment;
 
 public abstract class BaseCheckEnchantments implements ComponentCheck {
+    private static final Registry<Enchantment> ENCHANTMENT_REGISTY = RegistryAccess.registryAccess().getRegistry(RegistryKey.ENCHANTMENT);
+
     protected HashMap<NamespacedKey, Integer> maxLevels = new HashMap<>();
     protected boolean allowHidden;
     protected boolean allowOnAllItems;
@@ -22,11 +27,11 @@ public abstract class BaseCheckEnchantments implements ComponentCheck {
         allowOnAllItems = ConfigUtil.getOrCreate(data, "allow_on_all_items", false);
         allowHidden = ConfigUtil.getOrCreate(data, "allow_hidden", false);
         maxLevels.clear();
-        Registry.ENCHANTMENT.forEach(e -> maxLevels.put(e.getKey(), e.getMaxLevel()));
+        ENCHANTMENT_REGISTY.forEach(e -> maxLevels.put(e.getKey(), e.getMaxLevel()));
         ConfigurationSection overrideMapLevelSection = ConfigUtil.getOrCreateSection(data, "override_max_level");
         for (String s : overrideMapLevelSection.getKeys(false)) {
             NamespacedKey key = NamespacedKey.fromString(s);
-            if (key == null || Registry.ENCHANTMENT.get(key) == null) {
+            if (key == null || ENCHANTMENT_REGISTY.get(key) == null) {
                 Main.getInstance().getLogger().warning("Invalid enchantment: " + s);
             } else {
                 int level = ConfigUtil.getOrCreate(overrideMapLevelSection, s, 0);
