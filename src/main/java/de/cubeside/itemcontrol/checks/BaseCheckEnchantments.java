@@ -69,7 +69,7 @@ public abstract class BaseCheckEnchantments implements ComponentCheck {
                     } else {
                         // real enchantment
                         int level = compound.getInt(e);
-                        if (level > maxLevel || isInvalidOnItem(enchantmentKey, material)) {
+                        if (level > 1 || isInvalidOnItem(enchantmentKey, material)) {
                             compound.remove(e);
                             changed = true;
                         }
