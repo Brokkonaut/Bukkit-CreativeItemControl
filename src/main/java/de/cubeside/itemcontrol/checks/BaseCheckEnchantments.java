@@ -8,6 +8,8 @@ import io.papermc.paper.registry.RegistryAccess;
 import io.papermc.paper.registry.RegistryKey;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Registry;
@@ -30,12 +32,26 @@ public abstract class BaseCheckEnchantments implements ComponentCheck {
         ENCHANTMENT_REGISTY.forEach(e -> maxLevels.put(e.getKey(), e.getMaxLevel()));
         ConfigurationSection overrideMapLevelSection = ConfigUtil.getOrCreateSection(data, "override_max_level");
         for (String s : overrideMapLevelSection.getKeys(false)) {
-            NamespacedKey key = NamespacedKey.fromString(s);
-            if (key == null || ENCHANTMENT_REGISTY.get(key) == null) {
-                Main.getInstance().getLogger().warning("Invalid enchantment: " + s);
+            if (s.startsWith("/") && s.endsWith("/") && s.length() >= 2) {
+                try {
+                    int level = ConfigUtil.getOrCreate(overrideMapLevelSection, s, 0);
+                    Pattern pattern = Pattern.compile(s.replace('#', '.').substring(1, s.length() - 1));
+                    ENCHANTMENT_REGISTY.forEach(e -> {
+                        if (pattern.matcher(e.getKey().asString()).matches()) {
+                            maxLevels.put(e.getKey(), level);
+                        }
+                    });
+                } catch (PatternSyntaxException e) {
+                    Main.getInstance().getLogger().warning("Invalid regular expression for enchantment: " + s);
+                }
             } else {
-                int level = ConfigUtil.getOrCreate(overrideMapLevelSection, s, 0);
-                maxLevels.put(key, level);
+                NamespacedKey key = NamespacedKey.fromString(s);
+                if (key == null || ENCHANTMENT_REGISTY.get(key) == null) {
+                    Main.getInstance().getLogger().warning("Invalid enchantment: " + s);
+                } else {
+                    int level = ConfigUtil.getOrCreate(overrideMapLevelSection, s, 0);
+                    maxLevels.put(key, level);
+                }
             }
         }
     }
