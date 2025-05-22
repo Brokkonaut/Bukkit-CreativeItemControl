@@ -9,12 +9,20 @@ import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.ConfigurationSection;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class CheckEntityData implements ComponentCheck {
     private static final NamespacedKey KEY = NamespacedKey.fromString("minecraft:entity_data");
 
     private boolean allow;
 
     private boolean allowPaintings;
+
+    private boolean allowItemFrames;
+
+    private boolean allowItemsInItemFrames;
 
     @Override
     public NamespacedKey getComponentKey() {
@@ -26,6 +34,8 @@ public class CheckEntityData implements ComponentCheck {
         ConfigurationSection data = ConfigUtil.getOrCreateSection(section, KEY.asMinimalString());
         allow = ConfigUtil.getOrCreate(data, "allow", false);
         allowPaintings = ConfigUtil.getOrCreate(data, "allowPaintings", true);
+        allowItemFrames = ConfigUtil.getOrCreate(data, "allowItemFrames", true);
+        allowItemsInItemFrames = ConfigUtil.getOrCreate(data, "allowItemsInItemFrames", false);
     }
 
     @Override
@@ -47,6 +57,31 @@ public class CheckEntityData implements ComponentCheck {
                     } else {
                         for (String s : entityData.getAllKeys()) {
                             if (!s.equals("id") && !s.equals("variant")) {
+                                entityData.remove(s);
+                                changed = true;
+                            }
+                        }
+                    }
+                }
+                return changed;
+            }
+        }
+        if ((material == Material.ITEM_FRAME || material == Material.GLOW_ITEM_FRAME) && entityData != null) {
+            if (allowItemFrames) {
+                String id = entityData.getString("id");
+                if (id == null || !(id.equals("minecraft:item_frame") || id.equals("item_frame") || id.equals("minecraft:glow_item_frame") || id.equals("glow_item_frame"))) {
+                    itemComponentsTag.remove(key);
+                    changed = true;
+                } else {
+                    for (String s : entityData.getAllKeys()) {
+                        Set<String> allowedKeys = new HashSet<>(Arrays.asList("id", "ItemDropChance", "ItemRotation", "Invisible", "Fixed", "Silent", "Invulnerable", "Glowing", "UUID", "Tags"));
+                        if (allowItemsInItemFrames) {
+                            if (!allowedKeys.contains(s) && !s.equals("Item")) {
+                                entityData.remove(s);
+                                changed = true;
+                            }
+                        } else {
+                            if (!allowedKeys.contains(s)) {
                                 entityData.remove(s);
                                 changed = true;
                             }
