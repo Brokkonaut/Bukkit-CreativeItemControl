@@ -24,6 +24,9 @@ public class CheckEntityData implements ComponentCheck {
 
     private boolean allowItemsInItemFrames;
 
+
+    private static final Set<String> allowedKeys = new HashSet<>(Arrays.asList("id", "ItemDropChance", "ItemRotation", "Invisible", "Fixed", "Silent", "Invulnerable", "Glowing", "Tags"));
+
     @Override
     public NamespacedKey getComponentKey() {
         return KEY;
@@ -34,7 +37,7 @@ public class CheckEntityData implements ComponentCheck {
         ConfigurationSection data = ConfigUtil.getOrCreateSection(section, KEY.asMinimalString());
         allow = ConfigUtil.getOrCreate(data, "allow", false);
         allowPaintings = ConfigUtil.getOrCreate(data, "allowPaintings", true);
-        allowItemFrames = ConfigUtil.getOrCreate(data, "allowItemFrames", true);
+        allowItemFrames = ConfigUtil.getOrCreate(data, "allowItemFrames", false);
         allowItemsInItemFrames = ConfigUtil.getOrCreate(data, "allowItemsInItemFrames", false);
     }
 
@@ -74,7 +77,6 @@ public class CheckEntityData implements ComponentCheck {
                     changed = true;
                 } else {
                     for (String s : entityData.getAllKeys()) {
-                        Set<String> allowedKeys = new HashSet<>(Arrays.asList("id", "ItemDropChance", "ItemRotation", "Invisible", "Fixed", "Silent", "Invulnerable", "Glowing", "UUID", "Tags"));
                         if (allowItemsInItemFrames) {
                             if (!allowedKeys.contains(s) && !s.equals("Item")) {
                                 entityData.remove(s);
