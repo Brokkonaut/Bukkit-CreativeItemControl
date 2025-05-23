@@ -83,7 +83,7 @@ groups:
       entity_data:
         allow: false
         allowPaintings: true
-        allowItemFrames: true
+        allowItemFrames: false
         allowItemsInItemFrames: false
       equippable:
         allow: false
