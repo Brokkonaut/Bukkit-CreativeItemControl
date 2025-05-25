@@ -1,5 +1,6 @@
 package de.cubeside.itemcontrol.checks;
 
+import de.cubeside.itemcontrol.ItemChecker;
 import de.cubeside.itemcontrol.config.GroupConfig;
 import de.cubeside.itemcontrol.util.ConfigUtil;
 import de.cubeside.nmsutils.nbt.CompoundTag;
@@ -76,6 +77,15 @@ public class CheckEntityData implements ComponentCheck {
                     itemComponentsTag.remove(key);
                     changed = true;
                 } else {
+                    CompoundTag itemStack = entityData.getCompound("Item");
+                    if (itemStack != null) {
+                        Boolean result = ItemChecker.filterItem(itemStack, group);
+                        changed |= result != null && result;
+                        if (result == null) {
+                            entityData.remove("Item");
+                            changed = true;
+                        }
+                    }
                     for (String s : entityData.getAllKeys()) {
                         if (allowItemsInItemFrames) {
                             if (!allowedKeys.contains(s) && !s.equals("Item")) {
