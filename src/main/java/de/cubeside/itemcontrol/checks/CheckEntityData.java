@@ -6,13 +6,12 @@ import de.cubeside.itemcontrol.util.ConfigUtil;
 import de.cubeside.nmsutils.nbt.CompoundTag;
 import io.papermc.paper.registry.RegistryAccess;
 import io.papermc.paper.registry.RegistryKey;
-import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
-import org.bukkit.configuration.ConfigurationSection;
-
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
+import org.bukkit.configuration.ConfigurationSection;
 
 public class CheckEntityData implements ComponentCheck {
     private static final NamespacedKey KEY = NamespacedKey.fromString("minecraft:entity_data");
@@ -25,8 +24,7 @@ public class CheckEntityData implements ComponentCheck {
 
     private boolean allowItemsInItemFrames;
 
-
-    private static final Set<String> allowedKeys = new HashSet<>(Arrays.asList("id", "ItemDropChance", "ItemRotation", "Invisible", "Fixed", "Silent", "Invulnerable", "Glowing", "Tags"));
+    private static final Set<String> ALLOWED_ITEM_FRAME_KEYS = new HashSet<>(Arrays.asList("id", "ItemDropChance", "ItemRotation", "Invisible", "Fixed", "Silent", "Invulnerable", "Glowing", "Tags"));
 
     @Override
     public NamespacedKey getComponentKey() {
@@ -77,26 +75,24 @@ public class CheckEntityData implements ComponentCheck {
                     itemComponentsTag.remove(key);
                     changed = true;
                 } else {
-                    CompoundTag itemStack = entityData.getCompound("Item");
-                    if (itemStack != null) {
-                        Boolean result = ItemChecker.filterItem(itemStack, group);
-                        changed |= result != null && result;
-                        if (result == null) {
-                            entityData.remove("Item");
-                            changed = true;
-                        }
-                    }
                     for (String s : entityData.getAllKeys()) {
-                        if (allowItemsInItemFrames) {
-                            if (!allowedKeys.contains(s) && !s.equals("Item")) {
+                        if (s.equals("Item")) {
+                            if (!allowItemsInItemFrames) {
                                 entityData.remove(s);
                                 changed = true;
+                            } else {
+                                CompoundTag itemStack = entityData.getCompound(s);
+                                if (itemStack != null) {
+                                    Boolean result = ItemChecker.filterItem(itemStack, group);
+                                    changed |= result != Boolean.FALSE;
+                                    if (result == null) {
+                                        entityData.remove(s);
+                                    }
+                                }
                             }
-                        } else {
-                            if (!allowedKeys.contains(s)) {
-                                entityData.remove(s);
-                                changed = true;
-                            }
+                        } else if (!ALLOWED_ITEM_FRAME_KEYS.contains(s)) {
+                            entityData.remove(s);
+                            changed = true;
                         }
                     }
                 }
