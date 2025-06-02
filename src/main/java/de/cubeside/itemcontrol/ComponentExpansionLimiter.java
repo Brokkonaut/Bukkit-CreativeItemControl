@@ -6,7 +6,10 @@ import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TranslatableComponent;
+import net.md_5.bungee.api.chat.hover.content.Content;
+import net.md_5.bungee.api.chat.hover.content.Text;
 import net.md_5.bungee.chat.TranslationRegistry;
 
 public final class ComponentExpansionLimiter {
@@ -29,6 +32,24 @@ public final class ComponentExpansionLimiter {
         if (component instanceof TranslatableComponent translatable) {
             expansions += getTranslationExpansions(translatable, maxExpansions);
         }
+        HoverEvent hoverEvent = component.getHoverEvent();
+        if (hoverEvent != null) {
+            List<Content> contents = hoverEvent.getContents();
+            if (contents != null) {
+                for (Content content : contents) {
+                    if (content instanceof Text text) {
+                        if (text.getValue() instanceof BaseComponent contentComponent) {
+                            expansions += checkExpansionsInternal(contentComponent, maxExpansions);
+                        } else if (text.getValue() instanceof BaseComponent[] contentComponents) {
+                            for (BaseComponent contentComponent : contentComponents) {
+                                expansions += checkExpansionsInternal(contentComponent, maxExpansions);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         List<BaseComponent> extra = component.getExtra();
         if (extra != null) {
             for (BaseComponent extraComponent : extra) {
