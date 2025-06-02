@@ -152,6 +152,7 @@ public class GroupConfig {
     private String permission;
     private int priority;
     private int maxItemSizeBytes;
+    private int maxComponentExpansions;
     private Set<Material> forbiddenItems;
     private boolean allowAllComponents;
     private HashMap<NamespacedKey, ComponentCheck> checks;
@@ -160,6 +161,7 @@ public class GroupConfig {
         permission = "creativeitemcontrol.group." + name.toLowerCase();
         priority = name.equals("default") ? 0 : ConfigUtil.getOrCreate(section, "priority", 0);
         maxItemSizeBytes = ConfigUtil.getOrCreate(section, "max_item_size_bytes", -1);
+        maxComponentExpansions = ConfigUtil.getOrCreate(section, "max_component_expansions", 32);
         forbiddenItems = new HashSet<>();
         for (String s : ConfigUtil.getOrCreate(section, "forbidden_items", List.of())) {
             NamespacedKey itemKey = NamespacedKey.fromString(s);
@@ -199,6 +201,10 @@ public class GroupConfig {
 
     public int getMaxItemSizeBytes() {
         return maxItemSizeBytes;
+    }
+
+    public int getMaxComponentExpansions() {
+        return maxComponentExpansions;
     }
 
     public Set<Material> getForbiddenItems() {

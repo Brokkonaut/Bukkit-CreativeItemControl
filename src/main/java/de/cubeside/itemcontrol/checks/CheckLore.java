@@ -1,5 +1,6 @@
 package de.cubeside.itemcontrol.checks;
 
+import de.cubeside.itemcontrol.ComponentExpansionLimiter;
 import de.cubeside.itemcontrol.config.GroupConfig;
 import de.cubeside.itemcontrol.util.ConfigUtil;
 import de.cubeside.nmsutils.nbt.CompoundTag;
@@ -45,13 +46,18 @@ public class CheckLore implements ComponentCheck {
                 if (customNameJson != null) {
                     try {
                         BaseComponent component = ComponentSerializer.deserialize(customNameJson);
-                        String plain = ChatColor.stripColor(component.toLegacyText());
-                        if (plain.length() > maxLength) {
+                        if (!ComponentExpansionLimiter.checkExpansions(component, group.getMaxComponentExpansions())) {
                             loreTag.remove(i);
                             changed = true;
-                        } else if (!allowFormating) {
-                            loreTag.setString(i, ComponentSerializer.toString(new TextComponent(plain)));
-                            changed = true;
+                        } else {
+                            String plain = ChatColor.stripColor(component.toLegacyText());
+                            if (plain.length() > maxLength) {
+                                loreTag.remove(i);
+                                changed = true;
+                            } else if (!allowFormating) {
+                                loreTag.setString(i, ComponentSerializer.toString(new TextComponent(plain)));
+                                changed = true;
+                            }
                         }
                     } catch (IllegalArgumentException e) {
                         loreTag.remove(i);

@@ -1,5 +1,6 @@
 package de.cubeside.itemcontrol.checks;
 
+import de.cubeside.itemcontrol.ComponentExpansionLimiter;
 import de.cubeside.itemcontrol.config.GroupConfig;
 import de.cubeside.itemcontrol.util.ConfigUtil;
 import de.cubeside.nmsutils.nbt.CompoundTag;
@@ -25,10 +26,10 @@ public abstract class BaseCheckName implements ComponentCheck {
 
     @Override
     public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key) {
-        return enforce(itemComponentsTag, key, allow, allowFormating, maxLength);
+        return enforce(itemComponentsTag, key, allow, allowFormating, maxLength, group.getMaxComponentExpansions());
     }
 
-    public static boolean enforce(CompoundTag parentTag, String key, boolean allow, boolean allowFormating, int maxLength) {
+    public static boolean enforce(CompoundTag parentTag, String key, boolean allow, boolean allowFormating, int maxLength, int maxComponentExpansions) {
         if (!parentTag.containsKey(key)) {
             return false;
         }
@@ -37,13 +38,18 @@ public abstract class BaseCheckName implements ComponentCheck {
         if (customNameJson != null && allow) {
             try {
                 BaseComponent component = ComponentSerializer.deserialize(customNameJson);
-                String plain = ChatColor.stripColor(component.toLegacyText());
-                if (plain.length() > maxLength) {
+                if (!ComponentExpansionLimiter.checkExpansions(component, maxComponentExpansions)) {
                     parentTag.remove(key);
                     changed = true;
-                } else if (!allowFormating) {
-                    parentTag.setString(key, ComponentSerializer.toString(new TextComponent(plain)));
-                    changed = true;
+                } else {
+                    String plain = ChatColor.stripColor(component.toLegacyText());
+                    if (plain.length() > maxLength) {
+                        parentTag.remove(key);
+                        changed = true;
+                    } else if (!allowFormating) {
+                        parentTag.setString(key, ComponentSerializer.toString(new TextComponent(plain)));
+                        changed = true;
+                    }
                 }
             } catch (IllegalArgumentException e) {
                 parentTag.remove(key);

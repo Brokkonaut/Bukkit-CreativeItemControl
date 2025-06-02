@@ -49,7 +49,7 @@ public class CheckPotionContents implements ComponentCheck {
                 compound.remove("custom_effects");
                 changed = true;
             }
-            if (BaseCheckName.enforce(compound, "custom_name", customName, customNameAllowFormating, customNameMaxLength)) {
+            if (BaseCheckName.enforce(compound, "custom_name", customName, customNameAllowFormating, customNameMaxLength, group.getMaxComponentExpansions())) {
                 changed = true;
             }
         }

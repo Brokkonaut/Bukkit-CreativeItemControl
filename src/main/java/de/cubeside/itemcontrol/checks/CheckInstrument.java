@@ -12,6 +12,10 @@ public class CheckInstrument implements ComponentCheck {
 
     private boolean allowCustom;
 
+    private boolean allowCustomTextFormating;
+
+    private int allowCustomNameMaxLength;
+
     @Override
     public NamespacedKey getComponentKey() {
         return KEY;
@@ -21,6 +25,8 @@ public class CheckInstrument implements ComponentCheck {
     public void loadConfig(ConfigurationSection section) {
         ConfigurationSection data = ConfigUtil.getOrCreateSection(section, KEY.asMinimalString());
         allowCustom = ConfigUtil.getOrCreate(data, "allow_custom", true);
+        allowCustomTextFormating = ConfigUtil.getOrCreate(data, "allow_custom_text_formating", false);
+        allowCustomNameMaxLength = ConfigUtil.getOrCreate(data, "allow_custom_name_max_length", 4000);
     }
 
     @Override
@@ -29,6 +35,13 @@ public class CheckInstrument implements ComponentCheck {
         if (!allowCustom && itemComponentsTag.getString(key) == null) {
             itemComponentsTag.remove(key);
             changed = true;
+        } else {
+            CompoundTag compound = itemComponentsTag.getCompound(key);
+            if (compound != null) {
+                if (BaseCheckName.enforce(compound, "description", true, allowCustomTextFormating, allowCustomNameMaxLength, group.getMaxComponentExpansions())) {
+                    changed = true;
+                }
+            }
         }
         return changed;
     }
