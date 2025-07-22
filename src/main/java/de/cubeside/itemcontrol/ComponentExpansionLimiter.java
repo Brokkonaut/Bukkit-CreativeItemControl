@@ -85,7 +85,7 @@ public final class ComponentExpansionLimiter {
                     String withIndex = matcher.group(1);
 
                     BaseComponent withComponent = component.getWith().get(withIndex != null ? Integer.parseInt(withIndex) - 1 : i++);
-                    expansionCounts.put(withComponent, expansionCounts.computeIfAbsent(withComponent, c -> 0) + 1);
+                    expansionCounts.merge(withComponent, 1, Integer::sum);
                     break;
             }
         }
