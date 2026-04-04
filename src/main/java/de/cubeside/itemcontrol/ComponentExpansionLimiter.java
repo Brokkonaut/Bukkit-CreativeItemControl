@@ -18,6 +18,9 @@ public final class ComponentExpansionLimiter {
     private static final Pattern TRANSLATION_PATTERN = Pattern.compile("%(?:(\\d+)\\$)?([A-Za-z%]|$)");
 
     public static boolean checkExpansions(Component component, long maxExpansions) {
+        if (maxExpansions < 0) {
+            return true;
+        }
         try {
             checkExpansionsInternal(component, maxExpansions);
             return true;
