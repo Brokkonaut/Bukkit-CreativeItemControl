@@ -31,7 +31,8 @@ public class CheckEntityData implements ComponentCheck {
 
     private static final Set<String> ALLOWED_ITEM_FRAME_KEYS = new HashSet<>(Arrays.asList("id", "ItemDropChance", "ItemRotation", "Invisible", "Fixed", "Silent", "Invulnerable", "Glowing", "Tags"));
 
-    private static final Set<String> ALLOWED_ARMOR_STAND_KEYS = new HashSet<>(Arrays.asList("id", "AbsorptionAmount", "Air", "ArmorItems", "active_effects", "attributes", "Brain", "CustomName", "CustomNameVisible", "data", "DeathTime", "DisabledSlots", "equipment", "fall_distance", "FallFlying", "Fire", "Glowing", "HasVisualFire", "HandItems", "Health", "HurtByTimestamp", "HurtTime", "Invisible", "Invulnerable", "Marker", "Motion", "NoBasePlate", "NoGravity", "OnGround", "Pose", "PortalCooldown", "Rotation", "ShowArms", "Silent", "Small", "Tags", "TicksFrozen"));
+    private static final Set<String> ALLOWED_ARMOR_STAND_KEYS = new HashSet<>(Arrays.asList("id", "AbsorptionAmount", "Air", "ArmorItems", "active_effects", "attributes", "Brain", "CustomName", "CustomNameVisible", "data", "DeathTime", "DisabledSlots", "equipment", "fall_distance", "FallFlying",
+            "Fire", "Glowing", "HasVisualFire", "HandItems", "Health", "HurtByTimestamp", "HurtTime", "Invisible", "Invulnerable", "Marker", "Motion", "NoBasePlate", "NoGravity", "OnGround", "Pose", "PortalCooldown", "Rotation", "ShowArms", "Silent", "Small", "Tags", "TicksFrozen"));
 
     @Override
     public NamespacedKey getComponentKey() {
@@ -50,7 +51,7 @@ public class CheckEntityData implements ComponentCheck {
     }
 
     @Override
-    public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key) {
+    public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key, CheckData data) {
         boolean changed = false;
         CompoundTag entityData = itemComponentsTag.getCompound(key);
         if (material == Material.PAINTING && entityData != null) {
@@ -92,7 +93,7 @@ public class CheckEntityData implements ComponentCheck {
                             } else {
                                 CompoundTag itemStack = entityData.getCompound(s);
                                 if (itemStack != null) {
-                                    Boolean result = ItemChecker.filterItem(itemStack, group);
+                                    Boolean result = ItemChecker.filterItem(itemStack, group, data);
                                     changed |= result != Boolean.FALSE;
                                     if (result == null) {
                                         entityData.remove(s);
@@ -129,7 +130,7 @@ public class CheckEntityData implements ComponentCheck {
                                             itemList.remove(i);
                                             changed = true;
                                         } else {
-                                            Boolean result = ItemChecker.filterItem(stack, group);
+                                            Boolean result = ItemChecker.filterItem(stack, group, data);
                                             changed |= result != Boolean.FALSE;
                                             if (result == null) {
                                                 itemList.remove(i);

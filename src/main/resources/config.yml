@@ -17,6 +17,8 @@ messages:
 groups:
   default:
     max_item_size_bytes: 50000
+    max_component_expansions: 32
+    max_item_expansions: 28
     forbidden_items:
       - command_block
       - chain_command_block
@@ -205,6 +207,8 @@ groups:
   builder:
     priority: 10
     max_item_size_bytes: 50000
+    max_component_expansions: 320
+    max_item_expansions: 320
     forbidden_items:
       - command_block
       - chain_command_block
@@ -388,6 +392,8 @@ groups:
   admin:
     priority: 20
     max_item_size_bytes: -1
+    max_component_expansions: -1
+    max_item_expansions: -1
     forbidden_items: []
     allow_all_components: true
     components:

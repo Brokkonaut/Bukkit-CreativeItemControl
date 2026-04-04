@@ -1,5 +1,6 @@
 package de.cubeside.itemcontrol;
 
+import de.cubeside.itemcontrol.checks.CheckData;
 import de.cubeside.itemcontrol.config.GroupConfig;
 import de.cubeside.itemcontrol.config.PluginConfig;
 import de.cubeside.nmsutils.NMSUtils;
@@ -167,7 +168,7 @@ public class Main extends JavaPlugin implements Listener {
                 if (pluginConfig.isDebug()) {
                     getLogger().info("Input from " + player.getName() + ": " + tools.getNbtUtils().writeString(clickedTag));
                 }
-                Boolean modified = ItemChecker.filterItem(clickedTag, group);
+                Boolean modified = ItemChecker.filterItem(clickedTag, group, new CheckData());
                 if (modified == null) {
                     if (pluginConfig.getUnavailableMessage() != null) {
                         player.sendMessage(Component.text(pluginConfig.getUnavailableMessage().replace("$itemtype$", m.getKey().asMinimalString()), NamedTextColor.DARK_RED));

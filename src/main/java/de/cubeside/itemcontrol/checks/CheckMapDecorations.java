@@ -27,7 +27,7 @@ public class CheckMapDecorations implements ComponentCheck {
     }
 
     @Override
-    public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key) {
+    public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key, CheckData data) {
         boolean changed = false;
         CompoundTag decoCompound = itemComponentsTag.getCompound(key);
         if (allow && maxDecorations > 0 && decoCompound != null) {

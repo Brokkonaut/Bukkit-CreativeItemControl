@@ -14,11 +14,11 @@ public class CheckStoredEnchantments extends BaseCheckEnchantments {
     }
 
     @Override
-    public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key) {
+    public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key, CheckData data) {
         if (!allowOnAllItems && material != Material.ENCHANTED_BOOK) {
             itemComponentsTag.remove(key);
             return true;
         }
-        return super.enforce(group, material, itemComponentsTag, key);
+        return super.enforce(group, material, itemComponentsTag, key, data);
     }
 }

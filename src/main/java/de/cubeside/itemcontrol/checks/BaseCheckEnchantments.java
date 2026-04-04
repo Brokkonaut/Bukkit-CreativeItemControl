@@ -55,7 +55,7 @@ public abstract class BaseCheckEnchantments implements ComponentCheck {
     }
 
     @Override
-    public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key) {
+    public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key, CheckData data) {
         boolean changed = false;
         CompoundTag compound = itemComponentsTag.getCompound(key);
         if (compound != null) {

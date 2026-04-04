@@ -11,5 +11,5 @@ public interface ComponentCheck {
 
     public void loadConfig(ConfigurationSection section);
 
-    public boolean enforce(GroupConfig group, Material material, CompoundTag itemTag, String key);
+    public boolean enforce(GroupConfig group, Material material, CompoundTag itemTag, String key, CheckData data);
 }

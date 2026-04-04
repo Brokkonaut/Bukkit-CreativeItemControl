@@ -27,7 +27,7 @@ public class CheckPotDecorations implements ComponentCheck {
     }
 
     @Override
-    public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key) {
+    public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key, CheckData data) {
         boolean changed = false;
 
         ListTag sheardList = itemComponentsTag.getList(key);

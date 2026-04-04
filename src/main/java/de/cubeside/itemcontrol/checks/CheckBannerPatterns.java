@@ -25,7 +25,7 @@ public class CheckBannerPatterns implements ComponentCheck {
     }
 
     @Override
-    public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key) {
+    public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key, CheckData data) {
         boolean changed = false;
         ListTag patternList = itemComponentsTag.getList(key);
         if (patternList != null) {

@@ -21,7 +21,7 @@ public class CheckContainer implements ComponentCheck {
     }
 
     @Override
-    public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key) {
+    public boolean enforce(GroupConfig group, Material material, CompoundTag itemComponentsTag, String key, CheckData data) {
         boolean changed = false;
 
         ListTag itemList = itemComponentsTag.getList(key);
@@ -37,7 +37,7 @@ public class CheckContainer implements ComponentCheck {
                         itemList.remove(i);
                         changed = true;
                     } else {
-                        Boolean result = ItemChecker.filterItem(stack, group);
+                        Boolean result = ItemChecker.filterItem(stack, group, data);
                         changed |= result != Boolean.FALSE;
                         if (result == null) {
                             itemList.remove(i);

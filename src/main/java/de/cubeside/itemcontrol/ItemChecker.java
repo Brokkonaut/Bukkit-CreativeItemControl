@@ -1,5 +1,6 @@
 package de.cubeside.itemcontrol;
 
+import de.cubeside.itemcontrol.checks.CheckData;
 import de.cubeside.itemcontrol.checks.ComponentCheck;
 import de.cubeside.itemcontrol.config.GroupConfig;
 import de.cubeside.nmsutils.nbt.CompoundTag;
@@ -10,11 +11,11 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.Registry;
 
 public class ItemChecker {
-    public static Boolean filterItem(CompoundTag stack, GroupConfig group) {
+    public static Boolean filterItem(CompoundTag stack, GroupConfig group, CheckData data) {
         boolean modified = false;
         NamespacedKey id = NamespacedKey.fromString(stack.getString("id", "air"));
         Material m = id == null ? null : Registry.MATERIAL.get(id);
-        if (group.getForbiddenItems().contains(m)) {
+        if (group.getForbiddenItems().contains(m) || data.increaseItemStackCount() > (group.getMaxItemExpansions() >= 0 ? group.getMaxItemExpansions() : Integer.MAX_VALUE)) {
             stack.clear();
             return null;
         }
@@ -33,7 +34,7 @@ public class ItemChecker {
                     ComponentCheck check = group.getComponentHandler(key);
                     if (check != null) {
                         try {
-                            modified |= check.enforce(group, m, components, keyString);
+                            modified |= check.enforce(group, m, components, keyString, data);
                         } catch (Exception ex) {
                             Main.getInstance().getLogger().log(Level.SEVERE, "Could not execute check for " + key, ex);
                             Main.getInstance().getLogger().log(Level.SEVERE, Main.getInstance().getTools().getNbtUtils().writeString(stack));
