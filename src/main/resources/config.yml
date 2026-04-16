@@ -84,6 +84,8 @@ groups:
         allow_sounds: false
         allow_effects: false
         allow_teleport: false
+      dye:
+        allow: false
       enchantable:
         allow: false
       enchantment_glint_override:
@@ -271,6 +273,8 @@ groups:
         allow_sounds: true
         allow_effects: true
         allow_teleport: true
+      dye:
+        allow: true
       enchantable:
         allow: true
       enchantment_glint_override:
@@ -450,6 +454,8 @@ groups:
         allow_sounds: true
         allow_effects: true
         allow_teleport: true
+      dye:
+        allow: true
       enchantable:
         allow: true
       enchantment_glint_override:

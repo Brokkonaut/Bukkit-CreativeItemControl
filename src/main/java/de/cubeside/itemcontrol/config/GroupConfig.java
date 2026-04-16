@@ -102,6 +102,7 @@ public class GroupConfig {
             GenericSimpleCheck.createFor("damage_type"),
             CheckDeathProtection::new,
             CheckDebugStickState::new,
+            GenericSimpleCheck.createFor("dye"),
             CheckDyedColor::new,
             CheckEnchantable::new,
             CheckEnchantmentGlintOverride::new,
