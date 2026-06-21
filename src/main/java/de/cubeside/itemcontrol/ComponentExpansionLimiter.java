@@ -57,37 +57,39 @@ public final class ComponentExpansionLimiter {
     }
 
     private static long getTranslationExpansions(TranslatableComponent component, long maxExpansions) throws IllegalArgumentException {
-        HashMap<TranslationArgument, Integer> expansionCounts = new HashMap<>();
-
-        String trans = component.fallback();
-        long expansions = 0;
-        if (trans != null) {
-            Matcher matcher = TRANSLATION_PATTERN.matcher(trans);
+        long expansionsFallback = 0;
+        String fallbackString = component.fallback();
+        if (fallbackString != null) {
+            HashMap<TranslationArgument, Integer> expansionCounts = new HashMap<>();
+            Matcher matcher = TRANSLATION_PATTERN.matcher(fallbackString);
             int position = 0;
             int i = 0;
             while (matcher.find(position)) {
+                int start = matcher.start();
                 position = matcher.end();
 
                 String formatCode = matcher.group(2);
-                switch (formatCode.charAt(0)) {
-                    case 's':
-                    case 'd':
-                        String withIndex = matcher.group(1);
+                String formatString = fallbackString.substring(start, position);
+                if (!("%".equals(formatCode) && "%%".equals(formatString))) {
+                    if (!"s".equals(formatCode)) {
+                        throw new IllegalArgumentException("Unsupported format: '" + formatString + "'");
+                    }
+                    String withIndex = matcher.group(1);
 
-                        TranslationArgument withComponent = component.arguments().get(withIndex != null ? Integer.parseInt(withIndex) - 1 : i++);
-                        expansionCounts.merge(withComponent, 1, Integer::sum);
-                        break;
+                    TranslationArgument withComponent = component.arguments().get(withIndex != null ? Integer.parseInt(withIndex) - 1 : i++);
+                    expansionCounts.merge(withComponent, 1, Integer::sum);
                 }
             }
             for (Entry<TranslationArgument, Integer> e : expansionCounts.entrySet()) {
-                expansions += (checkExpansionsInternal(e.getKey().asComponent(), maxExpansions) + 1) * e.getValue();
-            }
-        } else {
-            // assume 1 for builtin translations?
-            for (TranslationArgument e : component.arguments()) {
-                expansions += (checkExpansionsInternal(e.asComponent(), maxExpansions) + 1);
+                expansionsFallback += (checkExpansionsInternal(e.getKey().asComponent(), maxExpansions) + 1) * e.getValue();
             }
         }
-        return expansions;
+        // assume one use for every argument for builtin translations
+        long expansions = 0;
+        for (TranslationArgument e : component.arguments()) {
+            expansions += (checkExpansionsInternal(e.asComponent(), maxExpansions) + 1);
+        }
+        // we do not know which one is used so expect the worst
+        return Math.max(expansions, expansionsFallback);
     }
 }
