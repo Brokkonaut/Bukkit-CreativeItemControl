@@ -52,6 +52,7 @@ import de.cubeside.itemcontrol.checks.CheckRecipes;
 import de.cubeside.itemcontrol.checks.CheckRepairCost;
 import de.cubeside.itemcontrol.checks.CheckRepairable;
 import de.cubeside.itemcontrol.checks.CheckStoredEnchantments;
+import de.cubeside.itemcontrol.checks.CheckSulfurCubeContent;
 import de.cubeside.itemcontrol.checks.CheckSuspiciousStewEffects;
 import de.cubeside.itemcontrol.checks.CheckTooltipDisplay;
 import de.cubeside.itemcontrol.checks.CheckUnbreakable;
@@ -142,6 +143,7 @@ public class GroupConfig {
             CheckRepairable::new,
             CheckRepairCost::new,
             CheckStoredEnchantments::new,
+            CheckSulfurCubeContent::new,
             CheckSuspiciousStewEffects::new,
             GenericSimpleCheck.createFor("swing_animation"),
             GenericSimpleCheck.createFor("tool"),
